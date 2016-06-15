@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No Man's Sky Information Repository</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta name="theme-color" content="#01385B">
+    <meta property="og:title" content="NMS Information Repository" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://repo.nmsdb.info/" />
+    <meta property="og:image" content="https://static.nmsdb.info/preview/info.png" />
+    <meta property="image_src" content="https://static.nmsdb.info/preview/info.png" />
+    <link rel="canonical" href="https://repo.nmsdb.info">
+    <link rel="icon" sizes="196x196" href="res/icon.png">
+    <link rel="stylesheet" href="styles/info.css">
+    <link rel="stylesheet" href="styles/themes/fade.css">
+    <link rel='stylesheet' href='https://static.nmsdb.info/fonts/geonms.css' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    <!-- <script src="scripts/info.js" async></script> -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD38Q6IWvapV8-h1k5tBmlPQVZYI9WvPMw",
+        authDomain: "nmsdb-55119.firebaseapp.com",
+        databaseURL: "https://nmsdb-55119.firebaseio.com",
+        storageBucket: "nmsdb-55119.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="scripts/signin.js"></script>
+    <!-- <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-55893575-6', 'auto');
+      ga('send', 'pageview');
+    </script> -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://repo.nmsdb.info/"
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">NMS Information Repository</h1>
+      <div class="button-container">
+        <button type="button" class="menu">
+          <img src="res/menu.svg" alt="Navigation" />
+        </button>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li class="tab-search"><span>Search</span></li>
+        <li class="tab-info"><a href=".">Information</a></li>
+        <li class="tab-cat"><a href="cat">Categories</a></li>
+        <li class="tab-elements"><span>Elements</span></li>
+        <li class="tab-links"><span>Links</span></li>
+        <li class="tab-recent"><span>Recent Changes</span></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="main">
+        <h2>You need to sign in to do that!</h2>
+        <p>
+          In order to submit changes to the Information Repository, you need to sign in. This is just to make sure a real person is doing it, and to help prevent spammy changes. If you don't want to sign in, but still want to say something, please <a href="mailto://me+nmsdbchange@secretonline.co">send me an email</a>, and I'll get on to it.
+        </p>
+        <p>
+          All sign-in is handled by <a href="https://firebase.google.com">Firebase</a>, not me. I only see what the provider you choose shares by default (usually a name, email address, and photo). I do not see your password, posts, or anything else of a more private nature.
+        </p>
+        <p>
+          As always, the <a href="https://github.com/SecretOnline/Info-Repo">source code</a> for this site is open for anyone to view.
+        </p>
+        <h3>Please choose an Authentication Provider</h3>
+        <ul class="login-list">
+          <li class="login-go" title="Sign in with Google">Google</li>
+          <li class="login-fb" title="Sign in with Facebook">Facebook</li>
+          <li class="login-tw" title="Sign in with Twitter">Twitter</li>
+          <li class="login-gh" title="Sign in with GitHub">GitHub</li>
+        </ul>
+      </div>
+      <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Reo">GitHub</a></footer>
+    </main>
+  </body>
+</html>
