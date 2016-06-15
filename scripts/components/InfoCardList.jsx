@@ -11,7 +11,6 @@ window.repo.InfoCardList = React.createClass({
       .then(JSON.parse)
       .then(function(result) {
         self.setState({data: result});
-        console.log('done');
       });
   },
   render: function() {

@@ -14,6 +14,7 @@ window.repo.InfoCard = React.createClass({
   render: function() {
     // Create the main
     var classes = [
+      'card',
       'info-card'
     ];
     if (this.props.data.categories.length) {
@@ -46,14 +47,14 @@ window.repo.InfoCard = React.createClass({
 
     return (
       <div className={classes.join(' ')} id={this.props.data.title}>
-        <div class="header">
-          <h3 class="card-title">{this.props.data.title}</h3>
-          <ul class="categories">{categoryNodes}</ul>
+        <div className="header">
+          <h3 className="card-title">{this.props.data.title}</h3>
+          <ul className="categories">{categoryNodes}</ul>
         </div>
-        <div class="card-content">
-          <div class="information">{infoNodes}</div>
-          <ul class="sources">{sourceNodes}</ul>
-          <ul class="related">{relatedNodes}</ul>
+        <div className="card-content">
+          <div className="information">{infoNodes}</div>
+          <ul className="sources">{sourceNodes}</ul>
+          <ul className="related">{relatedNodes}</ul>
         </div>
       </div>
     );
