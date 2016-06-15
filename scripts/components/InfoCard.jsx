@@ -18,15 +18,16 @@ window.repo.InfoCard = React.createClass({
       'info-card'
     ];
     if (this.props.data.categories.length) {
-      classes.push('cat-' + this.props.data.categories[0]);
+      classes.push('cat-' + this.props.data.categories[0].class);
     }
-    if (window.location.hash === window.repo.modTitle(this.props.data.title)) {
-      classes.push('expanded');
-    }
+    // if (window.location.hash === window.repo.modTitle(this.props.data.title)) {
+    //   classes.push('expanded');
+    // }
+    classes.push('expanded');
 
     var categoryNodes = (this.props.data.categories || []).map(function(cat) {
       return (
-        <li data-id={cat} key={cat}><a href={'cat#' + cat}>{cat}</a></li>
+        <li data-id={cat.class} key={cat.class}><a href={'cat#' + window.repo.modTitle(cat.title)}>{cat.title}</a></li>
       )
     });
     var infoNodes = (this.props.data.text || []).map(function(info, index) {
@@ -36,7 +37,7 @@ window.repo.InfoCard = React.createClass({
     });
     var sourceNodes = (this.props.data.sources || []).map(function(src) {
       return (
-        <li key={src}><a href={src}>TODO: Put actual descriptive source text here</a></li>
+        <li key={src}><a href={src}>{window.repo.truncateString(src, 10)}</a></li>
       )
     });
     var relatedNodes = (this.props.data.related || []).map(function(rel) {
