@@ -27,7 +27,13 @@ window.repo.InfoCardList = React.createClass({
       });
   },
   render: function() {
-    var cardNodes = this.state.data.map(function(cardData) {
+    var cardNodes = this.state.data.sort(function(a, b) {
+      if (a.title < b.title)
+        return -1;
+      if (a.title > b.title)
+        return 1;
+      return 0;
+    }).map(function(cardData) {
       return (
         <repo.InfoCard data={cardData} key={cardData.title} />
       )
