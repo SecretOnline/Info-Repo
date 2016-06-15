@@ -123,47 +123,6 @@ main {
   max-width: 53em;
   margin: 0 auto;
 }
-.page-container {
-  display: flex;
-  position: relative;
-  right: 0;
-  transition: transform 0.5s;
-  will-change: transform;
-  transform: translateZ(0);
-}
-.page-container > div {
-  margin: 0 calc((100vw - 100%) / 4);
-  /*position: absolute;*/
-  min-width: 100%;
-}
-.page-ie {
-  order: -100;
-}
-.page-search {
-  order: -1;
-}
-.page-container.ie {
-  /* ONLY USED FOR DEBUGGING PURPOSES */
-  transform: translateX(calc(-1 * ((100vw - 100%) / 4)));
-}
-.page-container.search {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (1 * (100% + ((100vw - 100%) / 2))))));
-}
-.page-container {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (2 * (100% + ((100vw - 100%) / 2))))));
-}
-.page-container.cat {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (3 * (100% + ((100vw - 100%) / 2))))));
-}
-.page-container.elements {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (4 * (100% + ((100vw - 100%) / 2))))));
-}
-.page-container.links {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (5 * (100% + ((100vw - 100%) / 2))))));
-}
-.page-container.recent {
-  transform: translateX(calc(-1 * (((100vw - 100%) / 4) + (6 * (100% + ((100vw - 100%) / 2))))));
-}
 .card-list {
   display: flex;
   flex-wrap: wrap;
@@ -241,17 +200,21 @@ main {
   opacity: 1;
   top: 0;
 }
-.info-card .categories li {
+.info-card .categories li,
+.info-card .categories li a {
   color: #fff;
   text-decoration: underline;
   cursor: pointer;
 }
-.info-card.dark-text .categories li {
+.info-card.dark-text .categories li,
+.info-card.dark-text .categories li a {
   color: #000;
 }
-.info-card.dark-text.spoiler .categories li {
+.info-card.dark-text.spoiler .categories li,
+.info-card.dark-text.spoiler .categories li a {
   color: #fff;
 }
+.info-card .categories li a:hover,
 .info-card .categories li:hover {
   text-decoration: none;
 }
@@ -322,16 +285,16 @@ main {
 .separator {
   border-bottom: 2px solid #aaa;
 }
-.categories ul,
-.related ul,
-.sources ul {
+ul.categories,
+ul.related,
+ul.sources {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.categories ul li,
-.related ul li,
-.sources ul li {
+ul.categories li,
+ul.related li,
+ul.sources li {
   display: inline-block;
   padding-right: 4px;
 }
@@ -479,7 +442,8 @@ main {
     cursor: pointer;
     transition: background-color 0.2s;
   }
-  nav li span {
+  nav li span,
+  nav li span a {
     display: inline-block;
     font-size: 1em;
     padding: 19px 10px;
