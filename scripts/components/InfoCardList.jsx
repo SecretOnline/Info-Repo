@@ -3,7 +3,8 @@ window.repo.InfoCardList = React.createClass({
   getDefaultProps: function() {
     return {
       info: [],
-      categories: []
+      categories: [],
+      click: null
     };
   },
   render: function() {
@@ -22,9 +23,15 @@ window.repo.InfoCardList = React.createClass({
         }) || info.categories[index];
       });
 
-      return (
-        <repo.InfoCard data={info} key={info.title} />
-      )
+      if (self.props.click && typeof self.props.click === 'function') {
+        return (
+          <repo.InfoCard click={self.props.click} data={info} key={info.title} />
+        );
+      } else {
+        return (
+          <repo.InfoCard data={info} key={info.title} />
+        );
+      }
     });
 
     return (

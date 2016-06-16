@@ -27,11 +27,25 @@
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
     <script type="text/babel" defer>
-    ReactDOM.render(
-      // <repo.InfoCardList infourl="https://nmsdb-55119.firebaseio.com/info.json" caturl="https://nmsdb-55119.firebaseio.com/categories.json" />,
-      <repo.CategoryCardList caturl="https://nmsdb-55119.firebaseio.com/categories.json" />,
-      document.querySelector('.main')
-    );
+    function logger(a) {
+      console.log(a);
+    }
+    var catPromise = repo.get('https://nmsdb-55119.firebaseio.com/categories.json')
+      .then(JSON.parse);
+    var infoPromise = repo.get('https://nmsdb-55119.firebaseio.com/info.json')
+      .then(JSON.parse);
+    Promise.all([catPromise, infoPromise])
+      .then(function(results) {
+        ReactDOM.render(
+          <div>
+            <h2>Categories</h2>
+            <repo.CategoryCardList categories={results[0]} click={logger} />
+            <h2>Info</h2>
+            <repo.InfoCardList categories={results[0]} info={results[1]} click={logger} />
+          </div>,
+          document.querySelector('.main')
+        );
+      });
     </script>
     <!-- <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
