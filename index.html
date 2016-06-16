@@ -22,11 +22,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script src="scripts/helper.js"></script>
+    <script type="text/babel" src="scripts/components/CategoryCard.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
     <script type="text/babel" defer>
     ReactDOM.render(
-      <repo.InfoCardList infourl="https://nmsdb-55119.firebaseio.com/info.json" caturl="https://nmsdb-55119.firebaseio.com/categories.json" />,
+      // <repo.InfoCardList infourl="https://nmsdb-55119.firebaseio.com/info.json" caturl="https://nmsdb-55119.firebaseio.com/categories.json" />,
+      <repo.CategoryCardList caturl="https://nmsdb-55119.firebaseio.com/categories.json" />,
       document.querySelector('.main')
     );
     </script>

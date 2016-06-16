@@ -1,5 +1,5 @@
 window.repo = window.repo || {};
-window.repo.InfoCardList = React.createClass({
+window.repo.CategoryCardList = React.createClass({
   getInitialState: function() {
     return {
       data: []
@@ -7,23 +7,11 @@ window.repo.InfoCardList = React.createClass({
   },
   componentDidMount: function() {
     var self = this;
-    var infoPromise = window.repo.get(this.props.infourl)
-      .then(JSON.parse);
     var categoryPromise = window.repo.get(this.props.caturl)
       .then(JSON.parse);
-    Promise.all([infoPromise, categoryPromise])
-      .then(function(proms) {
-
-        proms[0].forEach(function(info) {
-          // Replace category names with category objects
-          info.categories.forEach(function(cat, index) {
-            info.categories[index] = proms[1].find(function(item) {
-              return item.title === cat;
-            }) || info.categories[index];
-          });
-        });
-
-        self.setState({data: proms[0]});
+    categoryPromise
+      .then(function(categories) {
+        self.setState({data: categories});
       });
   },
   render: function() {
@@ -35,12 +23,12 @@ window.repo.InfoCardList = React.createClass({
       return 0;
     }).map(function(cardData) {
       return (
-        <repo.InfoCard data={cardData} key={cardData.title} />
+        <repo.CategoryCard data={cardData} key={cardData.title} />
       )
     });
 
     return (
-      <div className="card-list info-card-list">
+      <div className="card-list category-card-list">
         {cardNodes}
       </div>
     );
