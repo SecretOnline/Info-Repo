@@ -16,12 +16,6 @@ window.repo.InfoCardList = React.createClass({
         return 1;
       return 0;
     }).map(function(info) {
-      // Replace category names with category objects
-      info.categories.forEach(function(cat, index) {
-        info.categories[index] = self.props.categories.find(function(item) {
-          return item.title === cat;
-        }) || info.categories[index];
-      });
 
       if (self.props.click && typeof self.props.click === 'function') {
         return (
