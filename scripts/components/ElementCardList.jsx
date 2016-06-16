@@ -1,41 +1,28 @@
 window.repo = window.repo || {};
-window.repo.InfoCardList = React.createClass({
+window.repo.ElementCardList = React.createClass({
   getDefaultProps: function() {
     return {
-      info: [],
-      categories: [],
+      elements: [],
       click: null
     };
   },
   render: function() {
     var self = this;
-    var cardNodes = this.props.info.sort(function(a, b) {
-      if (a.title < b.title)
-        return -1;
-      if (a.title > b.title)
-        return 1;
-      return 0;
-    }).map(function(info) {
-      // Replace category names with category objects
-      info.categories.forEach(function(cat, index) {
-        info.categories[index] = self.props.categories.find(function(item) {
-          return item.title === cat;
-        }) || info.categories[index];
-      });
+    var cardNodes = this.props.elements.map(function(element) {
 
       if (self.props.click && typeof self.props.click === 'function') {
         return (
-          <repo.InfoCard click={self.props.click} data={info} key={info.title} />
+          <repo.ElementCard click={self.props.click} data={element} key={element.title} />
         );
       } else {
         return (
-          <repo.InfoCard data={info} key={info.title} />
+          <repo.ElementCard data={element} key={element.title} />
         );
       }
     });
 
     return (
-      <div className="card-list info-card-list">
+      <div className="card-list element-card-list">
         {cardNodes}
       </div>
     );
