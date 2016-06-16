@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>No Man's Sky Information Repository</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta name="theme-color" content="#01385B">
+    <meta property="og:title" content="NMS Information Repository" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://repo.nmsdb.info/" />
+    <meta property="og:image" content="https://static.nmsdb.info/preview/info.png" />
+    <meta property="image_src" content="https://static.nmsdb.info/preview/info.png" />
+    <link rel="canonical" href="https://repo.nmsdb.info/signin">
+    <link rel="icon" sizes="196x196" href="res/icon.png">
+    <link rel="stylesheet" href="styles/info.css">
+    <link rel="stylesheet" href="styles/themes/fade.css">
+    <link rel='stylesheet' href='https://static.nmsdb.info/fonts/geonms.css' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    <!-- <script src="scripts/info.js" async></script> -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD38Q6IWvapV8-h1k5tBmlPQVZYI9WvPMw",
+        authDomain: "nmsdb-55119.firebaseapp.com",
+        databaseURL: "https://nmsdb-55119.firebaseio.com",
+        storageBucket: "nmsdb-55119.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="scripts/submit.js"></script>
+    <!-- <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-55893575-6', 'auto');
+      ga('send', 'pageview');
+    </script> -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://repo.nmsdb.info/"
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">NMS Information Repository</h1>
+      <div class="button-container">
+        <button type="button" class="menu">
+          <img src="res/menu.svg" alt="Navigation" />
+        </button>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li class="tab-search"><span>Search</span></li>
+        <li class="tab-info"><a href=".">Information</a></li>
+        <li class="tab-cat"><a href="cat">Categories</a></li>
+        <li class="tab-elements"><span>Elements</span></li>
+        <li class="tab-links"><span>Links</span></li>
+        <li class="tab-recent"><span>Recent Changes</span></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="main">
+        <h2>Submit a change to the Information Repository</h2>
+        <form class="change-form">
+          <p>
+            Please select the part of the Repository you're submitting information to:
+          </p>
+          <select name="category" required>
+            <option selected disabled>Please select...</option>
+            <option value="info">Information</option>
+            <option value="resources">Elements</option>
+            <option value="other">Other</option>
+          </select>
+          <p>
+            Which element/piece of information are you submitting (put the title here)?
+          </p>
+          <input type="text" name="title" value="" disabled>
+          <p>
+            Please put the information here. Be sure to include sources.
+          </p>
+          <textarea name="info" rows="8" cols="40" required></textarea>
+          <button type="submit" name="submit">Submit</button>
+        </form>
+      </div>
+      <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Reo">GitHub</a></footer>
+    </main>
+  </body>
+</html>
