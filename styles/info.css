@@ -17,6 +17,9 @@ body {
 body {
   margin: 0;
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .center {
   display: block;
@@ -118,6 +121,7 @@ nav li span {
 main {
   position: relative;
   padding: 5px 5px 0;
+  flex-grow: 1;
 }
 .main {
   max-width: 53em;
@@ -416,9 +420,9 @@ ul.sources li {
     display: none;
   }
   nav {
-    position: absolute;
-    left: 0;
-    top: 70px;
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 70px;*/
     width: 100%;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3);
     text-align: center;
@@ -465,7 +469,7 @@ ul.sources li {
   }
   main {
     /*.floating ~ main {*/
-    top: 56px;
+    /*top: 56px;*/
   }
   .card {
     max-width: calc((100% - 10px)/2);
