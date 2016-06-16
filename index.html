@@ -26,6 +26,8 @@
     <script type="text/babel" src="scripts/components/CategoryCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
+    <script type="text/babel" src="scripts/components/ElementCard.jsx"></script>
+    <script type="text/babel" src="scripts/components/ElementCardList.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -34,7 +36,9 @@
       .then(JSON.parse);
     var infoPromise = repo.get('https://nmsdb-55119.firebaseio.com/info.json')
       .then(JSON.parse);
-    Promise.all([catPromise, infoPromise])
+    var resourcePromise = repo.get('https://nmsdb-55119.firebaseio.com/resources.json')
+      .then(JSON.parse);
+    Promise.all([catPromise, infoPromise, resourcePromise])
       .then(function(results) {
         ReactDOM.render(
           <div>
@@ -42,6 +46,8 @@
             <repo.CategoryCardList categories={results[0]} click={logger} />
             <h2>Info</h2>
             <repo.InfoCardList categories={results[0]} info={results[1]} click={logger} />
+            <h2>Elements</h2>
+            <repo.ElementCardList elements={results[2]} click={logger} />
           </div>,
           document.querySelector('.main')
         );
