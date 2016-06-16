@@ -48,7 +48,7 @@ window.repo.CategoryInfoContainer = React.createClass({
           <div>
             <h2>Categories</h2>
             <repo.CategoryCardList categories={this.props.categories} click={this.categoryClick} />
-            <h2>Information</h2>
+            <h2>No Results</h2>
             <p>No results were found for this category</p>
           </div>
         );
