@@ -467,9 +467,9 @@ ul.sources li {
     width: 30px;
     height: 30px;
   }
-  main {
-    /*.floating ~ main {*/
-    /*top: 56px;*/
+  /*main {*/
+  .floating ~ main {
+    margin-top: 56px;
   }
   .card {
     max-width: calc((100% - 10px)/2);
