@@ -17,18 +17,51 @@
     <link rel="stylesheet" href="styles/themes/fade.css">
     <link rel='stylesheet' href='https://static.nmsdb.info/fonts/geonms.css' type='text/css'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <!-- <script src="scripts/info.js" async></script> -->
+    <script src="scripts/menu.js" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script src="scripts/helper.js"></script>
+    <script type="text/babel" src="scripts/components/CategoryCard.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryInfoContainer.jsx"></script>
+    <script type="text/babel" src="scripts/components/ElementCard.jsx"></script>
+    <script type="text/babel" src="scripts/components/ElementCardList.jsx"></script>
     <script type="text/babel" defer>
-    ReactDOM.render(
-      <repo.InfoCardList infourl="https://repo.nmsdb.info/data/info.json" caturl="https://repo.nmsdb.info/data/categories.json" />,
-      document.querySelector('.main')
-    );
+    function logger(a) {
+      console.log(a);
+    }
+    var catPromise = repo.get('https://nmsdb-55119.firebaseio.com/categories.json')
+      .then(JSON.parse);
+    var infoPromise = repo.get('https://nmsdb-55119.firebaseio.com/info.json')
+      .then(JSON.parse);
+    var resourcePromise = repo.get('https://nmsdb-55119.firebaseio.com/resources.json')
+      .then(JSON.parse);
+    Promise.all([catPromise, infoPromise, resourcePromise])
+      .then(function(results) {
+        // Replace category names with category objects
+        results[1].forEach(function(info) {
+          info.categories.forEach(function(cat, index) {
+            info.categories[index] = results[0].find(function(item) {
+              return item.title === cat;
+            }) || info.categories[index];
+          });
+        });
+
+        return results;
+      })
+      .then(function(results) {
+        ReactDOM.render(
+          <div>
+            <repo.CategoryInfoContainer categories={results[0]} info={results[1]} click={logger} clickCategory={logger} />
+            <h2>Elements</h2>
+            <repo.ElementCardList elements={results[2]} click={logger} />
+          </div>,
+          document.querySelector('.main')
+        );
+      });
     </script>
     <!-- <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,7 +101,7 @@
     <main>
       <div class="main">
       </div>
-      <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Repo">GitHub</a></footer>
     </main>
+    <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Repo">GitHub</a></footer>
   </body>
 </html>

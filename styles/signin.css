@@ -1,0 +1,25 @@
+.login-list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+}
+.login-list li {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.1em;
+  color: #fff;
+  border-radius: 0.1em;
+  cursor: pointer;
+}
+.login-list .login-go {
+  background-color: #DB4437;
+}
+.login-list .login-fb {
+  background-color: #4267B2;
+}
+.login-list .login-tw {
+  background-color: #1DA1F2;
+}
+.login-list .login-gh {
+  background-color: #333333;
+}

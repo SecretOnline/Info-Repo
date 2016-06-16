@@ -13,11 +13,19 @@ window.repo.InfoCard = React.createClass({
         text: ['Please wait, this shouldn\'t take too long'],
         sources: [],
         related: []
-      }
-    }
+      },
+      click: null
+    };
   },
   toggleExpanded: function() {
     this.setState({expanded: !this.state.expanded});
+  },
+  doClickCallback: function() {
+    if (this.props.click && typeof this.props.click === 'function') {
+      this.props.click(this.props.data);
+    } else {
+      this.toggleExpanded();
+    }
   },
   render: function() {
     // Create the main
@@ -36,7 +44,7 @@ window.repo.InfoCard = React.createClass({
     var headerList = [
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>)
     ];
-    if (this.props.data.categories && this.props.data.categories.length) {
+    if (this.state.expanded && this.props.data.categories && this.props.data.categories.length) {
       var categoryNodes = this.props.data.categories.map(function(cat) {
         return (<li data-id={cat.class} key={cat.class}><a href={'cat#' + window.repo.modTitle(cat.title)}>{cat.title}</a></li>)
       });
@@ -46,7 +54,7 @@ window.repo.InfoCard = React.createClass({
     if (!this.state.expanded) {
       return (
         <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-          <div className="header" onClick={this.toggleExpanded}>
+          <div className="header" onClick={this.doClickCallback}>
             {headerList}
           </div>
         </div>
@@ -83,7 +91,7 @@ window.repo.InfoCard = React.createClass({
 
       return (
         <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-          <div className="header" onClick={this.toggleExpanded}>
+          <div className="header" onClick={this.doClickCallback}>
             {headerList}
           </div>
           <div className="card-content">
