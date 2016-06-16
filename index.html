@@ -26,6 +26,7 @@
     <script type="text/babel" src="scripts/components/CategoryCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryInfoContainer.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -36,13 +37,20 @@
       .then(JSON.parse);
     Promise.all([catPromise, infoPromise])
       .then(function(results) {
+        // Replace category names with category objects
+        results[1].forEach(function(info) {
+          info.categories.forEach(function(cat, index) {
+            info.categories[index] = results[0].find(function(item) {
+              return item.title === cat;
+            }) || info.categories[index];
+          });
+        });
+
+        return results;
+      })
+      .then(function(results) {
         ReactDOM.render(
-          <div>
-            <h2>Categories</h2>
-            <repo.CategoryCardList categories={results[0]} click={logger} />
-            <h2>Info</h2>
-            <repo.InfoCardList categories={results[0]} info={results[1]} click={logger} />
-          </div>,
+          <repo.CategoryInfoContainer categories={results[0]} info={results[1]} click={logger} clickCategory={logger} />,
           document.querySelector('.main')
         );
       });
