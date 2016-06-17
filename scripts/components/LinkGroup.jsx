@@ -1,5 +1,5 @@
 window.repo = window.repo || {};
-window.repo.CategoryCardList = React.createClass({
+window.repo.LinkGroup = React.createClass({
   getDefaultProps: function() {
     return {
       data: {

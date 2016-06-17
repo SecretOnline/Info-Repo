@@ -4,7 +4,7 @@ window.repo.LinkCard = React.createClass({
     return {
       data: {
         color: '',
-        darkText: false
+        darkText: false,
         title: 'Loading...',
         method: 'link',
         src: 'https://repo.nmsdb.info'
