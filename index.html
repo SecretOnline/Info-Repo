@@ -29,6 +29,9 @@
     <script type="text/babel" src="scripts/components/CategoryInfoContainer.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementCard.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementCardList.jsx"></script>
+    <script type="text/babel" src="scripts/components/LinkCard.jsx"></script>
+    <script type="text/babel" src="scripts/components/LinkGroup.jsx"></script>
+    <script type="text/babel" src="scripts/components/LinkGroupList.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -39,7 +42,9 @@
       .then(JSON.parse);
     var resourcePromise = repo.get('https://nmsdb-55119.firebaseio.com/resources.json')
       .then(JSON.parse);
-    Promise.all([catPromise, infoPromise, resourcePromise])
+    var linkPromise = repo.get('https://nmsdb-55119.firebaseio.com/links.json')
+      .then(JSON.parse);
+    Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
       .then(function(results) {
         // Replace category names with category objects
         results[1].forEach(function(info) {
@@ -58,6 +63,7 @@
             <repo.CategoryInfoContainer categories={results[0]} info={results[1]} click={logger} clickCategory={logger} />
             <h2>Elements</h2>
             <repo.ElementCardList elements={results[2]} click={logger} />
+            <repo.LinkGroupList links={results[3]} click={logger} />
           </div>,
           document.querySelector('.main')
         );
