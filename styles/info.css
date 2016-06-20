@@ -21,6 +21,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /*background: radial-gradient(circle, #0F4362 0%, #170f31 100%);*/
 }
 .center {
   display: block;
@@ -204,7 +205,8 @@ main {
   opacity: 0;
   transition: top 0.5s, opacity 0.5s;
 }
-.info-card.expanded .categories {
+.info-card.expanded .categories,
+:not(.card) .categories {
   opacity: 1;
   top: 0;
 }
@@ -269,6 +271,7 @@ main {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
+  background-color: #eee;
 }
 .expanded .card-content,
 :not(.card) .card-content {
@@ -287,9 +290,13 @@ main {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-.card-content div:not(.separator) > p {
+.card-content div:not(.separator) > p,
+.card-content ul {
   margin: 0 0.5em;
   padding: 0.5em;
+}
+.card-content h4 {
+  margin: 0 0.5em;
 }
 .separator {
   border-bottom: 2px solid #aaa;
@@ -298,8 +305,10 @@ ul.categories,
 ul.related,
 ul.sources {
   list-style: none;
-  padding: 0;
+}
+ul.categories {
   margin: 0;
+  padding: 0;
 }
 ul.categories li,
 ul.related li,
