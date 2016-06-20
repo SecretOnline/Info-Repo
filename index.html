@@ -32,6 +32,10 @@
     <script type="text/babel" src="scripts/components/LinkCard.jsx"></script>
     <script type="text/babel" src="scripts/components/LinkGroup.jsx"></script>
     <script type="text/babel" src="scripts/components/LinkGroupList.jsx"></script>
+    <script type="text/babel" src="scripts/components/InfoSpotlight.jsx"></script>
+    <!-- <script type="text/babel" src="scripts/components/ElementSpotlight.jsx"></script> -->
+    <!-- <script type="text/babel" src="scripts/components/CategorySpotlight.jsx"></script> -->
+    <!-- <script type="text/babel" src="scripts/components/LinkSpotlight.jsx"></script> -->
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -60,6 +64,7 @@
       .then(function(results) {
         ReactDOM.render(
           <div>
+          <repo.InfoSpotlight data={results[1][0]} click={logger} />
             <repo.CategoryInfoContainer categories={results[0]} info={results[1]} click={logger} clickCategory={logger} />
             <h2>Elements</h2>
             <repo.ElementCardList elements={results[2]} click={logger} />

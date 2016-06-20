@@ -9,8 +9,9 @@ nav {
 h4 {
   margin: 5px 0;
 }
-.info-card,
+.card,
 .search-area input,
+.spotlight,
 body {
   font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;
 }
@@ -170,8 +171,11 @@ main {
 .spoiler .header {
   background-color: #e22 !important;
 }
-.expanded .header {
+.card.expanded .header {
   height: 100px;
+}
+.spotlight .header {
+  height: 10em;
 }
 .card-title {
   margin: 16px;
@@ -266,7 +270,8 @@ main {
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
 }
-.expanded .card-content {
+.expanded .card-content,
+:not(.card) .card-content {
   padding-bottom: 16px;
   /* Just has to be a big value, but not too big */
   max-height: 1000px;
