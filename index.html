@@ -36,6 +36,10 @@
     <script type="text/babel" src="scripts/components/ElementSpotlight.jsx"></script>
     <!-- <script type="text/babel" src="scripts/components/CategorySpotlight.jsx"></script> -->
     <!-- <script type="text/babel" src="scripts/components/LinkSpotlight.jsx"></script> -->
+    <script type="text/babel" src="scripts/components/InfoPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/ElementPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/LinkPage.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -64,12 +68,10 @@
       .then(function(results) {
         ReactDOM.render(
           <div>
-            <repo.InfoSpotlight data={results[1][0]} click={logger} />
-            <repo.ElementSpotlight data={results[2][0]} click={logger} />
-            <repo.CategoryInfoContainer categories={results[0]} info={results[1]} click={logger} clickCategory={logger} />
-            <h2>Elements</h2>
-            <repo.ElementCardList elements={results[2]} click={logger} />
-            <repo.LinkGroupList links={results[3]} click={logger} />
+            <repo.InfoPage info={results[1]} />
+            <repo.ElementPage elements={results[2]} />
+            <repo.CategoryPage categories={results[0]} info={results[1]} />
+            <repo.LinkPage links={results[3]} />
           </div>,
           document.querySelector('.main')
         );
