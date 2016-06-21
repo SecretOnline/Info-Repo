@@ -3,7 +3,6 @@ window.repo.InfoCardList = React.createClass({
   getDefaultProps: function() {
     return {
       info: [],
-      categories: [],
       click: null
     };
   },
