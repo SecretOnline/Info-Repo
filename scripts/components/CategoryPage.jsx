@@ -23,14 +23,14 @@ window.repo.CategoryPage = React.createClass({
       return (
         <div class="page category-page">
           <repo.InfoSpotlight data={this.state.spotlight} click={this.removeSpotlight} />
-          <repo.CategoryInfoContainer categories={this.props.categories} info={this.props.info} click={this.setSpotlight} />
+          <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} click={this.setSpotlight} />
         </div>
       );
     } else {
       return (
         <div class="page category-page">
           <h2>Information</h2>
-          <repo.CategoryInfoContainer categories={this.props.categories} info={this.props.info} click={this.setSpotlight} />
+          <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} click={this.setSpotlight} />
         </div>
       );
     }

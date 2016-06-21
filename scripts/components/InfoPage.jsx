@@ -23,14 +23,14 @@ window.repo.InfoPage = React.createClass({
         <div class="page info-page">
           <repo.InfoSpotlight data={this.state.spotlight} click={this.removeSpotlight} />
           <h2>Information</h2>
-          <repo.InfoCardList info={this.props.info} click={this.setSpotlight} />
+          <repo.InfoCardList info={this.props.route.info} click={this.setSpotlight} />
         </div>
       );
     } else {
       return (
         <div class="page info-page">
           <h2>Information</h2>
-          <repo.InfoCardList info={this.props.info} click={this.setSpotlight} />
+          <repo.InfoCardList info={this.props.route.info} click={this.setSpotlight} />
         </div>
       );
     }

@@ -5,11 +5,10 @@ window.repo.RepoNav = React.createClass({
       <nav>
         <ul>
           <li className="tab-search"><span>Search</span></li>
-          <li className="tab-info"><a href=".">Information</a></li>
-          <li className="tab-cat"><a href="cat">Categories</a></li>
-          <li className="tab-elements"><span>Elements</span></li>
-          <li className="tab-links"><span>Links</span></li>
-          <li className="tab-recent"><span>Recent Changes</span></li>
+          <li className="tab-info"><ReactRouter.Link to="/info">Information</ReactRouter.Link></li>
+          <li className="tab-info"><ReactRouter.Link to="/categories">Categroies</ReactRouter.Link></li>
+          <li className="tab-info"><ReactRouter.Link to="/elements">Elements</ReactRouter.Link></li>
+          <li className="tab-info"><ReactRouter.Link to="/links">Links</ReactRouter.Link></li>
         </ul>
       </nav>
     );

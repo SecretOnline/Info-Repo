@@ -15,10 +15,7 @@ window.repo.RepoApp = React.createClass({
         <repo.RepoNav />
         <main>
           <div className="main">
-            <repo.InfoPage info={this.props.route.info} />
-            <repo.ElementPage elements={this.props.route.elements} />
-            <repo.CategoryPage categories={this.props.route.categories} info={this.props.route.info} />
-            <repo.LinkPage links={this.props.route.links} />
+            {this.props.children}
           </div>
         </main>
         <repo.RepoFooter />
