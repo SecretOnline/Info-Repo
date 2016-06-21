@@ -32,11 +32,25 @@ window.repo.LinkCard = React.createClass({
       headerStyle.backgroundColor = this.props.data.color;
     }
 
+    var header = (
+      <div className="header" onClick={this.doClickCallback} style={headerStyle}>
+        <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
+      </div>
+    );
+
+    if (this.props.data.method === 'link') {
+      return (
+        <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
+          <a href={this.props.data.src}>
+            {header}
+          </a>
+        </div>
+      );
+    }
+
     return (
       <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-        <div className="header" onClick={this.doClickCallback} style={headerStyle}>
-          <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
-        </div>
+        {header}
       </div>
     );
   }
