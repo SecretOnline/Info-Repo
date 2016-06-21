@@ -71,18 +71,38 @@
         return results;
       })
       .then(function(results) {
+
+        var routerConf = {
+          path: '/',
+          component: repo.RepoApp,
+          childRoutes: [
+            {
+              path: '/info',
+              component: repo.InfoPage,
+              info: results[1]
+            },
+            {
+              path: '/categories',
+              component: repo.CategoryPage,
+              info: results[1],
+              categories: results[0]
+            },
+            {
+              path: '/elements',
+              component: repo.ElementPage,
+              elements: results[2]
+            },
+            {
+              path: '/links',
+              component: repo.LinkPage,
+              links: results[3]
+            }
+          ]
+        }
+
         ReactDOM.render(
           <ReactRouter.Router history={ReactRouter.hashHistory}>
-            <ReactRouter.Route path="/" component={repo.RepoApp}>
-              <ReactRouter.Route path="/info" component={repo.InfoPage} info={results[1]}>
-              </ReactRouter.Route>
-              <ReactRouter.Route path="/categories" component={repo.CategoryPage} info={results[1]} categories={results[0]}>
-              </ReactRouter.Route>
-              <ReactRouter.Route path="/elements" component={repo.ElementPage} elements={results[2]}>
-              </ReactRouter.Route>
-              <ReactRouter.Route path="/links" component={repo.LinkPage} links={results[3]}>
-              </ReactRouter.Route>
-            </ReactRouter.Route>
+            {routerConf}
           </ReactRouter.Router>,
           document.querySelector('.repo-container')
         );
