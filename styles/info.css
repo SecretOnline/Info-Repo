@@ -139,12 +139,12 @@ main {
 .search-area {
   margin-bottom: 10px;
 }
-.card {
-  display: inline-block;
-  border-radius: 2px;
+.card,
+.spotlight {
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  /*border-radius: 2px;*/
   width: 100%;
 }
 .search-area {
@@ -166,14 +166,14 @@ main {
 .header {
   background-color: #01385b;
   width: 100%;
-  height: 60px;
+  height: 4em;
   transition: height 0.5s, background-color 0.5s;
 }
 .spoiler .header {
   background-color: #e22 !important;
 }
 .card.expanded .header {
-  height: 100px;
+  height: 6em;
 }
 .spotlight .header {
   height: 10em;
@@ -184,11 +184,8 @@ main {
   font-weight: bold;
   color: #fff;
 }
-.dark-text .card-title {
+.dark-text:not(.spoiler) .card-title {
   color: #000;
-}
-.dark-text.spoiler .card-title {
-  color: #fff;
 }
 .header .card-title {
   position: absolute;
@@ -216,13 +213,9 @@ main {
   text-decoration: underline;
   cursor: pointer;
 }
-.info-card.dark-text .categories li,
-.info-card.dark-text .categories li a {
+.info-card.dark-text:not(.spoiler) .categories li,
+.info-card.dark-text:not(.spoiler) .categories li a {
   color: #000;
-}
-.info-card.dark-text.spoiler .categories li,
-.info-card.dark-text.spoiler .categories li a {
-  color: #fff;
 }
 .info-card .categories li a:hover,
 .info-card .categories li:hover {
@@ -271,7 +264,6 @@ main {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
-  background-color: #eee;
 }
 .expanded .card-content,
 :not(.card) .card-content {
