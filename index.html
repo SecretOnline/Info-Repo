@@ -45,6 +45,7 @@
     <script type="text/babel" src="scripts/components/RepoNav.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoFooter.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoApp.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoHome.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -75,6 +76,9 @@
         var routerConf = {
           path: '/',
           component: repo.RepoApp,
+          indexRoute: {
+            component: repo.RepoHome
+          },
           childRoutes: [
             {
               path: '/info',
