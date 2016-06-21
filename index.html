@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/themes/fade.css">
     <link rel='stylesheet' href='https://static.nmsdb.info/fonts/geonms.css' type='text/css'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <script src="scripts/menu.js" async></script>
+    <!-- <script src="scripts/menu.js" async></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js"></script>
@@ -78,6 +78,11 @@
           childRoutes: [
             {
               path: '/info',
+              component: repo.InfoPage,
+              info: results[1]
+            },
+            {
+              path: '/info/:info',
               component: repo.InfoPage,
               info: results[1]
             },
