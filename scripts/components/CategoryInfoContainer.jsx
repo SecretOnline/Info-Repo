@@ -40,7 +40,7 @@ window.repo.CategoryInfoContainer = React.createClass({
             <h2>Categories</h2>
             <repo.CategoryCardList categories={this.props.categories} click={this.categoryClick} />
             <h2>Information</h2>
-            <repo.InfoCardList categories={this.props.categories} info={filteredList} click={this.infoClick} />
+            <repo.InfoCardList info={filteredList} click={this.infoClick} />
           </div>
         );
       } else {
