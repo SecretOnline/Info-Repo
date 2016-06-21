@@ -4,12 +4,12 @@ window.repo.RepoNav = React.createClass({
     return (
       <nav>
         <ul>
-          <li class="tab-search"><span>Search</span></li>
-          <li class="tab-info"><a href=".">Information</a></li>
-          <li class="tab-cat"><a href="cat">Categories</a></li>
-          <li class="tab-elements"><span>Elements</span></li>
-          <li class="tab-links"><span>Links</span></li>
-          <li class="tab-recent"><span>Recent Changes</span></li>
+          <li className="tab-search"><span>Search</span></li>
+          <li className="tab-info"><a href=".">Information</a></li>
+          <li className="tab-cat"><a href="cat">Categories</a></li>
+          <li className="tab-elements"><span>Elements</span></li>
+          <li className="tab-links"><span>Links</span></li>
+          <li className="tab-recent"><span>Recent Changes</span></li>
         </ul>
       </nav>
     );

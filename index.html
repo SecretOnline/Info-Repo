@@ -41,6 +41,10 @@
     <script type="text/babel" src="scripts/components/ElementPage.jsx"></script>
     <script type="text/babel" src="scripts/components/CategoryPage.jsx"></script>
     <script type="text/babel" src="scripts/components/LinkPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoHeader.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoNav.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoFooter.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoApp.jsx"></script>
     <script type="text/babel" defer>
     function logger(a) {
       console.log(a);
@@ -68,13 +72,8 @@
       })
       .then(function(results) {
         ReactDOM.render(
-          <div>
-            <repo.InfoPage info={results[1]} />
-            <repo.ElementPage elements={results[2]} />
-            <repo.CategoryPage categories={results[0]} info={results[1]} />
-            <repo.LinkPage links={results[3]} />
-          </div>,
-          document.querySelector('.main')
+          <repo.RepoApp info={results[1]} categories={results[0]} elements={results[2]} links={results[3]}  />,
+          document.querySelector('.repo-container')
         );
       });
     </script>
@@ -95,28 +94,6 @@
     </script>
   </head>
   <body>
-    <header>
-      <h1 class="title">NMS Information Repository</h1>
-      <div class="button-container">
-        <button type="button" class="menu">
-          <img src="res/menu.svg" alt="Navigation" />
-        </button>
-      </div>
-    </header>
-    <nav>
-      <ul>
-        <li class="tab-search"><span>Search</span></li>
-        <li class="tab-info"><a href=".">Information</a></li>
-        <li class="tab-cat"><a href="cat">Categories</a></li>
-        <li class="tab-elements"><span>Elements</span></li>
-        <li class="tab-links"><span>Links</span></li>
-        <li class="tab-recent"><span>Recent Changes</span></li>
-      </ul>
-    </nav>
-    <main>
-      <div class="main">
-      </div>
-    </main>
-    <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Repo">GitHub</a></footer>
+    <div class="repo-container"></div>
   </body>
 </html>
