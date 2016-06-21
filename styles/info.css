@@ -41,6 +41,10 @@ header .title {
   margin: 0 auto;
   color: #fff;
 }
+header .title a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
 header .button-container {
   position: absolute;
   height: 70px;
@@ -116,10 +120,12 @@ nav li {
 nav li:hover {
   background-color: rgba(255, 255, 255, .2);
 }
+nav li a,
 nav li span {
   display: inline-block;
   padding: 10px 7px;
   color: #fff !important;
+  text-decoration: none !important;
 }
 main {
   position: relative;
@@ -449,12 +455,11 @@ ul.sources li {
   nav li {
     display: inline-block;
     /* Workaround a small inline-block bug/feature */
-    margin-left: -4px;
     cursor: pointer;
     transition: background-color 0.2s;
   }
-  nav li span,
-  nav li span a {
+  nav li a,
+  nav li span {
     display: inline-block;
     font-size: 1em;
     padding: 19px 10px;

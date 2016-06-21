@@ -29,7 +29,6 @@ window.repo.CategoryPage = React.createClass({
     } else {
       return (
         <div class="page category-page">
-          <h2>Information</h2>
           <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} click={this.setSpotlight} />
         </div>
       );
