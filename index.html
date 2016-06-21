@@ -72,7 +72,10 @@
       })
       .then(function(results) {
         ReactDOM.render(
-          <repo.RepoApp info={results[1]} categories={results[0]} elements={results[2]} links={results[3]}  />,
+          <ReactRouter.Router history={ReactRouter.hashHistory}>
+            <ReactRouter.Route path="/" component={repo.RepoApp} info={results[1]} categories={results[0]} elements={results[2]} links={results[3]}>
+            </ReactRouter.Route>
+          </ReactRouter.Router>,
           document.querySelector('.repo-container')
         );
       });
