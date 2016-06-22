@@ -10,7 +10,6 @@ window.repo.RepoNav = React.createClass({
     return (
       <nav>
         <ul>
-          <li className="tab-search"><span>Search</span></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/info">Information</ReactRouter.Link></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/categories">Categories</ReactRouter.Link></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/elements">Elements</ReactRouter.Link></li>
