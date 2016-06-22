@@ -35,8 +35,6 @@
     <script type="text/babel" src="scripts/components/LinkGroupList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoSpotlight.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementSpotlight.jsx"></script>
-    <!-- <script type="text/babel" src="scripts/components/CategorySpotlight.jsx"></script> -->
-    <!-- <script type="text/babel" src="scripts/components/LinkSpotlight.jsx"></script> -->
     <script type="text/babel" src="scripts/components/InfoPage.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementPage.jsx"></script>
     <script type="text/babel" src="scripts/components/CategoryPage.jsx"></script>
@@ -46,10 +44,8 @@
     <script type="text/babel" src="scripts/components/RepoFooter.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoApp.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoHome.jsx"></script>
+    <script type="text/babel" src="scripts/components/RepoNotFound.jsx"></script>
     <script type="text/babel" defer>
-    function logger(a) {
-      console.log(a);
-    }
     var catPromise = repo.get('https://nmsdb-55119.firebaseio.com/categories.json')
       .then(JSON.parse);
     var infoPromise = repo.get('https://nmsdb-55119.firebaseio.com/info.json')
@@ -122,6 +118,10 @@
               path: '/links',
               component: repo.LinkPage,
               links: results[3]
+            },
+            {
+              path: '*',
+              component: repo.RepoNotFound
             }
           ]
         }
