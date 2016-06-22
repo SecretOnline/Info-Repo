@@ -18,23 +18,28 @@ window.repo.InfoSpotlight = React.createClass({
     }
   },
   render: function() {
+    var self = this;
     // Create the main
     var classes = [
       'spotlight',
       'info-card'
     ];
-    if (this.props.data.categories.length) {
-      classes.push('cat-' + this.props.data.categories[0].class);
+
+    if (this.props.data.spoiler) {
+      classes.push('spoiler');
     }
 
     // Set header stuff
     var headerList = [
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>)
     ];
-    var categoryNodes = this.props.data.categories.map(function(cat) {
-      return (<li data-id={cat.class} key={cat.class}><a href={'cat#' + window.repo.modTitle(cat.title)}>{cat.title}</a></li>)
-    });
-    headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
+    if (this.props.data.categories && this.props.data.categories.length) {
+      classes.push('cat-' + this.props.data.categories[0].class);
+      var categoryNodes = this.props.data.categories.map(function(cat) {
+        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={'/categories/' + window.repo.modTitle(cat.title)}>{cat.title}</ReactRouter.Link></li>)
+      });
+      headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
+    }
     // Set card content stuff
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
@@ -57,7 +62,7 @@ window.repo.InfoSpotlight = React.createClass({
     if (this.props.data.related && this.props.data.related.length) {
       var relatedNodes = this.props.data.related.map(function(rel) {
         return (
-          <li key={rel}><a href={'#' + window.repo.modTitle(rel)}>{rel}</a></li>
+          <li key={rel}><ReactRouter.Link to={self.props.link + '/' + repo.modTitle(rel)}>{rel}</ReactRouter.Link></li>
         )
       });
       bodyList.push((<h4 key="body-related-title">Related</h4>));
@@ -74,5 +79,7 @@ window.repo.InfoSpotlight = React.createClass({
         </div>
       </div>
     );
+
+
   }
 });

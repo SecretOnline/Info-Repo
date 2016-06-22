@@ -24,5 +24,5 @@ window.repo.truncateString = function(string, maxLength) {
 };
 
 window.repo.modTitle = function(title) {
-  return encodeURIComponent(title.replace(/\s/g, "_"));
+  return title.replace(/\s/g, "_");
 };

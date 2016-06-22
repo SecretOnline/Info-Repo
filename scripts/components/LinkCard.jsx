@@ -32,11 +32,28 @@ window.repo.LinkCard = React.createClass({
       headerStyle.backgroundColor = this.props.data.color;
     }
 
+    var headerList = [
+      <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
+    ];
+
+    if (this.props.data.method === 'link') {
+      headerList.push(<img src={'/res/external' + ((this.props.data.darkText) ? '-dark' : '') + '.svg'} alt="Open in new tab/window" className="external" key="external" />);
+    } else if (this.props.data.method === 'yt') {
+      headerList.push(<img src={'/res/youtube' + ((this.props.data.darkText) ? '-dark' : '') + '.svg'} alt="Open in YouTube" className="external" key="external" />);
+    }
+
+    var url = this.props.data.src;
+    if (this.props.data.method === 'yt') {
+      url = 'https://www.youtube.com/watch?v=' + url;
+    }
+
     return (
       <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-        <div className="header" onClick={this.doClickCallback} style={headerStyle}>
-          <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
-        </div>
+        <a href={url} target="_blank">
+          <div className="header" onClick={this.doClickCallback} style={headerStyle}>
+            {headerList}
+          </div>
+        </a>
       </div>
     );
   }

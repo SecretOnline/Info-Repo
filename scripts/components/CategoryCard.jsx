@@ -24,9 +24,11 @@ window.repo.CategoryCard = React.createClass({
 
     return (
       <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-        <div className="header" onClick={this.doClickCallback}>
-          <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
-        </div>
+        <ReactRouter.Link to={this.props.link + '/' + encodeURIComponent(repo.modTitle(this.props.data.title))}>
+          <div className="header" onClick={this.doClickCallback}>
+            <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
+          </div>
+        </ReactRouter.Link>
       </div>
     );
   }

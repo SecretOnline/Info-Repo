@@ -22,14 +22,14 @@ window.repo.LinkPage = React.createClass({
       return (
         <div class="page links-page">
           <h2>Links</h2>
-          <repo.LinkGroupList links={this.props.links} click={this.setSpotlight} />
+          <repo.LinkGroupList links={this.props.route.links} click={this.setSpotlight} />
         </div>
       );
     } else {
       return (
         <div class="page links-page">
           <h2>Links</h2>
-          <repo.LinkGroupList links={this.props.links} click={this.setSpotlight} />
+          <repo.LinkGroupList links={this.props.route.links} click={this.setSpotlight} />
         </div>
       );
     }

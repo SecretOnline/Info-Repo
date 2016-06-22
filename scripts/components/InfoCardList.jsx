@@ -3,7 +3,7 @@ window.repo.InfoCardList = React.createClass({
   getDefaultProps: function() {
     return {
       info: [],
-      click: null
+      link: '/info'
     };
   },
   render: function() {
@@ -15,16 +15,9 @@ window.repo.InfoCardList = React.createClass({
         return 1;
       return 0;
     }).map(function(info) {
-
-      if (self.props.click && typeof self.props.click === 'function') {
-        return (
-          <repo.InfoCard click={self.props.click} data={info} key={info.title} />
-        );
-      } else {
-        return (
-          <repo.InfoCard data={info} key={info.title} />
-        );
-      }
+      return (
+        <repo.InfoCard data={info} key={info.title} link={self.props.link + '/' + encodeURIComponent(repo.modTitle(info.title))} />
+      );
     });
 
     return (

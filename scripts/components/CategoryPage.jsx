@@ -18,22 +18,52 @@ window.repo.CategoryPage = React.createClass({
     this.setState({spotlight: null});
   },
   render: function() {
+    var self = this;
 
-    if (this.state.spotlight) {
-      return (
-        <div class="page category-page">
-          <repo.InfoSpotlight data={this.state.spotlight} click={this.removeSpotlight} />
-          <repo.CategoryInfoContainer categories={this.props.categories} info={this.props.info} click={this.setSpotlight} />
-        </div>
-      );
-    } else {
-      return (
-        <div class="page category-page">
-          <h2>Information</h2>
-          <repo.CategoryInfoContainer categories={this.props.categories} info={this.props.info} click={this.setSpotlight} />
-        </div>
-      );
+    if (this.props.routeParams.category) {
+
+      var category = this.props.route.categories.find(function(cat) {
+        return self.props.routeParams.category === repo.modTitle(cat.title);
+      });
+
+      if (this.props.routeParams.info) {
+
+        var spotlight = this.props.route.info.find(function(info) {
+          return self.props.routeParams.info === repo.modTitle(info.title);
+        });
+
+        if (!spotlight) {
+          spotlight = {
+            title: 'Info Not Found',
+            text: [
+              'Unfortunately, we weren\'t able to find any information on what you were looking for',
+              'If you came from outside the Information Repository, please check the URL and make sure it\'s valid'
+            ],
+            spoiler: true
+          }
+        }
+
+        return (
+          <div class="page element-page">
+            <repo.InfoSpotlight data={spotlight} link="/info" />
+            <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} link="/categories" cat={category} />
+          </div>
+        );
+      }
+
+      if (category) {
+        return (
+          <div class="page category-page">
+            <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} link="/categories" cat={category} />
+          </div>
+        );
+      }
     }
 
+    return (
+      <div class="page category-page">
+        <repo.CategoryInfoContainer categories={this.props.route.categories} info={this.props.route.info} link="/categories" />
+      </div>
+    );
   }
 });
