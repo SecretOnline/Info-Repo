@@ -17,15 +17,9 @@ window.repo.CategoryCardList = React.createClass({
         return 0;
       })
       .map(function(cardData) {
-        if (self.props.click && typeof self.props.click === 'function') {
-          return (
-            <repo.CategoryCard click={self.props.click} data={cardData} key={cardData.title} />
-          );
-        } else {
-          return (
-            <repo.CategoryCard data={cardData} key={cardData.title} />
-          );
-        }
+        return (
+          <repo.CategoryCard data={cardData} key={cardData.title} link={self.props.link} />
+        );
       });
 
     return (

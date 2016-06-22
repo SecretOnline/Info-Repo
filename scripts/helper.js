@@ -24,5 +24,25 @@ window.repo.truncateString = function(string, maxLength) {
 };
 
 window.repo.modTitle = function(title) {
-  return encodeURIComponent(title.replace(/\s/g, "_"));
+  return title.replace(/\s/g, "_");
+};
+
+window.repo.scrollToTop = function() {
+  var increment = -80;
+
+  function nextScroll() {
+    var diff = 0 - window.scrollY;
+
+    var newY = window.scrollY + Math.max(diff, increment);
+
+    window.scroll(0, newY);
+
+    if (window.scrollY === 0) {
+      return;
+    }
+
+    requestAnimationFrame(nextScroll);
+  }
+
+  nextScroll();
 };

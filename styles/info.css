@@ -9,17 +9,20 @@ nav {
 h4 {
   margin: 5px 0;
 }
-.info-card,
+.card,
 .search-area input,
+.spotlight,
 body {
   font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;
 }
+.repo,
 body {
   margin: 0;
   overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /*background: radial-gradient(circle, #0F4362 0%, #170f31 100%);*/
 }
 .center {
   display: block;
@@ -37,6 +40,10 @@ header .title {
   padding: 10px;
   margin: 0 auto;
   color: #fff;
+}
+header .title a {
+  color: #fff !important;
+  text-decoration: none !important;
 }
 header .button-container {
   position: absolute;
@@ -113,10 +120,12 @@ nav li {
 nav li:hover {
   background-color: rgba(255, 255, 255, .2);
 }
+nav li a,
 nav li span {
   display: inline-block;
   padding: 10px 7px;
   color: #fff !important;
+  text-decoration: none !important;
 }
 main {
   position: relative;
@@ -137,12 +146,12 @@ main {
 .search-area {
   margin-bottom: 10px;
 }
-.card {
-  display: inline-block;
-  border-radius: 2px;
+.card,
+.spotlight {
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  /*border-radius: 2px;*/
   width: 100%;
 }
 .search-area {
@@ -164,14 +173,17 @@ main {
 .header {
   background-color: #01385b;
   width: 100%;
-  height: 60px;
+  height: 4em;
   transition: height 0.5s, background-color 0.5s;
 }
 .spoiler .header {
   background-color: #e22 !important;
 }
-.expanded .header {
-  height: 100px;
+.card.expanded .header {
+  height: 6em;
+}
+.spotlight .header {
+  height: 10em;
 }
 .card-title {
   margin: 16px;
@@ -179,11 +191,8 @@ main {
   font-weight: bold;
   color: #fff;
 }
-.dark-text .card-title {
+.dark-text:not(.spoiler) .card-title {
   color: #000;
-}
-.dark-text.spoiler .card-title {
-  color: #fff;
 }
 .header .card-title {
   position: absolute;
@@ -200,7 +209,8 @@ main {
   opacity: 0;
   transition: top 0.5s, opacity 0.5s;
 }
-.info-card.expanded .categories {
+.info-card.expanded .categories,
+:not(.card) .categories {
   opacity: 1;
   top: 0;
 }
@@ -210,13 +220,9 @@ main {
   text-decoration: underline;
   cursor: pointer;
 }
-.info-card.dark-text .categories li,
-.info-card.dark-text .categories li a {
+.info-card.dark-text:not(.spoiler) .categories li,
+.info-card.dark-text:not(.spoiler) .categories li a {
   color: #000;
-}
-.info-card.dark-text.spoiler .categories li,
-.info-card.dark-text.spoiler .categories li a {
-  color: #fff;
 }
 .info-card .categories li a:hover,
 .info-card .categories li:hover {
@@ -266,7 +272,8 @@ main {
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
 }
-.expanded .card-content {
+.expanded .card-content,
+:not(.card) .card-content {
   padding-bottom: 16px;
   /* Just has to be a big value, but not too big */
   max-height: 1000px;
@@ -282,9 +289,13 @@ main {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-.card-content div:not(.separator) > p {
+.card-content div:not(.separator) > p,
+.card-content ul {
   margin: 0 0.5em;
   padding: 0.5em;
+}
+.card-content h4 {
+  margin: 0 0.5em;
 }
 .separator {
   border-bottom: 2px solid #aaa;
@@ -293,8 +304,10 @@ ul.categories,
 ul.related,
 ul.sources {
   list-style: none;
-  padding: 0;
+}
+ul.categories {
   margin: 0;
+  padding: 0;
 }
 ul.categories li,
 ul.related li,
@@ -442,12 +455,11 @@ ul.sources li {
   nav li {
     display: inline-block;
     /* Workaround a small inline-block bug/feature */
-    margin-left: -4px;
     cursor: pointer;
     transition: background-color 0.2s;
   }
-  nav li span,
-  nav li span a {
+  nav li a,
+  nav li span {
     display: inline-block;
     font-size: 1em;
     padding: 19px 10px;
