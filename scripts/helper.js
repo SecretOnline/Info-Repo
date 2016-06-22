@@ -28,7 +28,7 @@ window.repo.modTitle = function(title) {
 };
 
 window.repo.scrollToTop = function() {
-  var increment = -100;
+  var increment = -80;
 
   function nextScroll() {
     var diff = 0 - window.scrollY;
