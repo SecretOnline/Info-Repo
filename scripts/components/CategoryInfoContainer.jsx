@@ -20,8 +20,6 @@ window.repo.CategoryInfoContainer = React.createClass({
       if (filteredList.length) {
         return (
           <div>
-            <h2>Categories</h2>
-            <repo.CategoryCardList categories={this.props.categories} link={this.props.link} />
             <h2>Information - {this.props.cat.title}</h2>
             <repo.InfoCardList info={filteredList} link={this.props.link + '/' + encodeURIComponent(repo.modTitle(this.props.cat.title))} />
           </div>
