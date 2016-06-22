@@ -97,6 +97,18 @@
               categories: results[0]
             },
             {
+              path: '/categories/:category',
+              component: repo.CategoryPage,
+              info: results[1],
+              categories: results[0]
+            },
+            {
+              path: '/categories/:category/:info',
+              component: repo.CategoryPage,
+              info: results[1],
+              categories: results[0]
+            },
+            {
               path: '/elements',
               component: repo.ElementPage,
               elements: results[2]
