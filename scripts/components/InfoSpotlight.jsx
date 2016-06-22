@@ -69,29 +69,16 @@ window.repo.InfoSpotlight = React.createClass({
       bodyList.push((<ul className="related" key="body-related">{relatedNodes}</ul>));
     }
 
-    if (this.props.link) {
-      return (
-        <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-          <div className="header" onClick={this.doClickCallback}>
-            {headerList}
-          </div>
-          <div className="card-content">
-            {bodyList}
-          </div>
+    return (
+      <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
+        <div className="header" onClick={this.doClickCallback}>
+          {headerList}
         </div>
-      );
-    } else {
-      return (
-        <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-          <div className="header" onClick={this.doClickCallback}>
-            {headerList}
-          </div>
-          <div className="card-content">
-            {bodyList}
-          </div>
+        <div className="card-content">
+          {bodyList}
         </div>
-      );
-    }
+      </div>
+    );
 
 
   }

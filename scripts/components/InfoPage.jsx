@@ -15,7 +15,6 @@ window.repo.InfoPage = React.createClass({
     var self = this;
 
     if (this.props.routeParams.info) {
-      console.log(this.props.routeParams.info);
 
       var spotlight = this.props.route.info.find(function(info) {
         return self.props.routeParams.info === repo.modTitle(info.title);
@@ -34,7 +33,7 @@ window.repo.InfoPage = React.createClass({
 
       return (
         <div class="page info-page">
-          <repo.InfoSpotlight data={spotlight} link="/info" />
+          <repo.InfoSpotlight data={spotlight} />
           <h2>Information</h2>
           <repo.InfoCardList info={this.props.route.info} link="/info" />
         </div>
@@ -44,9 +43,8 @@ window.repo.InfoPage = React.createClass({
     return (
       <div class="page info-page">
         <h2>Information</h2>
-        <repo.InfoCardList info={this.props.route.info} click={this.setSpotlight} />
+        <repo.InfoCardList info={this.props.route.info} link="/info" />
       </div>
     );
-
   }
 });
