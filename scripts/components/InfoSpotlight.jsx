@@ -59,15 +59,6 @@ window.repo.InfoSpotlight = React.createClass({
       bodyList.push((<h4 key="body-sources-title">Sources</h4>));
       bodyList.push((<ul className="sources" key="body-sources">{sourceNodes}</ul>));
     }
-    if (this.props.data.related && this.props.data.related.length) {
-      var relatedNodes = this.props.data.related.map(function(rel) {
-        return (
-          <li key={rel}><ReactRouter.Link to={self.props.link + '/' + repo.modTitle(rel)}>{rel}</ReactRouter.Link></li>
-        )
-      });
-      bodyList.push((<h4 key="body-related-title">Related</h4>));
-      bodyList.push((<ul className="related" key="body-related">{relatedNodes}</ul>));
-    }
 
     return (
       <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>

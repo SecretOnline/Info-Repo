@@ -27,7 +27,6 @@
     <script type="text/babel" src="scripts/components/CategoryCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCard.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoCardList.jsx"></script>
-    <script type="text/babel" src="scripts/components/CategoryInfoContainer.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementCard.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementCardList.jsx"></script>
     <script type="text/babel" src="scripts/components/LinkCard.jsx"></script>
@@ -36,8 +35,11 @@
     <script type="text/babel" src="scripts/components/InfoSpotlight.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementSpotlight.jsx"></script>
     <script type="text/babel" src="scripts/components/InfoPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/InfoSpotlightPage.jsx"></script>
     <script type="text/babel" src="scripts/components/ElementPage.jsx"></script>
     <script type="text/babel" src="scripts/components/CategoryPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategoryListPage.jsx"></script>
+    <script type="text/babel" src="scripts/components/CategorySpotlightPage.jsx"></script>
     <script type="text/babel" src="scripts/components/LinkPage.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoHeader.jsx"></script>
     <script type="text/babel" src="scripts/components/RepoNav.jsx"></script>
@@ -83,7 +85,7 @@
             },
             {
               path: '/info/:info',
-              component: repo.InfoPage,
+              component: repo.InfoSpotlightPage,
               info: results[1]
             },
             {
@@ -94,13 +96,13 @@
             },
             {
               path: '/categories/:category',
-              component: repo.CategoryPage,
+              component: repo.CategoryListPage,
               info: results[1],
               categories: results[0]
             },
             {
               path: '/categories/:category/:info',
-              component: repo.CategoryPage,
+              component: repo.CategorySpotlightPage,
               info: results[1],
               categories: results[0]
             },
