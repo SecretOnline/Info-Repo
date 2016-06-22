@@ -8,14 +8,8 @@ window.repo.InfoCard = React.createClass({
         text: ['Please wait, this shouldn\'t take too long'],
         sources: [],
         related: []
-      },
-      click: null
+      }
     };
-  },
-  doClickCallback: function() {
-    if (this.props.click && typeof this.props.click === 'function') {
-      this.props.click(this.props.data);
-    }
   },
   render: function() {
     // Create the main
@@ -35,7 +29,7 @@ window.repo.InfoCard = React.createClass({
     return (
       <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
         <ReactRouter.Link to={this.props.link}>
-          <div className="header" onClick={this.doClickCallback}>
+          <div className="header" onClick={repo.scrollToTop}>
             {headerList}
           </div>
         </ReactRouter.Link>
