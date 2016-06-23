@@ -7,12 +7,11 @@ var PATHS = {
 };
 
 module.exports = {
-  entry: {
-    app: PATHS.app
-  },
+  entry: PATHS.app,
   output: {
     path: PATHS.build,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/www/scripts'
   },
   module: {
     loaders: [{
