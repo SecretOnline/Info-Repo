@@ -10,8 +10,7 @@ module.exports = {
   entry: PATHS.app,
   output: {
     path: PATHS.build,
-    filename: 'bundle.js',
-    publicPath: '/www/scripts'
+    filename: 'scripts/bundle.js',
   },
   module: {
     loaders: [{
@@ -23,4 +22,8 @@ module.exports = {
       }
     }]
   },
+  devServer: {
+    contentBase: './www',
+    historyApiFallback: true
+  }
 };

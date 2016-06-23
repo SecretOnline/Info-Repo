@@ -106,7 +106,7 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
     }
 
     ReactDOM.render(
-      <ReactRouter.Router history={ReactRouter.hashHistory}>
+      <ReactRouter.Router history={ReactRouter.browserHistory}>
         {routerConf}
       </ReactRouter.Router>,
       document.querySelector('.repo-container')
