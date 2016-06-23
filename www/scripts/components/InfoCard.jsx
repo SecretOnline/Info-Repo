@@ -1,6 +1,9 @@
-window.repo = window.repo || {};
-window.repo.InfoCard = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import Link from 'react-router/lib/Link';
+import helper from './helper';
+
+export class InfoCard extends React.Component {
+  getDefaultProps() {
     return {
       data: {
         title: 'Loading...',
@@ -10,8 +13,9 @@ window.repo.InfoCard = React.createClass({
         related: []
       }
     };
-  },
-  render: function() {
+  }
+  
+  render() {
     // Create the main
     var classes = [
       'card',
@@ -27,12 +31,12 @@ window.repo.InfoCard = React.createClass({
     ];
 
     return (
-      <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-        <ReactRouter.Link to={this.props.link}>
-          <div className="header" onClick={repo.scrollToTop}>
+      <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
+        <Link to={this.props.link}>
+          <div className="header" onClick={helper.scrollToTop}>
             {headerList}
           </div>
-        </ReactRouter.Link>
+        </Link>
       </div>
     );
 

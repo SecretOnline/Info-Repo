@@ -1,24 +1,29 @@
-window.repo = window.repo || {};
-window.repo.RepoApp = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import RepoHeader from './components/RepoHeader';
+import RepoNav from './components/RepoNav';
+import RepoFooter from './components/RepoFooter';
+
+export class RepoApp extends React.Component {
+  getDefaultProps() {
     return {
       info: [],
       categories: [],
       elements: [],
       links: []
     }
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div className="repo">
-        <repo.RepoHeader />
-        <repo.RepoNav />
+        <RepoHeader />
+        <RepoNav />
         <main>
           <div className="main">
             {this.props.children}
           </div>
         </main>
-        <repo.RepoFooter />
+        <RepoFooter />
       </div>
     );
   }

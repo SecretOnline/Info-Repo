@@ -1,6 +1,9 @@
-window.repo = window.repo || {};
-window.repo.InfoSpotlight = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import Link from 'react-router/lib/Link';
+import helper from './helper';
+
+export class InfoSpotlight extends React.Component {
+  getDefaultProps() {
     return {
       data: {
         title: 'Loading...',
@@ -11,13 +14,9 @@ window.repo.InfoSpotlight = React.createClass({
       },
       click: null
     };
-  },
-  doClickCallback: function() {
-    if (this.props.click && typeof this.props.click === 'function') {
-      this.props.click(this.props.data);
-    }
-  },
-  render: function() {
+  }
+
+  render() {
     var self = this;
     // Create the main
     var classes = [
@@ -36,7 +35,7 @@ window.repo.InfoSpotlight = React.createClass({
     if (this.props.data.categories && this.props.data.categories.length) {
       classes.push('cat-' + this.props.data.categories[0].class);
       var categoryNodes = this.props.data.categories.map(function(cat) {
-        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={'/categories/' + window.repo.modTitle(cat.title)}>{cat.title}</ReactRouter.Link></li>)
+        return (<li data-id={cat.class} key={cat.class}><Link to={'/categories/' + helper.modTitle(cat.title)}>{cat.title}</Link></li>)
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }
@@ -53,7 +52,7 @@ window.repo.InfoSpotlight = React.createClass({
     if (this.props.data.sources && this.props.data.sources.length) {
       var sourceNodes = this.props.data.sources.map(function(src) {
         return (
-          <li key={src}><a href={src}>{window.repo.truncateString(src, 10)}</a></li>
+          <li key={src}><a href={src}>{helper.truncateString(src, 10)}</a></li>
         )
       });
       bodyList.push((<h4 key="body-sources-title">Sources</h4>));
@@ -61,8 +60,8 @@ window.repo.InfoSpotlight = React.createClass({
     }
 
     return (
-      <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
-        <div className="header" onClick={this.doClickCallback}>
+      <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
+        <div className="header">
           {headerList}
         </div>
         <div className="card-content">
@@ -70,7 +69,5 @@ window.repo.InfoSpotlight = React.createClass({
         </div>
       </div>
     );
-
-
   }
 });

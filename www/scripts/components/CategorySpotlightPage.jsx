@@ -1,14 +1,19 @@
-window.repo = window.repo || {};
-window.repo.CategorySpotlightPage = React.createClass({
-  render: function() {
+import React from 'react';
+import Link from 'react-router/lib/Link';
+import InfoSpotlight from './components/InfoSpotlight';
+import InfoCardList from './components/InfoCardList';
+import helper from './helper';
+
+export class CategorySpotlightPage extends React.Component {
+  render() {
     var self = this;
 
     var category = this.props.route.categories.find(function(cat) {
-      return self.props.routeParams.category === repo.modTitle(cat.title);
+      return self.props.routeParams.category === helper.modTitle(cat.title);
     });
 
     var spotlight = this.props.route.info.find(function(info) {
-      return self.props.routeParams.info === repo.modTitle(info.title);
+      return self.props.routeParams.info === helper.modTitle(info.title);
     });
 
     var categoryList;
@@ -45,22 +50,22 @@ window.repo.CategorySpotlightPage = React.createClass({
     }
 
     var content = [
-      <repo.InfoSpotlight key="spotlight" data={spotlight} link="/info" />
+      <InfoSpotlight key="spotlight" data={spotlight} link="/info" />
     ];
 
     if (categoryList && categoryList.length) {
       content.push(<h2 key="list-title">Category: {category.title}</h2>);
-      content.push(<repo.InfoCardList key="list" info={categoryList} link={'/categories/' + encodeURIComponent(repo.modTitle(category.title))} />)
+      content.push(<InfoCardList key="list" info={categoryList} link={'/categories/' + encodeURIComponent(helper.modTitle(category.title))} />)
     }
 
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <ReactRouter.Link to="/categories">
+        <Link to="/categories">
           <div className="header">
             <h3 className="card-title">Back to Categories</h3>
           </div>
-        </ReactRouter.Link>
+        </Link>
       </div>
     );
 

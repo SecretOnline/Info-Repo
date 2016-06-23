@@ -1,6 +1,8 @@
-window.repo = window.repo || {};
-window.repo.LinkGroup = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import LinkCard from './components/LinkCard';
+
+export class LinkGroup extends React.Component {
+  getDefaultProps() {
     return {
       data: {
         items: [],
@@ -8,18 +10,19 @@ window.repo.LinkGroup = React.createClass({
       },
       click: null
     };
-  },
-  render: function() {
+  }
+  
+  render() {
     var self = this;
     var cardNodes = this.props.data.items
       .map(function(cardData) {
         if (self.props.click && typeof self.props.click === 'function') {
           return (
-            <repo.LinkCard click={self.props.click} data={cardData} key={cardData.title} />
+            <LinkCard click={self.props.click} data={cardData} key={cardData.title} />
           );
         } else {
           return (
-            <repo.LinkCard data={cardData} key={cardData.title} />
+            <LinkCard data={cardData} key={cardData.title} />
           );
         }
       });

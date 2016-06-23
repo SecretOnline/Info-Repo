@@ -1,10 +1,15 @@
-window.repo = window.repo || {};
-window.repo.InfoSpotlightPage = React.createClass({
-  render: function() {
+import React from 'react';
+import InfoSpotlight from './components/InfoSpotlight';
+import InfoCardList from './components/InfoCardList';
+import Link from 'react-router/lib/Link';
+import helper from './helper';
+
+export class InfoSpotlightPage extends React.Component {
+  render() {
     var self = this;
 
     var spotlight = this.props.route.info.find(function(info) {
-      return self.props.routeParams.info === repo.modTitle(info.title);
+      return self.props.routeParams.info === helper.modTitle(info.title);
     });
     var relatedData = [];
 
@@ -28,22 +33,22 @@ window.repo.InfoSpotlightPage = React.createClass({
     }
 
     var content = [
-      <repo.InfoSpotlight key="spotlight" data={spotlight} />
+      <InfoSpotlight key="spotlight" data={spotlight} />
     ];
 
     if (relatedData.length) {
       content.push(<h2 key="related-title">Related</h2>);
-      content.push(<repo.InfoCardList key="related" info={relatedData} link="/info" />);
+      content.push(<InfoCardList key="related" info={relatedData} link="/info" />);
     }
 
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <ReactRouter.Link to="/info">
+        <Link to="/info">
           <div className="header">
             <h3 className="card-title">Back to All Information</h3>
           </div>
-        </ReactRouter.Link>
+        </Link>
       </div>
     );
 

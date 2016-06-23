@@ -1,6 +1,9 @@
-window.repo = window.repo || {};
-window.repo.ElementSpotlight = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import ElementCard from './components/ElementCard';
+import helper from './helper';
+
+export class ElementSpotlight extends React.Component {
+  getDefaultProps() {
     return {
       data: {
         color: '',
@@ -12,13 +15,9 @@ window.repo.ElementSpotlight = React.createClass({
       },
       click: null
     };
-  },
-  doClickCallback: function() {
-    if (this.props.click && typeof this.props.click === 'function') {
-      this.props.click(this.props.data);
-    }
-  },
-  render: function() {
+  }
+
+  render() {
     // Create the main
     var classes = [
       'spotlight',
@@ -52,7 +51,7 @@ window.repo.ElementSpotlight = React.createClass({
     }
 
     return (
-      <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
+      <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
         <div className="header" onClick={this.doClickCallback}>
           {headerList}
         </div>

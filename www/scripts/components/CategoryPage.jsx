@@ -1,9 +1,11 @@
-window.repo = window.repo || {};
-window.repo.CategoryPage = React.createClass({
-  render: function() {
+import React from 'react';
+import CategoryCardList from './components/CategoryCardList';
+
+export class CategoryPage extends React.Component {
+  render() {
     return (
       <div class="page category-page">
-        <repo.CategoryCardList categories={this.props.route.categories} link="/categories" />
+        <CategoryCardList categories={this.props.route.categories} link="/categories" />
       </div>
     );
   }

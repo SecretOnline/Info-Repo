@@ -1,10 +1,12 @@
-window.repo = window.repo || {};
-window.repo.ElementPage = React.createClass({
-  render: function() {
+import React from 'react';
+import ElementCardList from './components/ElementCardList';
+
+export class ElementPage extends React.Component {
+  render() {
     return (
       <div class="page element-page">
         <h2>Elements</h2>
-        <repo.ElementCardList elements={this.props.route.elements} link="/elements" />
+        <ElementCardList elements={this.props.route.elements} link="/elements" />
       </div>
     );
   }

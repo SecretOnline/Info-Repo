@@ -1,22 +1,25 @@
-window.repo = window.repo || {};
-window.repo.LinkGroupList = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import LinkGroup from './components/LinkGroup';
+
+export class LinkGroupList extends React.Component {
+  getDefaultProps() {
     return {
       links: [],
       click: null
     };
-  },
-  render: function() {
+  }
+
+  render() {
     var self = this;
     var cardNodes = this.props.links
       .map(function(groupData) {
         if (self.props.click && typeof self.props.click === 'function') {
           return (
-            <repo.LinkGroup click={self.props.click} data={groupData} key={groupData.title} />
+            <LinkGroup click={self.props.click} data={groupData} key={groupData.title} />
           );
         } else {
           return (
-            <repo.LinkGroup data={groupData} key={groupData.title} />
+            <LinkGroup data={groupData} key={groupData.title} />
           );
         }
       });

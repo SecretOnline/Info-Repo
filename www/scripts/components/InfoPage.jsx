@@ -1,10 +1,12 @@
-window.repo = window.repo || {};
-window.repo.InfoPage = React.createClass({
-  render: function() {
+import React from 'react';
+import InfoCardList from './components/InfoCardList';
+
+export class InfoPage extends React.Component {
+  render() {
     return (
       <div class="page info-page">
         <h2>Information</h2>
-        <repo.InfoCardList info={this.props.route.info} link="/info" />
+        <InfoCardList info={this.props.route.info} link="/info" />
       </div>
     );
   }

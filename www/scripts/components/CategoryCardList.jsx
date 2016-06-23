@@ -1,11 +1,14 @@
-window.repo = window.repo || {};
-window.repo.CategoryCardList = React.createClass({
+import React from 'react';
+import CategoryCard from './components/CategoryCard';
+
+export class CategoryCardList extends React.Component {
   getDefaultProps: function() {
     return {
       categories: [],
       click: null
     };
-  },
+  }
+
   render: function() {
     var self = this;
     var cardNodes = this.props.categories
@@ -18,7 +21,7 @@ window.repo.CategoryCardList = React.createClass({
       })
       .map(function(cardData) {
         return (
-          <repo.CategoryCard data={cardData} key={cardData.title} link={self.props.link} />
+          <CategoryCard data={cardData} key={cardData.title} link={self.props.link} />
         );
       });
 
@@ -28,4 +31,4 @@ window.repo.CategoryCardList = React.createClass({
       </div>
     );
   }
-});
+}

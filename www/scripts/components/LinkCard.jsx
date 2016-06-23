@@ -1,6 +1,8 @@
-window.repo = window.repo || {};
-window.repo.LinkCard = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import helper from './helper';
+
+export class LinkCard extends React.Component {
+  getDefaultProps() {
     return {
       data: {
         color: '',
@@ -11,13 +13,9 @@ window.repo.LinkCard = React.createClass({
       },
       click: null
     };
-  },
-  doClickCallback: function() {
-    if (this.props.click && typeof this.props.click === 'function') {
-      this.props.click(this.props.data);
-    }
-  },
-  render: function() {
+  }
+
+  render() {
     // Create the main
     var classes = [
       'card',
@@ -48,9 +46,9 @@ window.repo.LinkCard = React.createClass({
     }
 
     return (
-      <div className={classes.join(' ')} id={window.repo.modTitle(this.props.data.title)}>
+      <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
         <a href={url} target="_blank">
-          <div className="header" onClick={this.doClickCallback} style={headerStyle}>
+          <div className="header" style={headerStyle}>
             {headerList}
           </div>
         </a>

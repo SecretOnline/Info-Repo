@@ -1,6 +1,10 @@
-window.repo = window.repo || {};
-window.repo.ElementSpotlightPage = React.createClass({
-  render: function() {
+import React from 'react';
+import ElementSpotlight from './components/ElementSpotlight';
+import Link from 'react-router/lib/Link';
+import helper from './helper';
+
+export class ElementSpotlightPage extends React.Component {
+  render() {
     var self = this;
 
     var spotlight = this.props.route.elements.find(function(info) {
@@ -20,14 +24,14 @@ window.repo.ElementSpotlightPage = React.createClass({
 
     return (
       <div class="page element-page">
-        <repo.ElementSpotlight data={spotlight} link="/elements" />
+        <ElementSpotlight data={spotlight} link="/elements" />
         <h2>Other</h2>
           <div className="card">
-            <ReactRouter.Link to="/elements">
+            <Link to="/elements">
               <div className="header">
                 <h3 className="card-title">Back to All Elements</h3>
               </div>
-            </ReactRouter.Link>
+            </Link>
           </div>
       </div>
     );

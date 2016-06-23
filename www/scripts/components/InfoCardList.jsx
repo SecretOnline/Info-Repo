@@ -1,11 +1,15 @@
-window.repo = window.repo || {};
-window.repo.InfoCardList = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import InfoCard from './components/InfoCard';
+import helper from './helper';
+
+export class InfoCardList extends React.Component {
+  getDefaultProps() {
     return {
       info: [],
       link: '/info'
     };
-  },
+  }
+
   render: function() {
     var self = this;
     var cardNodes = this.props.info.sort(function(a, b) {
@@ -16,7 +20,7 @@ window.repo.InfoCardList = React.createClass({
       return 0;
     }).map(function(info) {
       return (
-        <repo.InfoCard data={info} key={info.title} link={self.props.link + '/' + encodeURIComponent(repo.modTitle(info.title))} />
+        <InfoCard data={info} key={info.title} link={self.props.link + '/' + encodeURIComponent(helper.modTitle(info.title))} />
       );
     });
 

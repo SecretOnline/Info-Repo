@@ -1,6 +1,4 @@
-window.repo = window.repo || {};
-
-window.repo.get = function(url) {
+var get = function(url) {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function() {
@@ -14,7 +12,7 @@ window.repo.get = function(url) {
   });
 };
 
-window.repo.truncateString = function(string, maxLength) {
+var truncateString = function(string, maxLength) {
   string = string.replace(/^https?:\/\/(?:www\.)?/i, '');
 
   if (string.length < maxLength)
@@ -23,11 +21,11 @@ window.repo.truncateString = function(string, maxLength) {
     return string.substr(0, maxLength - 3) + '...';
 };
 
-window.repo.modTitle = function(title) {
+var modTitle = function(title) {
   return title.replace(/\s/g, "_");
 };
 
-window.repo.scrollToTop = function() {
+var scrollToTop = function() {
   var increment = -80;
 
   function nextScroll() {
@@ -45,4 +43,11 @@ window.repo.scrollToTop = function() {
   }
 
   nextScroll();
+};
+
+export {
+  get: get,
+  truncateString: truncateString,
+  modTitle: modTitle,
+  scrollToTop: scrollToTop
 };

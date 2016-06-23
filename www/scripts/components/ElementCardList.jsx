@@ -1,16 +1,20 @@
-window.repo = window.repo || {};
-window.repo.ElementCardList = React.createClass({
-  getDefaultProps: function() {
+import React from 'react';
+import ElementCard from './components/ElementCard';
+import helper from './helper';
+
+export class ElementCardList extends React.Component {
+  getDefaultProps() {
     return {
       elements: [],
       click: null
     };
-  },
-  render: function() {
+  }
+  
+  render() {
     var self = this;
     var cardNodes = this.props.elements.map(function(element) {
       return (
-        <repo.ElementCard data={element} key={element.title} link={self.props.link + '/' + encodeURIComponent(repo.modTitle(element.title))} />
+        <ElementCard data={element} key={element.title} link={self.props.link} />
       );
     });
 
