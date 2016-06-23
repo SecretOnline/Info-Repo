@@ -45,9 +45,9 @@ var scrollToTop = function() {
   nextScroll();
 };
 
-export {
-  httpGet,
-  truncateString,
-  modTitle,
-  scrollToTop
+export default {
+  httpGet: httpGet,
+  truncateString: truncateString,
+  modTitle: modTitle,
+  scrollToTop: scrollToTop
 };
