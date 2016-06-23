@@ -3,7 +3,7 @@ import ElementCard from '../components/ElementCard.jsx';
 import helper from '../helper.jsx';
 
 export default class ElementCardList extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       elements: [],
       click: null

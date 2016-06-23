@@ -2,7 +2,7 @@ import React from 'react';
 import LinkGroupList from '../components/LinkGroupList.jsx';
 
 export default class LinkPage extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       links: []
     };

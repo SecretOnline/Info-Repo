@@ -3,7 +3,7 @@ import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoCard extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       data: {
         title: 'Loading...',

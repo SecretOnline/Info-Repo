@@ -2,7 +2,7 @@ import React from 'react';
 import LinkGroup from '../components/LinkGroup.jsx';
 
 export default class LinkGroupList extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       links: [],
       click: null

@@ -3,7 +3,7 @@ import InfoCard from '../components/InfoCard.jsx';
 import helper from '../helper.jsx';
 
 export default class InfoCardList extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       info: [],
       link: '/info'

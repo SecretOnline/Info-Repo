@@ -4,7 +4,7 @@ import RepoNav from '../components/RepoNav.jsx';
 import RepoFooter from '../components/RepoFooter.jsx';
 
 export default class RepoApp extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       info: [],
       categories: [],

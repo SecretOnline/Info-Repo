@@ -2,7 +2,7 @@ import React from 'react';
 import helper from '../helper.jsx';
 
 export default class LinkCard extends React.Component {
-  getDefaultProps() {
+  static get defaultProps() {
     return {
       data: {
         color: '',
