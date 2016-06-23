@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkCard from '../components/LinkCard.jsx';
 
-export class LinkGroup extends React.Component {
+export default class LinkGroup extends React.Component {
   getDefaultProps() {
     return {
       data: {

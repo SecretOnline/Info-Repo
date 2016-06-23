@@ -2,7 +2,7 @@ import React from 'react';
 import ElementCard from '../components/ElementCard.jsx';
 import helper from '../helper.jsx';
 
-export class ElementSpotlight extends React.Component {
+export default class ElementSpotlight extends React.Component {
   getDefaultProps() {
     return {
       data: {

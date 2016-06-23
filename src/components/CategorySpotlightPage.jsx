@@ -4,7 +4,7 @@ import InfoSpotlight from '../components/InfoSpotlight.jsx';
 import InfoCardList from '../components/InfoCardList.jsx';
 import helper from '../helper.jsx';
 
-export class CategorySpotlightPage extends React.Component {
+export default class CategorySpotlightPage extends React.Component {
   render() {
     var self = this;
 

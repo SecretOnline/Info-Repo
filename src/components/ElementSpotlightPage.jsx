@@ -3,7 +3,7 @@ import ElementSpotlight from '../components/ElementSpotlight.jsx';
 import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
-export class ElementSpotlightPage extends React.Component {
+export default class ElementSpotlightPage extends React.Component {
   render() {
     var self = this;
 

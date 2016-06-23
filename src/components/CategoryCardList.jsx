@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryCard from '../components/CategoryCard.jsx';
 
-export class CategoryCardList extends React.Component {
+export default class CategoryCardList extends React.Component {
   getDefaultProps() {
     return {
       categories: [],

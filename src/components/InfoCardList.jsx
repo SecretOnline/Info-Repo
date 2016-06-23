@@ -2,7 +2,7 @@ import React from 'react';
 import InfoCard from '../components/InfoCard.jsx';
 import helper from '../helper.jsx';
 
-export class InfoCardList extends React.Component {
+export default class InfoCardList extends React.Component {
   getDefaultProps() {
     return {
       info: [],

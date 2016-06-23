@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryCardList from '../components/CategoryCardList.jsx';
 
-export class CategoryPage extends React.Component {
+export default class CategoryPage extends React.Component {
   render() {
     return (
       <div class="page category-page">

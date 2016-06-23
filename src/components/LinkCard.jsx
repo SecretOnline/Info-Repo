@@ -1,7 +1,7 @@
 import React from 'react';
 import helper from '../helper.jsx';
 
-export class LinkCard extends React.Component {
+export default class LinkCard extends React.Component {
   getDefaultProps() {
     return {
       data: {

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
-export class InfoSpotlight extends React.Component {
+export default class InfoSpotlight extends React.Component {
   getDefaultProps() {
     return {
       data: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'react-router/lib/Link';
 
-export class RepoHeader extends React.Component {
+export default class RepoHeader extends React.Component {
   toggleNav() {
     var nav = document.querySelector('nav');
     if (nav) {

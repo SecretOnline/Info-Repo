@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
-export class ElementCard extends React.Component {
+export default class ElementCard extends React.Component {
   getDefaultProps() {
     return {
       data: {

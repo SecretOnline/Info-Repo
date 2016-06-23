@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'react-router/lib/Link';
 
-export class RepoHome extends React.Component {
+export default class RepoHome extends React.Component {
   render() {
     return (
       <div>

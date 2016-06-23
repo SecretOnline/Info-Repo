@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import CategoryCard from './components/CategoryCard.jsx';
 import CategoryCardList from './components/CategoryCardList.jsx';
 import CategoryListPage from './components/CategoryListPage.jsx';

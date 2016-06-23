@@ -4,7 +4,7 @@ import InfoCardList from '../components/InfoCardList.jsx';
 import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
-export class InfoSpotlightPage extends React.Component {
+export default class InfoSpotlightPage extends React.Component {
   render() {
     var self = this;
 

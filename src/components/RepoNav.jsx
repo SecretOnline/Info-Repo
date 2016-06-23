@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'react-router/lib/Link';
 
-export class RepoNav extends React.Component {
+export default class RepoNav extends React.Component {
   closeNav() {
     var nav = document.querySelector('nav');
     if (nav) {
