@@ -8,7 +8,7 @@ export default class ElementSpotlightPage extends React.Component {
     var self = this;
 
     var spotlight = this.props.route.elements.find(function(info) {
-      return self.props.routeParams.element === repo.modTitle(info.title);
+      return self.props.routeParams.element === helper.modTitle(info.title);
     });
 
     if (!spotlight) {
