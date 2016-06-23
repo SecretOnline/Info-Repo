@@ -1,4 +1,4 @@
-var get = function(url) {
+var httpGet = function(url) {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function() {
@@ -46,8 +46,8 @@ var scrollToTop = function() {
 };
 
 export {
-  get: get,
-  truncateString: truncateString,
-  modTitle: modTitle,
-  scrollToTop: scrollToTop
+  httpGet,
+  truncateString,
+  modTitle,
+  scrollToTop
 };

@@ -18,4 +18,4 @@ export class RepoHome extends React.Component {
       </div>
     );
   }
-});
+}

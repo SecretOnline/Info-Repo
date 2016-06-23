@@ -1,6 +1,6 @@
 import React from 'react';
-import InfoCard from './components/InfoCard';
-import helper from './helper';
+import InfoCard from '../components/InfoCard.jsx';
+import helper from '../helper.jsx';
 
 export class InfoCardList extends React.Component {
   getDefaultProps() {
@@ -10,7 +10,7 @@ export class InfoCardList extends React.Component {
     };
   }
 
-  render: function() {
+  render() {
     var self = this;
     var cardNodes = this.props.info.sort(function(a, b) {
       if (a.title < b.title)
@@ -30,4 +30,4 @@ export class InfoCardList extends React.Component {
       </div>
     );
   }
-});
+}

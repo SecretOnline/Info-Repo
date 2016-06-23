@@ -1,8 +1,8 @@
 import React from 'react';
-import InfoSpotlight from './components/InfoSpotlight';
-import InfoCardList from './components/InfoCardList';
+import InfoSpotlight from '../components/InfoSpotlight.jsx';
+import InfoCardList from '../components/InfoCardList.jsx';
 import Link from 'react-router/lib/Link';
-import helper from './helper';
+import helper from '../helper.jsx';
 
 export class InfoSpotlightPage extends React.Component {
   render() {
@@ -58,4 +58,4 @@ export class InfoSpotlightPage extends React.Component {
       </div>
     );
   }
-});
+}

@@ -1,39 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CategoryCard from './components/CategoryCard';
-import CategoryCardList from './components/CategoryCardList';
-import CategoryListPage from './components/CategoryListPage';
-import CategoryPage from './components/CategoryPage';
-import CategorySpotlightPage from './components/CategorySpotlightPage';
-import ElementCard from './components/ElementCard';
-import ElementCardList from './components/ElementCardList';
-import ElementPage from './components/ElementPage';
-import ElementSpotlight from './components/ElementSpotlight';
-import ElementSpotlightPage from './components/ElementSpotlightPage';
-import InfoCard from './components/InfoCard';
-import InfoCardList from './components/InfoCardList';
-import InfoPage from './components/InfoPage';
-import InfoSpotlight from './components/InfoSpotlight';
-import InfoSpotlightPage from './components/InfoSpotlightPage';
-import LinkCard from './components/LinkCard';
-import LinkGroup from './components/LinkGroup';
-import LinkGroupList from './components/LinkGroupList';
-import LinkPage from './components/LinkPage';
-import RepoApp from './components/RepoApp';
-import RepoFooter from './components/RepoFooter';
-import RepoHeader from './components/RepoHeader';
-import RepoHome from './components/RepoHome';
-import RepoNav from './components/RepoNav';
-import RepoNotFound from './components/RepoNotFound';
-import helper from './helper';
+import CategoryCard from './components/CategoryCard.jsx';
+import CategoryCardList from './components/CategoryCardList.jsx';
+import CategoryListPage from './components/CategoryListPage.jsx';
+import CategoryPage from './components/CategoryPage.jsx';
+import CategorySpotlightPage from './components/CategorySpotlightPage.jsx';
+import ElementCard from './components/ElementCard.jsx';
+import ElementCardList from './components/ElementCardList.jsx';
+import ElementPage from './components/ElementPage.jsx';
+import ElementSpotlight from './components/ElementSpotlight.jsx';
+import ElementSpotlightPage from './components/ElementSpotlightPage.jsx';
+import InfoCard from './components/InfoCard.jsx';
+import InfoCardList from './components/InfoCardList.jsx';
+import InfoPage from './components/InfoPage.jsx';
+import InfoSpotlight from './components/InfoSpotlight.jsx';
+import InfoSpotlightPage from './components/InfoSpotlightPage.jsx';
+import LinkCard from './components/LinkCard.jsx';
+import LinkGroup from './components/LinkGroup.jsx';
+import LinkGroupList from './components/LinkGroupList.jsx';
+import LinkPage from './components/LinkPage.jsx';
+import RepoApp from './components/RepoApp.jsx';
+import RepoFooter from './components/RepoFooter.jsx';
+import RepoHeader from './components/RepoHeader.jsx';
+import RepoHome from './components/RepoHome.jsx';
+import RepoNav from './components/RepoNav.jsx';
+import RepoNotFound from './components/RepoNotFound.jsx';
+import helper from './helper.jsx';
 
-var catPromise = repo.get('https://nmsdb-55119.firebaseio.com/categories.json')
+var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
   .then(JSON.parse);
-var infoPromise = repo.get('https://nmsdb-55119.firebaseio.com/info.json')
+var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
   .then(JSON.parse);
-var resourcePromise = repo.get('https://nmsdb-55119.firebaseio.com/resources.json')
+var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
   .then(JSON.parse);
-var linkPromise = repo.get('https://nmsdb-55119.firebaseio.com/links.json')
+var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
   .then(JSON.parse);
 Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
   .then(function(results) {
@@ -52,57 +52,57 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
 
     var routerConf = {
       path: '/',
-      component: repo.RepoApp,
+      component: RepoApp,
       indexRoute: {
-        component: repo.RepoHome
+        component: RepoHome
       },
       childRoutes: [
         {
           path: '/info',
-          component: repo.InfoPage,
+          component: InfoPage,
           info: results[1]
         },
         {
           path: '/info/:info',
-          component: repo.InfoSpotlightPage,
+          component: InfoSpotlightPage,
           info: results[1]
         },
         {
           path: '/categories',
-          component: repo.CategoryPage,
+          component: CategoryPage,
           info: results[1],
           categories: results[0]
         },
         {
           path: '/categories/:category',
-          component: repo.CategoryListPage,
+          component: CategoryListPage,
           info: results[1],
           categories: results[0]
         },
         {
           path: '/categories/:category/:info',
-          component: repo.CategorySpotlightPage,
+          component: CategorySpotlightPage,
           info: results[1],
           categories: results[0]
         },
         {
           path: '/elements',
-          component: repo.ElementPage,
+          component: ElementPage,
           elements: results[2]
         },
         {
           path: '/elements/:element',
-          component: repo.ElementSpotlightPage,
+          component: ElementSpotlightPage,
           elements: results[2]
         },
         {
           path: '/links',
-          component: repo.LinkPage,
+          component: LinkPage,
           links: results[3]
         },
         {
           path: '*',
-          component: repo.RepoNotFound
+          component: RepoNotFound
         }
       ]
     }

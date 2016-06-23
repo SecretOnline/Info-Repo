@@ -1,6 +1,6 @@
 import React from 'react';
-import ElementCard from './components/ElementCard';
-import helper from './helper';
+import ElementCard from '../components/ElementCard.jsx';
+import helper from '../helper.jsx';
 
 export class ElementSpotlight extends React.Component {
   getDefaultProps() {
@@ -61,4 +61,4 @@ export class ElementSpotlight extends React.Component {
       </div>
     );
   }
-});
+}

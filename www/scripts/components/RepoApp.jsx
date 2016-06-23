@@ -1,7 +1,7 @@
 import React from 'react';
-import RepoHeader from './components/RepoHeader';
-import RepoNav from './components/RepoNav';
-import RepoFooter from './components/RepoFooter';
+import RepoHeader from '../components/RepoHeader.jsx';
+import RepoNav from '../components/RepoNav.jsx';
+import RepoFooter from '../components/RepoFooter.jsx';
 
 export class RepoApp extends React.Component {
   getDefaultProps() {
@@ -27,4 +27,4 @@ export class RepoApp extends React.Component {
       </div>
     );
   }
-});
+}

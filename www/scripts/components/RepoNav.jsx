@@ -21,4 +21,4 @@ export class RepoNav extends React.Component {
       </nav>
     );
   }
-});
+}

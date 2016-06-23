@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoCardList from './components/InfoCardList';
+import InfoCardList from '../components/InfoCardList.jsx';
 
 export class InfoPage extends React.Component {
   render() {
@@ -10,4 +10,4 @@ export class InfoPage extends React.Component {
       </div>
     );
   }
-});
+}

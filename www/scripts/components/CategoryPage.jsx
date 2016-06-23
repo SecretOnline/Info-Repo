@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryCardList from './components/CategoryCardList';
+import CategoryCardList from '../components/CategoryCardList.jsx';
 
 export class CategoryPage extends React.Component {
   render() {
@@ -9,4 +9,4 @@ export class CategoryPage extends React.Component {
       </div>
     );
   }
-});
+}

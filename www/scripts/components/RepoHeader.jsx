@@ -21,4 +21,4 @@ export class RepoHeader extends React.Component {
       </header>
     );
   }
-});
+}

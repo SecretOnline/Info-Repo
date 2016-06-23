@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkGroupList from './components/LinkGroupList';
+import LinkGroupList from '../components/LinkGroupList.jsx';
 
 export class LinkPage extends React.Component {
   getDefaultProps() {
@@ -16,4 +16,4 @@ export class LinkPage extends React.Component {
       </div>
     );
   }
-});
+}

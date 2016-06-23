@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'react-router/lib/Link';
-import helper from './helper';
+import helper from '../helper.jsx';
 
 export class InfoCard extends React.Component {
   getDefaultProps() {
@@ -14,7 +14,7 @@ export class InfoCard extends React.Component {
       }
     };
   }
-  
+
   render() {
     // Create the main
     var classes = [
@@ -41,4 +41,4 @@ export class InfoCard extends React.Component {
     );
 
   }
-});
+}

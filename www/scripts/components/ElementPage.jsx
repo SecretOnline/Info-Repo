@@ -1,5 +1,5 @@
 import React from 'react';
-import ElementCardList from './components/ElementCardList';
+import ElementCardList from '../components/ElementCardList.jsx';
 
 export class ElementPage extends React.Component {
   render() {
@@ -10,4 +10,4 @@ export class ElementPage extends React.Component {
       </div>
     );
   }
-});
+}

@@ -22,4 +22,4 @@ export class RepoNotFound extends React.Component {
       </div>
     );
   }
-});
+}

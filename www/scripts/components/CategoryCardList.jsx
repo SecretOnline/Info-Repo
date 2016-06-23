@@ -1,15 +1,15 @@
 import React from 'react';
-import CategoryCard from './components/CategoryCard';
+import CategoryCard from '../components/CategoryCard.jsx';
 
 export class CategoryCardList extends React.Component {
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       categories: [],
       click: null
     };
   }
 
-  render: function() {
+  render() {
     var self = this;
     var cardNodes = this.props.categories
       .sort(function(a, b) {

@@ -1,6 +1,6 @@
 import React from 'react';
-import ElementCard from './components/ElementCard';
-import helper from './helper';
+import ElementCard from '../components/ElementCard.jsx';
+import helper from '../helper.jsx';
 
 export class ElementCardList extends React.Component {
   getDefaultProps() {
@@ -9,7 +9,7 @@ export class ElementCardList extends React.Component {
       click: null
     };
   }
-  
+
   render() {
     var self = this;
     var cardNodes = this.props.elements.map(function(element) {
@@ -24,4 +24,4 @@ export class ElementCardList extends React.Component {
       </div>
     );
   }
-});
+}

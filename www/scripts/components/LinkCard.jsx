@@ -1,5 +1,5 @@
 import React from 'react';
-import helper from './helper';
+import helper from '../helper.jsx';
 
 export class LinkCard extends React.Component {
   getDefaultProps() {
@@ -55,4 +55,4 @@ export class LinkCard extends React.Component {
       </div>
     );
   }
-});
+}

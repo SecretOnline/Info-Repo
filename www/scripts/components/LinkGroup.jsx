@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkCard from './components/LinkCard';
+import LinkCard from '../components/LinkCard.jsx';
 
 export class LinkGroup extends React.Component {
   getDefaultProps() {
@@ -11,7 +11,7 @@ export class LinkGroup extends React.Component {
       click: null
     };
   }
-  
+
   render() {
     var self = this;
     var cardNodes = this.props.data.items
@@ -36,4 +36,4 @@ export class LinkGroup extends React.Component {
       </div>
     );
   }
-});
+}

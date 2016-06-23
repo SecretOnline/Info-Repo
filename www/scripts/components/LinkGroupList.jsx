@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkGroup from './components/LinkGroup';
+import LinkGroup from '../components/LinkGroup.jsx';
 
 export class LinkGroupList extends React.Component {
   getDefaultProps() {
@@ -30,4 +30,4 @@ export class LinkGroupList extends React.Component {
       </div>
     );
   }
-});
+}
