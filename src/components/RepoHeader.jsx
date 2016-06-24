@@ -15,7 +15,7 @@ export default class RepoHeader extends React.Component {
         <h1 className="title"><Link to="/">NMS Information Repository</Link></h1>
         <div className="button-container">
           <button type="button" className="menu" onClick={this.toggleNav}>
-            <img src="res/menu.svg" alt="Navigation" />
+            <img src="/res/menu.svg" alt="Navigation" />
           </button>
         </div>
       </header>

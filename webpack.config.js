@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 var PATHS = {
   app: './src/main.jsx',
-  build: './www/scripts'
+  build: './www'
 };
 
 module.exports = {
