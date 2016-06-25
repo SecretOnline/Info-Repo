@@ -18,7 +18,7 @@ var truncateString = function(string, maxLength) {
   if (string.length < maxLength)
     return string;
   else
-    return string.substr(0, maxLength - 3) + '...';
+    return `${string.substr(0, maxLength - 3})}...`;
 };
 
 var modTitle = function(title) {

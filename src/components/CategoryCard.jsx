@@ -16,12 +16,12 @@ export default class CategoryCard extends React.Component {
     var classes = [
       'card',
       'category-card',
-      'cat-' + this.props.data.class
+      `cat-${this.props.data.class}`
     ];
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
-        <ReactRouter.Link to={this.props.link + '/' + encodeURIComponent(helper.modTitle(this.props.data.title))}>
+        <ReactRouter.Link to={`${this.props.link}/${encodeURIComponent(helper.modTitle(this.props.data.title))}`}>
           <div className="header">
             <h3 className="card-title" key="header-title">{this.props.data.title}</h3>
           </div>

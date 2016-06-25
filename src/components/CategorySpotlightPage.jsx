@@ -51,7 +51,7 @@ export default class CategorySpotlightPage extends React.Component {
 
     if (categoryList && categoryList.length) {
       content.push(<h2 key="list-title">Category: {category.title}</h2>);
-      content.push(<InfoCardList key="list" info={categoryList} link={'/categories/' + encodeURIComponent(helper.modTitle(category.title))} />)
+      content.push(<InfoCardList key="list" info={categoryList} link={`/categories/${encodeURIComponent(helper.modTitle(category.title))}`} />)
     }
 
     content.push(<h2 key="nav-title">Other</h2>)

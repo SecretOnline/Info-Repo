@@ -18,7 +18,7 @@ export default class InfoCardList extends React.Component {
       return 0;
     }).map((info) => {
       return (
-        <InfoCard data={info} key={info.title} link={this.props.link + '/' + encodeURIComponent(helper.modTitle(info.title))} />
+        <InfoCard data={info} key={info.title} link={this.props.link} />
       );
     });
 

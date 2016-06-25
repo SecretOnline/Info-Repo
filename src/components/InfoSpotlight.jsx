@@ -29,9 +29,9 @@ export default class InfoSpotlight extends React.Component {
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>)
     ];
     if (this.props.data.categories && this.props.data.categories.length) {
-      classes.push('cat-' + this.props.data.categories[0].class);
+      classes.push(`cat-${this.props.data.categories[0].class}`);
       var categoryNodes = this.props.data.categories.map((cat) => {
-        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={'/categories/' + helper.modTitle(cat.title)}>{cat.title}</ReactRouter.Link></li>)
+        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={`/categories/${encodeURIComponent(helper.modTitle(cat.title))}`}>{cat.title}</ReactRouter.Link></li>)
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }
