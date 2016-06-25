@@ -1,14 +1,26 @@
 export default class SearchBox extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: ''
+    };
+
+    this.checkEnter = this.checkEnter.bind(this);
+    this.inputChange = this.inputChange.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
+  }
+
   static get defaultProps() {
     return {
       callback: null
     };
   }
 
-  get state() {
-    return {
-      text: ''
-    };
+  checkEnter(event) {
+    if (event.key === 'Enter') {
+      this.submitSearch();
+    }
   }
 
   inputChange(event) {
@@ -26,8 +38,8 @@ export default class SearchBox extends React.Component {
   render() {
     return (
       <div className="search-area">
-        <input type="search" placeholder="Search the Repository" className="info-search-box" value={this.state.text} autoFocus />
-        <input type="button" value="Search" className="info-search-button" />
+        <input type="search" placeholder="Search the Repository" className="info-search-box" value={this.state.text} onChange={this.inputChange} onKeyUp={this.checkEnter} autoFocus />
+        <input type="button" value="Search" className="info-search-button" onClick={this.submitSearch} />
       </div>
     );
 
