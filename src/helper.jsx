@@ -12,7 +12,7 @@ var httpGet = function(url) {
   });
 };
 
-var truncateString = function(string, maxLength) {
+var truncateString = function(string, maxLength = 10) {
   string = string.replace(/^https?:\/\/(?:www\.)?/i, '');
 
   if (string.length < maxLength)
