@@ -10,16 +10,15 @@ export default class InfoCardList extends React.Component {
   }
 
   render() {
-    var self = this;
-    var cardNodes = this.props.info.sort(function(a, b) {
+    var cardNodes = this.props.info.sort((a, b) => {
       if (a.title < b.title)
         return -1;
       if (a.title > b.title)
         return 1;
       return 0;
-    }).map(function(info) {
+    }).map((info) => {
       return (
-        <InfoCard data={info} key={info.title} link={self.props.link + '/' + encodeURIComponent(helper.modTitle(info.title))} />
+        <InfoCard data={info} key={info.title} link={this.props.link} />
       );
     });
 

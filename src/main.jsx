@@ -20,11 +20,11 @@ var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resourc
 var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
   .then(JSON.parse);
 Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
-  .then(function(results) {
+  .then((results) => {
     // Replace category names with category objects
-    results[1].forEach(function(info) {
-      info.categories.forEach(function(cat, index) {
-        info.categories[index] = results[0].find(function(item) {
+    results[1].forEach((info) => {
+      info.categories.forEach((cat, index) => {
+        info.categories[index] = results[0].find((item) => {
           return item.title === cat;
         }) || info.categories[index];
       });
@@ -32,7 +32,7 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
 
     return results;
   })
-  .then(function(results) {
+  .then((results) => {
 
     var routerConf = {
       path: '/',

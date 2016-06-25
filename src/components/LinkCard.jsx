@@ -34,14 +34,14 @@ export default class LinkCard extends React.Component {
     ];
 
     if (this.props.data.method === 'link') {
-      headerList.push(<img src={'/res/external' + ((this.props.data.darkText) ? '-dark' : '') + '.svg'} alt="Open in new tab/window" className="external" key="external" />);
+      headerList.push(<img src={`/res/external${((this.props.data.darkText) ? '-dark' : '')}.svg`} alt="Open in new tab/window" className="external" key="external" />);
     } else if (this.props.data.method === 'yt') {
-      headerList.push(<img src={'/res/youtube' + ((this.props.data.darkText) ? '-dark' : '') + '.svg'} alt="Open in YouTube" className="external" key="external" />);
+      headerList.push(<img src={`/res/youtube${((this.props.data.darkText) ? '-dark' : '')}.svg`} alt="Open in YouTube" className="external" key="external" />);
     }
 
     var url = this.props.data.src;
     if (this.props.data.method === 'yt') {
-      url = 'https://www.youtube.com/watch?v=' + url;
+      url = `https://www.youtube.com/watch?v=${url}`;
     }
 
     return (

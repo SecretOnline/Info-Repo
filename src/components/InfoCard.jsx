@@ -20,7 +20,7 @@ export default class InfoCard extends React.Component {
       'info-card'
     ];
     if (this.props.data.categories.length) {
-      classes.push('cat-' + this.props.data.categories[0].class);
+      classes.push(`cat-${this.props.data.categories[0].class}`);
     }
 
     // Set header stuff
@@ -30,7 +30,7 @@ export default class InfoCard extends React.Component {
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
-        <ReactRouter.Link to={this.props.link}>
+        <ReactRouter.Link to={`${this.props.link}/${encodeURIComponent(helper.modTitle(this.props.data.title))}`}>
           <div className="header" onClick={helper.scrollToTop}>
             {headerList}
           </div>

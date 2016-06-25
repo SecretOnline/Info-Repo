@@ -12,13 +12,13 @@ var httpGet = function(url) {
   });
 };
 
-var truncateString = function(string, maxLength) {
+var truncateString = function(string, maxLength = 10) {
   string = string.replace(/^https?:\/\/(?:www\.)?/i, '');
 
   if (string.length < maxLength)
     return string;
   else
-    return string.substr(0, maxLength - 3) + '...';
+    return `${string.substr(0, maxLength - 3})}...`;
 };
 
 var modTitle = function(title) {
