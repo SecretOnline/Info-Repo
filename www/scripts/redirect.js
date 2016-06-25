@@ -25,10 +25,12 @@
     }
 
     // And awaaayy we go!
-    if (item) {
-      window.location = page + '/' + item;
-    } else {
-      window.location = page;
+    if (page) {
+      if (item) {
+        window.location = '/' + page + '/' + item;
+      } else {
+        window.location = '/' + page;
+      }
     }
   }
 }());
