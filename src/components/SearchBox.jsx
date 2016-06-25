@@ -3,11 +3,11 @@ import helper from '../helper.jsx';
 export default class SearchBox extends React.Component {
   static get defaultProps() {
     return {
-      callback: null;
+      callback: null
     };
   }
 
-  static get initialState() {
+  get state() {
     return {
       text: ''
     };
@@ -28,8 +28,8 @@ export default class SearchBox extends React.Component {
   render() {
     return (
       <div className="search-area">
-        <input type="search" placeholder="Search the Repository" className="info-search-box" value={this.state.text} autofocus >
-        <input type="button" value="Search" className="info-search-button" >
+        <input type="search" placeholder="Search the Repository" className="info-search-box" value={this.state.text} autofocus />
+        <input type="button" value="Search" className="info-search-button" />
       </div>
     );
 
