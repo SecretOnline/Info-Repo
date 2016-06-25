@@ -1,6 +1,6 @@
 import SearchBox from '../components/SearchBox.jsx';
 
-export default class LinkPage extends React.Component {
+export default class SearchPage extends React.Component {
   render() {
     function goTo(result) {
       ReactRouter.browserHistory.push(`/search/${encodeURIComponent(result)}`);
