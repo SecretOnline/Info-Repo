@@ -10,6 +10,7 @@ export default class RepoNav extends React.Component {
     return (
       <nav>
         <ul>
+          <li className="tab-search" onClick={this.closeNav}><ReactRouter.Link to="/search">Search</ReactRouter.Link></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/info">Information</ReactRouter.Link></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/categories">Categories</ReactRouter.Link></li>
           <li className="tab-info" onClick={this.closeNav}><ReactRouter.Link to="/elements">Elements</ReactRouter.Link></li>
