@@ -3,10 +3,8 @@ import helper from '../helper.jsx';
 
 export default class ElementSpotlightPage extends React.Component {
   render() {
-    var self = this;
-
-    var spotlight = this.props.route.elements.find(function(info) {
-      return self.props.routeParams.element === helper.modTitle(info.title);
+    var spotlight = this.props.route.elements.find((info) => {
+      return this.props.routeParams.element === helper.modTitle(info.title);
     });
 
     if (!spotlight) {

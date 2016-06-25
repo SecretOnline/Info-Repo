@@ -4,17 +4,15 @@ import helper from '../helper.jsx';
 
 export default class CategoryListPage extends React.Component {
   render() {
-    var self = this;
-
-    var category = this.props.route.categories.find(function(cat) {
-      return self.props.routeParams.category === helper.modTitle(cat.title);
+    var category = this.props.route.categories.find((cat) => {
+      return this.props.routeParams.category === helper.modTitle(cat.title);
     });
 
     var categoryList;
     if (category) {
-      categoryList = this.props.route.info.filter(function(info) {
+      categoryList = this.props.route.info.filter((info) => {
         if (info.categories) {
-          return info.categories.find(function(cat) {
+          return info.categories.find((cat) => {
             return cat.title === category.title;
           });
         } else {
