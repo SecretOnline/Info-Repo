@@ -90,6 +90,11 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
           component: SearchPage
         },
         {
+          path: '/search/:search',
+          component: SearchResultPage,
+          info: results[1]
+        },
+        {
           path: '*',
           component: RepoNotFound
         }
