@@ -1,5 +1,3 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
 import InfoSpotlight from '../components/InfoSpotlight.jsx';
 import InfoCardList from '../components/InfoCardList.jsx';
 import helper from '../helper.jsx';
@@ -61,11 +59,11 @@ export default class CategorySpotlightPage extends React.Component {
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <Link to="/categories">
+        <ReactRouter.Link to="/categories">
           <div className="header">
             <h3 className="card-title">Back to Categories</h3>
           </div>
-        </Link>
+        </ReactRouter.Link>
       </div>
     );
 

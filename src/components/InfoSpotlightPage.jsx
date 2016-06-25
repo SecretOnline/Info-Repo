@@ -1,7 +1,5 @@
-import React from 'react';
 import InfoSpotlight from '../components/InfoSpotlight.jsx';
 import InfoCardList from '../components/InfoCardList.jsx';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoSpotlightPage extends React.Component {
@@ -44,11 +42,11 @@ export default class InfoSpotlightPage extends React.Component {
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <Link to="/info">
+        <ReactRouter.Link to="/info">
           <div className="header">
             <h3 className="card-title">Back to All Information</h3>
           </div>
-        </Link>
+        </ReactRouter.Link>
       </div>
     );
 

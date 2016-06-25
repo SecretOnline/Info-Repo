@@ -1,6 +1,4 @@
-import React from 'react';
 import ElementSpotlight from '../components/ElementSpotlight.jsx';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class ElementSpotlightPage extends React.Component {
@@ -27,11 +25,11 @@ export default class ElementSpotlightPage extends React.Component {
         <ElementSpotlight data={spotlight} link="/elements" />
         <h2>Other</h2>
           <div className="card">
-            <Link to="/elements">
+            <ReactRouter.Link to="/elements">
               <div className="header">
                 <h3 className="card-title">Back to All Elements</h3>
               </div>
-            </Link>
+            </ReactRouter.Link>
           </div>
       </div>
     );

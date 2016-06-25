@@ -1,5 +1,3 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoSpotlight extends React.Component {
@@ -35,7 +33,7 @@ export default class InfoSpotlight extends React.Component {
     if (this.props.data.categories && this.props.data.categories.length) {
       classes.push('cat-' + this.props.data.categories[0].class);
       var categoryNodes = this.props.data.categories.map(function(cat) {
-        return (<li data-id={cat.class} key={cat.class}><Link to={'/categories/' + helper.modTitle(cat.title)}>{cat.title}</Link></li>)
+        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={'/categories/' + helper.modTitle(cat.title)}>{cat.title}</ReactRouter.Link></li>)
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }

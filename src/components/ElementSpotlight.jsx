@@ -1,4 +1,3 @@
-import React from 'react';
 import ElementCard from '../components/ElementCard.jsx';
 import helper from '../helper.jsx';
 

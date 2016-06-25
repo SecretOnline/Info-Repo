@@ -1,4 +1,3 @@
-import React from 'react';
 import CategoryCard from '../components/CategoryCard.jsx';
 
 export default class CategoryCardList extends React.Component {

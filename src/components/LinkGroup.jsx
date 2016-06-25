@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkCard from '../components/LinkCard.jsx';
 
 export default class LinkGroup extends React.Component {

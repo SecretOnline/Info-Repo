@@ -1,5 +1,3 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoCard extends React.Component {
@@ -32,11 +30,11 @@ export default class InfoCard extends React.Component {
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
-        <Link to={this.props.link}>
+        <ReactRouter.Link to={this.props.link}>
           <div className="header" onClick={helper.scrollToTop}>
             {headerList}
           </div>
-        </Link>
+        </ReactRouter.Link>
       </div>
     );
 
