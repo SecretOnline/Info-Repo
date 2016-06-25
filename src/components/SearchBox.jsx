@@ -31,7 +31,7 @@ export default class SearchBox extends React.Component {
 
   submitSearch() {
     if (this.props.callback) {
-      callback(this.state.text)
+      this.props.callback(this.state.text)
     }
   }
 
