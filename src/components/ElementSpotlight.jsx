@@ -34,7 +34,7 @@ export default class ElementSpotlight extends React.Component {
     if (this.props.data.text && this.props.data.text.length) {
       var descNodes = this.props.data.text.map((desc, index) => {
         if (this.props.highlighted.length) {
-          if (this.props.highlighted.indexOf(index) > -1) {
+          if (this.props.highlighted.indexOf(index + 1) > -1) {
             return (
               <p key={`${index}-highlight`} className="highlighted">{desc}</p>
             )
