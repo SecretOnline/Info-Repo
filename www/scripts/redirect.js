@@ -8,8 +8,8 @@
 
   try {
     // Thanks to https://developer.mozilla.org/en-US/docs/Web/API/URLUtils/search for the following block of code
-    if (win.location.search.length > 1) {
-      for (var aItKey, nKeyId = 0, aCouples = win.location.search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
+    if (window.location.search.length > 1) {
+      for (var aItKey, nKeyId = 0, aCouples = window.location.search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
         aItKey = aCouples[nKeyId].split("=");
         searchParams[decodeURIComponent(aItKey[0])] = aItKey.length > 1 ? decodeURIComponent(aItKey[1]).replace(/_/g, " ") : "";
       }
