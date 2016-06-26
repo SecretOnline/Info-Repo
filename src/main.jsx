@@ -114,4 +114,12 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
       </ReactRouter.Router>,
       document.querySelector('.repo-container')
     );
+  })
+  .then(() => {
+    ReactRouter.browserHistory.listen((state) => {
+      if (state.action === 'PUSH') {
+        helper.changeCanonical(state.pathname);
+      }
+    });
+    helper.changeCanonical(window.location.pathname);
   });
