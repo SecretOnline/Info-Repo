@@ -34,6 +34,10 @@
     page = 'info';
     if (searchParams.info) {
       item = searchParams.info;
+
+      if (searchParams.highlight) {
+        highlighted = searchParams.highlight;
+      }
     }
   } else if (typeof searchParams.element !== 'undefined') {
     page = 'elements';
@@ -50,7 +54,11 @@
   // And awaaayy we go!
   if (page) {
     if (item) {
-      window.location = '/' + page + '/' + item;
+      if (highlighted) {
+        window.location = '/' + page + '/' + item + '#' + highlighted;
+      } else {
+        window.location = '/' + page + '/' + item;
+      }
     } else {
       window.location = '/' + page;
     }
