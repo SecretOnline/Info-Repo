@@ -66,16 +66,16 @@ export default class InfoSpotlight extends React.Component {
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
       var infoNodes = this.props.data.text.map((info, index) => {
-        var oneIndex = index++;
+        var oneIndex = index + 1;
         if (this.props.highlighted.length) {
           if (this.props.highlighted.indexOf(oneIndex) > -1) {
             return (
-              <p key={`${index}-highlight`} className="highlighted" data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
+              <p key={`${oneIndex}-highlight`} className="highlighted" data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
             )
           }
         }
         return (
-          <p key={index} data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
+          <p key={oneIndex} data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
         )
       });
       bodyList.push((<div className="information" key="body-info">{infoNodes}</div>));

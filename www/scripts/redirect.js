@@ -11,7 +11,7 @@
     if (window.location.search.length > 1) {
       for (var aItKey, nKeyId = 0, aCouples = window.location.search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
         aItKey = aCouples[nKeyId].split("=");
-        searchParams[decodeURIComponent(aItKey[0])] = aItKey.length > 1 ? decodeURIComponent(aItKey[1]).replace(/_/g, " ") : "";
+        searchParams[decodeURIComponent(aItKey[0])] = aItKey.length > 1 ? decodeURIComponent(aItKey[1]) : "";
       }
     }
   } catch (err) {
