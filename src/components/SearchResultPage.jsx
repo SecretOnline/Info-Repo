@@ -13,11 +13,7 @@ export default class SearchResultPage extends React.Component {
       ReactRouter.browserHistory.push(`/search/${encodeURIComponent(result)}`);
     }
 
-    function generalSearch(query) {
-      var title = doc.querySelector('.search-title');
-      title.textContent = 'Search: ' + query;
-      var container = doc.querySelector('.search-list');
-
+    function generalSearch(query, info) {
       var scores = {};
       var infoIndexArr = Object.keys(info);
 
@@ -25,30 +21,13 @@ export default class SearchResultPage extends React.Component {
       infoIndexArr.forEach((index) => {
         var item = info[index];
         var score = getSearchScore(query, item);
-        var card = createInfoCard(item);
 
         // Don't add anything with a score of 0
         if (score > 0) {
           if (!scores[score])
             scores[score] = [];
 
-          scores[score].push(card);
-        }
-      });
-      // Search elements as well
-      var resIndexArr = Object.keys(resources);
-      // Get the score for an element
-      resIndexArr.forEach((index) => {
-        var item = resources[index];
-        var score = getElementSearchScore(query, item);
-
-        // Don't add anything with a score of 0
-        if (score > 0) {
-          if (!scores[score])
-            scores[score] = [];
-
-          var card = createResourceCard(item);
-          scores[score].push(card);
+          scores[score].push(item);
         }
       });
 
@@ -69,30 +48,13 @@ export default class SearchResultPage extends React.Component {
       // Add information backwards (so highest score is at top)
       values.forEach((score) => {
         var arr = [];
-        scores[score].forEach((card) => {
-          arr.push(card);
+        scores[score].forEach((item) => {
+          arr.push(item);
         });
         cardArr = arr.concat(cardArr);
       });
 
-      ga('send', 'event', 'Search', 'search', query, cardArr.length);
-
-      // Expand card if only one item returned in search
-      if (cardArr.length === 1) {
-        cardArr[0].classList.add('expanded');
-        if (cardArr[0].classList.contains('info-card'))
-          addCardInfo(cardArr[0], info[cardArr[0].dataset.title]);
-        else if (cardArr[0].classList.contains('element-card'))
-          addResourceInfo(cardArr[0], resources[cardArr[0].dataset.name]);
-      }
-
-      container.innerHTML = '';
-      cardArr.forEach((item) => {
-        container.appendChild(item);
-      });
-
-      win.history.replaceState(null, '', '?search=' + (query.replace(/\s/g, "_")));
-      win.scroll(0, 0);
+      return cardArr;
     }
 
     function getSearchScore(query, info) {
@@ -137,10 +99,14 @@ export default class SearchResultPage extends React.Component {
       return score;
     }
 
+    var query = this.props.routeParams.search;
+    var infoList = this.props.route.info;
+
     return (
       <div class="page search-page">
         <h2>Search</h2>
         <SearchBox callback={goTo} />
+        <InfoCardList info={generalSearch(query, infoList)} />
       </div>
     );
   }
