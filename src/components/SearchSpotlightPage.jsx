@@ -17,6 +17,7 @@ export default class SearchResultPage extends React.Component {
     var spotlight = infoList.find((info) => {
       return this.props.routeParams.info === helper.modTitle(info.title);
     });
+    var highlighted = [];
 
     if (!spotlight) {
       spotlight = {
@@ -29,9 +30,25 @@ export default class SearchResultPage extends React.Component {
       }
     }
 
+    if (this.props.location.hash) {
+      highlighted = this.props.location.hash
+        .substr(1)
+        .split(',')
+        .map((item) => {
+          try {
+            return Number.parseInt(item);
+          } catch (e) {
+            return null;
+          }
+        })
+        .filter((item) => {
+          return item !== null;
+        });
+    }
+
     return (
       <div class="page search-page">
-        <InfoSpotlight data={spotlight} />
+        <InfoSpotlight data={spotlight} highlighted={highlighted} />
         <h2>{`Search - ${query}`}</h2>
         <InfoCardList info={search.generalSearch(query, infoList)} link={`/search/${encodeURIComponent(query)}`} />
         <h2>Other</h2>

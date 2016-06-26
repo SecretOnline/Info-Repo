@@ -11,6 +11,7 @@ export default class CategorySpotlightPage extends React.Component {
     var spotlight = this.props.route.info.find((info) => {
       return this.props.routeParams.info === helper.modTitle(info.title);
     });
+    var highlighted = [];
 
     var categoryList;
     if (category) {
@@ -23,6 +24,22 @@ export default class CategorySpotlightPage extends React.Component {
           return false;
         }
       });
+    }
+
+    if (this.props.location.hash) {
+      highlighted = this.props.location.hash
+        .substr(1)
+        .split(',')
+        .map((item) => {
+          try {
+            return Number.parseInt(item);
+          } catch (e) {
+            return null;
+          }
+        })
+        .filter((item) => {
+          return item !== null;
+        });
     }
 
     if (!category) {
@@ -46,7 +63,7 @@ export default class CategorySpotlightPage extends React.Component {
     }
 
     var content = [
-      <InfoSpotlight key="spotlight" data={spotlight} link="/info" />
+      <InfoSpotlight key="spotlight" data={spotlight} link="/info" highlighted={highlighted} />
     ];
 
     if (categoryList && categoryList.length) {
