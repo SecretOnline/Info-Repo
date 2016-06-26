@@ -12,7 +12,7 @@ export default class ElementSpotlight extends React.Component {
         text: ['Please wait, this shouldn\'t take too long'],
         type: ''
       },
-      click: null
+      highlighted: []
     };
   }
 
@@ -33,6 +33,13 @@ export default class ElementSpotlight extends React.Component {
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
       var descNodes = this.props.data.text.map((desc, index) => {
+        if (this.props.highlighted.length) {
+          if (this.props.highlighted.indexOf(index) > -1) {
+            return (
+              <p key={`${index}-highlight`} className="highlighted">{desc}</p>
+            )
+          }
+        }
         return (
           <p key={index}>{desc}</p>
         )
