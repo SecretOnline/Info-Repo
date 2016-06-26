@@ -3,7 +3,7 @@ export default class SearchBox extends React.Component {
     super(props);
 
     this.state = {
-      text: ''
+      text: props.text || ''
     };
 
     this.checkEnter = this.checkEnter.bind(this);
