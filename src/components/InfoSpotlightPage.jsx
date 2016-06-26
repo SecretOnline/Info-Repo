@@ -4,8 +4,6 @@ import helper from '../helper.jsx';
 
 export default class InfoSpotlightPage extends React.Component {
   render() {
-    var self = this;
-
     var spotlight = this.props.route.info.find((info) => {
       return this.props.routeParams.info === helper.modTitle(info.title);
     });
