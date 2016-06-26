@@ -14,6 +14,33 @@ export default class InfoSpotlight extends React.Component {
     };
   }
 
+  highlightChanger(event) {
+    var index = event.target.dataset.index;
+
+    var curr = window.location.hash
+      .substr(1)
+      .split(',');
+
+    if (curr[0] === '') {
+      curr = [];
+    }
+
+    if (curr.indexOf(index) > -1) {
+      curr = curr.filter((item) => {
+        return item !== index;
+      });
+    } else {
+      curr.push(index);
+    }
+
+    if (curr.length) {
+      curr.sort();
+      ReactRouter.browserHistory.push(`${window.location.pathname}#${curr.join(',')}`);
+    } else {
+      ReactRouter.browserHistory.push(window.location.pathname);
+    }
+  }
+
   render() {
     var classes = [
       'spotlight',
@@ -39,15 +66,16 @@ export default class InfoSpotlight extends React.Component {
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
       var infoNodes = this.props.data.text.map((info, index) => {
+        var oneIndex = index++;
         if (this.props.highlighted.length) {
-          if (this.props.highlighted.indexOf(index + 1) > -1) {
+          if (this.props.highlighted.indexOf(oneIndex) > -1) {
             return (
-              <p key={`${index}-highlight`} className="highlighted">{info}</p>
+              <p key={`${index}-highlight`} className="highlighted" data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
             )
           }
         }
         return (
-          <p key={index}>{info}</p>
+          <p key={index} data-index={oneIndex} onClick={this.highlightChanger}>{info}</p>
         )
       });
       bodyList.push((<div className="information" key="body-info">{infoNodes}</div>));
