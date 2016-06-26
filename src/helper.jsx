@@ -45,9 +45,19 @@ function scrollToTop() {
   nextScroll();
 };
 
+function changeCanonical(path) {
+  var link = document.querySelector('link[rel=canonical]');
+  if (link) {
+    link.href = `${window.location.protocol}//${window.location.host}/${path}`;
+  } else {
+    console.error('unable to change canonical link, element doesn\'t exist');
+  }
+}
+
 export default {
   httpGet: httpGet,
   truncateString: truncateString,
   modTitle: modTitle,
-  scrollToTop: scrollToTop
+  scrollToTop: scrollToTop,
+  changeCanonical: changeCanonical
 };
