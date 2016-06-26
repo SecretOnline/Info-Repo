@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default class RepoFooter extends React.Component {
   render() {
     return (

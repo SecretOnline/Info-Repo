@@ -1,26 +1,22 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
 import InfoSpotlight from '../components/InfoSpotlight.jsx';
 import InfoCardList from '../components/InfoCardList.jsx';
 import helper from '../helper.jsx';
 
 export default class CategorySpotlightPage extends React.Component {
   render() {
-    var self = this;
-
-    var category = this.props.route.categories.find(function(cat) {
-      return self.props.routeParams.category === helper.modTitle(cat.title);
+    var category = this.props.route.categories.find((cat) => {
+      return this.props.routeParams.category === helper.modTitle(cat.title);
     });
 
-    var spotlight = this.props.route.info.find(function(info) {
-      return self.props.routeParams.info === helper.modTitle(info.title);
+    var spotlight = this.props.route.info.find((info) => {
+      return this.props.routeParams.info === helper.modTitle(info.title);
     });
 
     var categoryList;
     if (category) {
-      categoryList = this.props.route.info.filter(function(info) {
+      categoryList = this.props.route.info.filter((info) => {
         if (info.categories) {
-          return info.categories.find(function(cat) {
+          return info.categories.find((cat) => {
             return cat.title === category.title;
           });
         } else {
@@ -55,17 +51,17 @@ export default class CategorySpotlightPage extends React.Component {
 
     if (categoryList && categoryList.length) {
       content.push(<h2 key="list-title">Category: {category.title}</h2>);
-      content.push(<InfoCardList key="list" info={categoryList} link={'/categories/' + encodeURIComponent(helper.modTitle(category.title))} />)
+      content.push(<InfoCardList key="list" info={categoryList} link={`/categories/${encodeURIComponent(helper.modTitle(category.title))}`} />)
     }
 
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <Link to="/categories">
+        <ReactRouter.Link to="/categories">
           <div className="header">
             <h3 className="card-title">Back to Categories</h3>
           </div>
-        </Link>
+        </ReactRouter.Link>
       </div>
     );
 

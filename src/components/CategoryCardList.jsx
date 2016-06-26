@@ -1,4 +1,3 @@
-import React from 'react';
 import CategoryCard from '../components/CategoryCard.jsx';
 
 export default class CategoryCardList extends React.Component {
@@ -10,18 +9,17 @@ export default class CategoryCardList extends React.Component {
   }
 
   render() {
-    var self = this;
     var cardNodes = this.props.categories
-      .sort(function(a, b) {
+      .sort((a, b) => {
         if (a.title < b.title)
           return -1;
         if (a.title > b.title)
           return 1;
         return 0;
       })
-      .map(function(cardData) {
+      .map((cardData) => {
         return (
-          <CategoryCard data={cardData} key={cardData.title} link={self.props.link} />
+          <CategoryCard data={cardData} key={cardData.title} link={this.props.link} />
         );
       });
 

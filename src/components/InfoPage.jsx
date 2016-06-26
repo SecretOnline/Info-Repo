@@ -1,4 +1,3 @@
-import React from 'react';
 import InfoCardList from '../components/InfoCardList.jsx';
 
 export default class InfoPage extends React.Component {

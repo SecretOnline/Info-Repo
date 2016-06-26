@@ -1,6 +1,3 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
-
 export default class RepoNotFound extends React.Component {
   render() {
     return (
@@ -13,11 +10,11 @@ export default class RepoNotFound extends React.Component {
           Please check the URL, or go back and try again.
         </p>
         <div className="card">
-          <Link to="/info">
+          <ReactRouter.Link to="/info">
             <div className="header">
               <h3 className="card-title">Back to Information Repository</h3>
             </div>
-          </Link>
+          </ReactRouter.Link>
         </div>
       </div>
     );

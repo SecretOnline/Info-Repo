@@ -1,4 +1,3 @@
-import React from 'react';
 import ElementCard from '../components/ElementCard.jsx';
 import helper from '../helper.jsx';
 
@@ -11,10 +10,9 @@ export default class ElementCardList extends React.Component {
   }
 
   render() {
-    var self = this;
-    var cardNodes = this.props.elements.map(function(element) {
+    var cardNodes = this.props.elements.map((element) => {
       return (
-        <ElementCard data={element} key={element.title} link={self.props.link} />
+        <ElementCard data={element} key={element.title} link={this.props.link} />
       );
     });
 

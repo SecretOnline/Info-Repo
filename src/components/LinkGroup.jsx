@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkCard from '../components/LinkCard.jsx';
 
 export default class LinkGroup extends React.Component {
@@ -13,12 +12,11 @@ export default class LinkGroup extends React.Component {
   }
 
   render() {
-    var self = this;
     var cardNodes = this.props.data.items
-      .map(function(cardData) {
-        if (self.props.click && typeof self.props.click === 'function') {
+      .map((cardData) => {
+        if (this.props.click && typeof this.props.click === 'function') {
           return (
-            <LinkCard click={self.props.click} data={cardData} key={cardData.title} />
+            <LinkCard click={this.props.click} data={cardData} key={cardData.title} />
           );
         } else {
           return (

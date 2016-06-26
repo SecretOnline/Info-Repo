@@ -1,5 +1,3 @@
-import React from 'react';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoSpotlight extends React.Component {
@@ -17,8 +15,6 @@ export default class InfoSpotlight extends React.Component {
   }
 
   render() {
-    var self = this;
-    // Create the main
     var classes = [
       'spotlight',
       'info-card'
@@ -33,16 +29,16 @@ export default class InfoSpotlight extends React.Component {
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>)
     ];
     if (this.props.data.categories && this.props.data.categories.length) {
-      classes.push('cat-' + this.props.data.categories[0].class);
-      var categoryNodes = this.props.data.categories.map(function(cat) {
-        return (<li data-id={cat.class} key={cat.class}><Link to={'/categories/' + helper.modTitle(cat.title)}>{cat.title}</Link></li>)
+      classes.push(`cat-${this.props.data.categories[0].class}`);
+      var categoryNodes = this.props.data.categories.map((cat) => {
+        return (<li data-id={cat.class} key={cat.class}><ReactRouter.Link to={`/categories/${encodeURIComponent(helper.modTitle(cat.title))}`}>{cat.title}</ReactRouter.Link></li>)
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }
     // Set card content stuff
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
-      var infoNodes = this.props.data.text.map(function(info, index) {
+      var infoNodes = this.props.data.text.map((info, index) => {
         return (
           <p key={index}>{info}</p>
         )
@@ -50,7 +46,7 @@ export default class InfoSpotlight extends React.Component {
       bodyList.push((<div className="information" key="body-info">{infoNodes}</div>));
     }
     if (this.props.data.sources && this.props.data.sources.length) {
-      var sourceNodes = this.props.data.sources.map(function(src) {
+      var sourceNodes = this.props.data.sources.map((src) => {
         return (
           <li key={src}><a href={src}>{helper.truncateString(src, 10)}</a></li>
         )

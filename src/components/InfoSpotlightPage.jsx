@@ -1,15 +1,13 @@
-import React from 'react';
 import InfoSpotlight from '../components/InfoSpotlight.jsx';
 import InfoCardList from '../components/InfoCardList.jsx';
-import Link from 'react-router/lib/Link';
 import helper from '../helper.jsx';
 
 export default class InfoSpotlightPage extends React.Component {
   render() {
     var self = this;
 
-    var spotlight = this.props.route.info.find(function(info) {
-      return self.props.routeParams.info === helper.modTitle(info.title);
+    var spotlight = this.props.route.info.find((info) => {
+      return this.props.routeParams.info === helper.modTitle(info.title);
     });
     var relatedData = [];
 
@@ -25,8 +23,8 @@ export default class InfoSpotlightPage extends React.Component {
     }
 
     if (spotlight.related && spotlight.related.length) {
-      relatedData = spotlight.related.map(function(rel) {
-        return self.props.route.info.find(function(item) {
+      relatedData = spotlight.related.map((rel) => {
+        return this.props.route.info.find((item) => {
           return rel === item.title;
         });
       });
@@ -44,11 +42,11 @@ export default class InfoSpotlightPage extends React.Component {
     content.push(<h2 key="nav-title">Other</h2>)
     content.push(
       <div key="back" className="card">
-        <Link to="/info">
+        <ReactRouter.Link to="/info">
           <div className="header">
             <h3 className="card-title">Back to All Information</h3>
           </div>
-        </Link>
+        </ReactRouter.Link>
       </div>
     );
 

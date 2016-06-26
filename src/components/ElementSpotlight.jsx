@@ -1,4 +1,3 @@
-import React from 'react';
 import ElementCard from '../components/ElementCard.jsx';
 import helper from '../helper.jsx';
 
@@ -33,7 +32,7 @@ export default class ElementSpotlight extends React.Component {
     // Set card content stuff
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
-      var descNodes = this.props.data.text.map(function(desc, index) {
+      var descNodes = this.props.data.text.map((desc, index) => {
         return (
           <p key={index}>{desc}</p>
         )
@@ -41,7 +40,7 @@ export default class ElementSpotlight extends React.Component {
       bodyList.push((<div className="information" key="body-desc">{descNodes}</div>));
     }
     if (this.props.data.places && this.props.data.places.length) {
-      var placeNodes = this.props.data.places.map(function(place) {
+      var placeNodes = this.props.data.places.map((place) => {
         return (
           <li key={place}>{place}</li>
         )
