@@ -10,6 +10,7 @@ import RepoApp from './components/RepoApp.jsx';
 import RepoHome from './components/RepoHome.jsx';
 import RepoNotFound from './components/RepoNotFound.jsx';
 import SearchPage from './components/SearchPage.jsx';
+import SearchResultPage from './components/SearchResultPage.jsx';
 import helper from './helper.jsx';
 
 var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
