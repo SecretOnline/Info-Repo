@@ -1,4 +1,4 @@
-var httpGet = function(url) {
+function httpGet(url) {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function() {
@@ -12,7 +12,7 @@ var httpGet = function(url) {
   });
 };
 
-var truncateString = function(string, maxLength = 10) {
+function truncateString(string, maxLength = 10) {
   string = string.replace(/^https?:\/\/(?:www\.)?/i, '');
 
   if (string.length < maxLength)
@@ -21,11 +21,11 @@ var truncateString = function(string, maxLength = 10) {
     return `${string.substr(0, maxLength - 3)}...`;
 };
 
-var modTitle = function(title) {
+function modTitle(title) {
   return title.replace(/\s/g, "_");
 };
 
-var scrollToTop = function() {
+function scrollToTop() {
   var increment = -80;
 
   function nextScroll() {

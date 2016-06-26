@@ -54,7 +54,7 @@ function getSearchScore(query, info) {
     score += 3;
   // Title contains parts
   querySplit.forEach((word) => {
-    if (lTitle.match(new RegExp('\\s' + word + '\\s')))
+    if (lTitle.match(new RegExp(`\\s${word}\\s`)))
       score += 5;
     if (lTitle.indexOf(word) > -1)
       score += 2;
@@ -66,7 +66,7 @@ function getSearchScore(query, info) {
       score += 2;
     // Text contains parts
     querySplit.forEach((word) => {
-      if (lText.match(new RegExp('\\s' + word + '\\s')))
+      if (lText.match(new RegExp(`\\s${word}\\s`)))
         score += 1;
       if (lText.indexOf(word) > -1)
         score += 1;
