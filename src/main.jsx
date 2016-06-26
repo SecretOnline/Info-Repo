@@ -47,98 +47,62 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
         {
           path: '/info',
           component: InfoPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('info');
-          },
           info: results[1]
         },
         {
           path: '/info/:info',
           component: InfoSpotlightPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`info/${params.info}`);
-          },
           info: results[1]
         },
         {
           path: '/categories',
           component: CategoryPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('categories');
-          },
           info: results[1],
           categories: results[0]
         },
         {
           path: '/categories/:category',
           component: CategoryListPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`categories/${params.category}`);
-          },
           info: results[1],
           categories: results[0]
         },
         {
           path: '/categories/:category/:info',
           component: CategorySpotlightPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`categories/${params.category}/${params.info}`);
-          },
           info: results[1],
           categories: results[0]
         },
         {
           path: '/elements',
           component: ElementPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('elements');
-          },
           elements: results[2]
         },
         {
           path: '/elements/:element',
           component: ElementSpotlightPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`elements/${params.element}`);
-          },
           elements: results[2]
         },
         {
           path: '/links',
           component: LinkPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('links');
-          },
           links: results[3]
         },
         {
           path: '/search',
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('search');
-          },
           component: SearchPage
         },
         {
           path: '/search/:search',
           component: SearchResultPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`search/${params.search}`);
-          },
           info: results[1]
         },
         {
           path: '/search/:search/:info',
           component: SearchSpotlightPage,
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical(`search/${params.search}/${params.info}`);
-          },
           info: results[1]
         },
         {
           path: '*',
-          onEnter: ({params}, redirect) => {
-            helper.changeCanonical('404');
-          },
           component: RepoNotFound
         }
       ]
@@ -150,4 +114,12 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
       </ReactRouter.Router>,
       document.querySelector('.repo-container')
     );
+  })
+  .then(() => {
+    ReactRouter.browserHistory.listen((state) => {
+      if (state.action === 'PUSH') {
+        helper.changeCanonical(state.pathname);
+      }
+    });
+    helper.changeCanonical(window.location.pathname);
   });
