@@ -9,6 +9,9 @@ import LinkPage from './components/LinkPage.jsx';
 import RepoApp from './components/RepoApp.jsx';
 import RepoHome from './components/RepoHome.jsx';
 import RepoNotFound from './components/RepoNotFound.jsx';
+import SearchPage from './components/SearchPage.jsx';
+import SearchResultPage from './components/SearchResultPage.jsx';
+import SearchSpotlightPage from './components/SearchSpotlightPage.jsx';
 import helper from './helper.jsx';
 
 var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
@@ -83,6 +86,20 @@ Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
           path: '/links',
           component: LinkPage,
           links: results[3]
+        },
+        {
+          path: '/search',
+          component: SearchPage
+        },
+        {
+          path: '/search/:search',
+          component: SearchResultPage,
+          info: results[1]
+        },
+        {
+          path: '/search/:search/:info',
+          component: SearchSpotlightPage,
+          info: results[1]
         },
         {
           path: '*',
