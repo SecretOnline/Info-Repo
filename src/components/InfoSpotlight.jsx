@@ -10,7 +10,7 @@ export default class InfoSpotlight extends React.Component {
         sources: [],
         related: []
       },
-      click: null
+      highlighted: []
     };
   }
 
@@ -39,6 +39,13 @@ export default class InfoSpotlight extends React.Component {
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
       var infoNodes = this.props.data.text.map((info, index) => {
+        if (this.props.highlighted.length) {
+          if (this.props.highlighted.indexOf(index) > -1) {
+            return (
+              <p key={`${index}-highlight`} className="highlighted">{info}</p>
+            )
+          }
+        }
         return (
           <p key={index}>{info}</p>
         )
