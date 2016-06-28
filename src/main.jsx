@@ -15,7 +15,8 @@ import SearchSpotlightPage from './components/SearchSpotlightPage.jsx';
 import helper from './helper.jsx';
 
 function initRepo() {
-  if (Promise) {
+  // Use Promise as test for ES6 support
+  if (typeof Promise !== 'undefined') {
     var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
       .then(JSON.parse);
     var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
@@ -37,7 +38,14 @@ function initRepo() {
         helper.changeCanonical(window.location.pathname);
       });
   } else {
-    throw new Error('Promise is not defined');
+    // Include es6 shim
+    var s = document.createElement('script');
+    s.async = 1;
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.min.js';
+
+    s.addEventListener('load', initRepo);
+
+    document.head.appendChild(s);
   }
 }
 
