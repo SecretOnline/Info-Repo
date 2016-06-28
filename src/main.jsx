@@ -14,6 +14,33 @@ import SearchResultPage from './components/SearchResultPage.jsx';
 import SearchSpotlightPage from './components/SearchSpotlightPage.jsx';
 import helper from './helper.jsx';
 
+function initRepo() {
+  if (Promise) {
+    var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
+      .then(JSON.parse);
+    var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
+      .then(JSON.parse);
+    var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
+      .then(JSON.parse);
+    var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
+      .then(JSON.parse);
+    Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
+      .then(replaceCategories)
+      .then(createRouterConfig)
+      .then(renderRoutes)
+      .then(() => {
+        ReactRouter.browserHistory.listen((state) => {
+          if (state.action === 'PUSH') {
+            helper.changeCanonical(state.pathname);
+          }
+        });
+        helper.changeCanonical(window.location.pathname);
+      });
+  } else {
+    throw new Error('Promise is not defined');
+  }
+}
+
 function replaceCategories(arrays) {
   // Replace category names with category objects
   arrays[1].forEach((info) => {
@@ -109,23 +136,4 @@ function renderRoutes(routes) {
   );
 }
 
-var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
-  .then(JSON.parse);
-var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
-  .then(JSON.parse);
-var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
-  .then(JSON.parse);
-var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
-  .then(JSON.parse);
-Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
-  .then(replaceCategories)
-  .then(createRouterConfig)
-  .then(renderRoutes)
-  .then(() => {
-    ReactRouter.browserHistory.listen((state) => {
-      if (state.action === 'PUSH') {
-        helper.changeCanonical(state.pathname);
-      }
-    });
-    helper.changeCanonical(window.location.pathname);
-  });
+initRepo();
