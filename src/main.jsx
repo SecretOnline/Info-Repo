@@ -6,6 +6,7 @@ import ElementSpotlightPage from './components/ElementSpotlightPage.jsx';
 import InfoPage from './components/InfoPage.jsx';
 import InfoSpotlightPage from './components/InfoSpotlightPage.jsx';
 import LinkPage from './components/LinkPage.jsx';
+import RepoAbout from './components/RepoAbout.jsx';
 import RepoApp from './components/RepoApp.jsx';
 import RepoHome from './components/RepoHome.jsx';
 import RepoNotFound from './components/RepoNotFound.jsx';
@@ -70,6 +71,10 @@ function createRouterConfig(results) {
       component: RepoHome
     },
     childRoutes: [
+      {
+        path: '/about',
+        component: RepoAbout
+      },
       {
         path: '/info',
         component: InfoPage,
