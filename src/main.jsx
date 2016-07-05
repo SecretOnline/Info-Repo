@@ -3,6 +3,7 @@ import CategoryPage from './components/CategoryPage.jsx';
 import CategorySpotlightPage from './components/CategorySpotlightPage.jsx';
 import ElementPage from './components/ElementPage.jsx';
 import ElementSpotlightPage from './components/ElementSpotlightPage.jsx';
+import InfoAllPage from './components/InfoAllPage.jsx';
 import InfoPage from './components/InfoPage.jsx';
 import InfoSpotlightPage from './components/InfoSpotlightPage.jsx';
 import LinkPage from './components/LinkPage.jsx';
@@ -73,6 +74,11 @@ function createRouterConfig(results) {
       {
         path: '/info',
         component: InfoPage,
+        info: results[1]
+      },
+      {
+        path: '/info/all',
+        component: InfoAllPage,
         info: results[1]
       },
       {
