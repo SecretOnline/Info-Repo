@@ -1,6 +1,7 @@
 import CategoryListPage from './components/CategoryListPage.jsx';
 import CategoryPage from './components/CategoryPage.jsx';
 import CategorySpotlightPage from './components/CategorySpotlightPage.jsx';
+import ElementAllPage from './components/ElementAllPage.jsx';
 import ElementPage from './components/ElementPage.jsx';
 import ElementSpotlightPage from './components/ElementSpotlightPage.jsx';
 import InfoAllPage from './components/InfoAllPage.jsx';
@@ -107,6 +108,11 @@ function createRouterConfig(results) {
       {
         path: '/elements',
         component: ElementPage,
+        elements: results[2]
+      },
+      {
+        path: '/elements/all',
+        component: ElementAllPage,
         elements: results[2]
       },
       {
