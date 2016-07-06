@@ -18,7 +18,17 @@ export default class RepoAbout extends React.Component {
         </p>
         <h3>Extra Information</h3>
         <p>
+          The <a href="https://github.com/SecretOnline/Info-Repo">source code</a> for the Information Repository is available, as well as for the <a href="https://github.com/SecretOnline/NMS-Info">old version</a>.
+        </p>
+        <p>
           Even though the creator, secret_online, is a moderator of <a href="https://reddit.com/r/NoMansSkyTheGame">/r/NoMansSkyTheGame</a>, the Information Repository is run independently from it.
+        </p>
+        <h3>Contact</h3>
+        <p>
+          If you've found a problem in the Repository (incorrect info/bug), please <ReactRouter.Link to="/problem?">go here</ReactRouter.Link>.
+        </p>
+        <p>
+          For other reasons, contact secret_online on <a href="https://twitter.com/secret_online">Twitter</a>, <a href="https://www.reddit.com/message/compose/?to=secret_online">Reddit</a>, or by <a href="mailto://me+repo@secretonline.co">email</a>.
         </p>
       </div>
     );
