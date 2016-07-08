@@ -8,6 +8,7 @@ export default class InfoSpotlightPage extends React.Component {
       return this.props.routeParams.info === helper.modTitle(info.title);
     });
     var relatedData = [];
+    var highlighted = [];
 
     if (!spotlight) {
       spotlight = {
@@ -28,8 +29,24 @@ export default class InfoSpotlightPage extends React.Component {
       });
     }
 
+    if (this.props.location.hash) {
+      highlighted = this.props.location.hash
+        .substr(1)
+        .split(',')
+        .map((item) => {
+          try {
+            return Number.parseInt(item);
+          } catch (e) {
+            return null;
+          }
+        })
+        .filter((item) => {
+          return item !== null;
+        });
+    }
+
     var content = [
-      <InfoSpotlight key="spotlight" data={spotlight} />
+      <InfoSpotlight key="spotlight" data={spotlight} highlighted={highlighted} />
     ];
 
     if (relatedData.length) {

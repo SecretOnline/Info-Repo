@@ -6,6 +6,7 @@ export default class ElementSpotlightPage extends React.Component {
     var spotlight = this.props.route.elements.find((info) => {
       return this.props.routeParams.element === helper.modTitle(info.title);
     });
+    var highlighted = [];
 
     if (!spotlight) {
       spotlight = {
@@ -18,9 +19,25 @@ export default class ElementSpotlightPage extends React.Component {
       }
     }
 
+    if (this.props.location.hash) {
+      highlighted = this.props.location.hash
+        .substr(1)
+        .split(',')
+        .map((item) => {
+          try {
+            return Number.parseInt(item);
+          } catch (e) {
+            return null;
+          }
+        })
+        .filter((item) => {
+          return item !== null;
+        });
+    }
+
     return (
       <div class="page element-page">
-        <ElementSpotlight data={spotlight} link="/elements" />
+        <ElementSpotlight data={spotlight} highlighted={highlighted} />
         <h2>Other</h2>
           <div className="card">
             <ReactRouter.Link to="/elements">

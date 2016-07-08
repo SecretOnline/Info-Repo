@@ -12,8 +12,35 @@ export default class ElementSpotlight extends React.Component {
         text: ['Please wait, this shouldn\'t take too long'],
         type: ''
       },
-      click: null
+      highlighted: []
     };
+  }
+
+  highlightChanger(event) {
+    var index = event.target.dataset.index;
+
+    var curr = window.location.hash
+      .substr(1)
+      .split(',');
+
+    if (curr[0] === '') {
+      curr = [];
+    }
+
+    if (curr.indexOf(index) > -1) {
+      curr = curr.filter((item) => {
+        return item !== index;
+      });
+    } else {
+      curr.push(index);
+    }
+
+    if (curr.length) {
+      curr.sort();
+      ReactRouter.browserHistory.push(`${window.location.pathname}#${curr.join(',')}`);
+    } else {
+      ReactRouter.browserHistory.push(window.location.pathname);
+    }
   }
 
   render() {
@@ -33,8 +60,16 @@ export default class ElementSpotlight extends React.Component {
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
       var descNodes = this.props.data.text.map((desc, index) => {
+        var oneIndex = index + 1;
+        if (this.props.highlighted.length) {
+          if (this.props.highlighted.indexOf(oneIndex) > -1) {
+            return (
+              <p key={`${oneIndex}-highlight`} className="highlighted" data-index={oneIndex} onClick={this.highlightChanger}>{desc}</p>
+            )
+          }
+        }
         return (
-          <p key={index}>{desc}</p>
+          <p key={oneIndex} data-index={oneIndex} onClick={this.highlightChanger}>{desc}</p>
         )
       });
       bodyList.push((<div className="information" key="body-desc">{descNodes}</div>));
