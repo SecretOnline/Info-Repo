@@ -11,6 +11,7 @@ import LinkPage from './components/LinkPage.jsx';
 import RepoAbout from './components/RepoAbout.jsx';
 import RepoApp from './components/RepoApp.jsx';
 import RepoHome from './components/RepoHome.jsx';
+import RepoIntro from './components/RepoIntro.jsx';
 import RepoNotFound from './components/RepoNotFound.jsx';
 import RepoProblem from './components/RepoProblem.jsx';
 import SearchPage from './components/SearchPage.jsx';
@@ -77,6 +78,10 @@ function createRouterConfig(results) {
       {
         path: '/about',
         component: RepoAbout
+      },
+      {
+        path: '/introduction',
+        component: RepoIntro
       },
       {
         path: '/problem',
