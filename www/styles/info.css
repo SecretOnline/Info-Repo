@@ -22,6 +22,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #F2F2F2;
+  color: #111;
   /*background: radial-gradient(circle, #0F4362 0%, #170f31 100%);*/
 }
 .center {
@@ -140,17 +142,20 @@ main {
 }
 .main {
   max-width: 53em;
-  margin: 0 auto;
+  margin: 2em auto 5em;
   flex-grow: 1;
   width: 100%;
   position: relative;
+}
+.bottom-message,
+.light {
+  opacity: 0.8;
 }
 .bottom-message {
   width: 100%;
   position: absolute;
   bottom: 0;
   text-align: center;
-  color: #444;
   animation-name: appearlate;
   animation-duration: 3s;
 }
@@ -169,7 +174,7 @@ main {
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  /*border-radius: 2px;*/
+  border-radius: 2px;
   width: 100%;
 }
 .search-area {
@@ -186,11 +191,10 @@ main {
   border-top-right-radius: inherit;
   overflow: hidden;
   cursor: pointer;
-}
-.header {
   width: 100%;
-  height: 4em;
+  height: 5em;
   transition: height 0.5s, background-color 0.5s;
+  display: flex;
 }
 .spoiler .header {
   background-color: #e22 !important;
@@ -200,20 +204,26 @@ main {
 }
 .spotlight .header {
   height: 10em;
+  padding-bottom: 1em;
+}
+.spotlight .card-title {
+  align-self: flex-end;
+  font-size: 3em;
+}
+.card > a {
+  text-decoration: none;
 }
 .card-title {
-  margin: 16px;
-  font-size: 24px;
+  margin: 0 0.5em;
+  font-size: 1.6em;
   font-weight: bold;
   color: #fff;
+  bottom: 0;
+  transition: color 0.5s, margin 0.5s, left 0.5s;
+  align-self: center;
 }
 .dark-text:not(.spoiler) .card-title {
   color: #000;
-}
-.header .card-title {
-  position: absolute;
-  bottom: 0;
-  transition: color 0.5s, margin 0.5s, left 0.5s;
 }
 .expanded .card-title {
   margin: 24px 16px;
@@ -222,6 +232,7 @@ main {
   padding: 5px 16px;
   position: absolute;
   top: -32px;
+  left: 0;
   opacity: 0;
   transition: top 0.5s, opacity 0.5s;
 }
@@ -287,6 +298,7 @@ main {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
+  font-size: 1.1em;
 }
 .expanded .card-content,
 :not(.card) .card-content {
@@ -312,6 +324,7 @@ main {
 }
 .card-content h4 {
   margin: 0 0.5em;
+  font-size: 1.2em;
 }
 .separator {
   border-bottom: 2px solid #aaa;
