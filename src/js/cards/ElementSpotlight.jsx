@@ -1,5 +1,4 @@
-import ElementCard from '../components/ElementCard.jsx';
-import helper from '../helper.jsx';
+import helper from '../helper';
 
 export default class ElementSpotlight extends React.Component {
   static get defaultProps() {

@@ -1,4 +1,4 @@
-import helper from '../helper.jsx';
+import helper from '../helper';
 
 export default class InfoSpotlight extends React.Component {
   static get defaultProps() {

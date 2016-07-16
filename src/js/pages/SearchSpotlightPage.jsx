@@ -1,7 +1,7 @@
-import InfoSpotlight from '../components/InfoSpotlight.jsx';
-import InfoCardList from '../components/InfoCardList.jsx';
-import helper from '../helper.jsx';
-import search from '../search.jsx';
+import InfoSpotlight from '../cards/InfoSpotlight.jsx';
+import InfoCardList from '../lists/InfoCardList.jsx';
+import helper from '../helper';
+import search from '../search';
 
 export default class SearchResultPage extends React.Component {
   static get defaultProps() {

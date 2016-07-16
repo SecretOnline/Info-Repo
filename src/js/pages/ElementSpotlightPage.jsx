@@ -1,5 +1,5 @@
-import ElementSpotlight from '../components/ElementSpotlight.jsx';
-import helper from '../helper.jsx';
+import ElementSpotlight from '../cards/ElementSpotlight.jsx';
+import helper from '../helper';
 
 export default class ElementSpotlightPage extends React.Component {
   render() {

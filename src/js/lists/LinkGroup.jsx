@@ -1,4 +1,4 @@
-import LinkCard from '../components/LinkCard.jsx';
+import LinkCard from '../cards/LinkCard.jsx';
 
 export default class LinkGroup extends React.Component {
   static get defaultProps() {

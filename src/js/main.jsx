@@ -1,22 +1,22 @@
-import CategoryListPage from './components/CategoryListPage.jsx';
-import CategoryPage from './components/CategoryPage.jsx';
-import CategorySpotlightPage from './components/CategorySpotlightPage.jsx';
-import ElementAllPage from './components/ElementAllPage.jsx';
-import ElementPage from './components/ElementPage.jsx';
-import ElementSpotlightPage from './components/ElementSpotlightPage.jsx';
-import InfoAllPage from './components/InfoAllPage.jsx';
-import InfoPage from './components/InfoPage.jsx';
-import InfoSpotlightPage from './components/InfoSpotlightPage.jsx';
-import LinkPage from './components/LinkPage.jsx';
-import RepoAbout from './components/RepoAbout.jsx';
-import RepoApp from './components/RepoApp.jsx';
-import RepoHome from './components/RepoHome.jsx';
-import RepoNotFound from './components/RepoNotFound.jsx';
-import RepoProblem from './components/RepoProblem.jsx';
-import SearchPage from './components/SearchPage.jsx';
-import SearchResultPage from './components/SearchResultPage.jsx';
-import SearchSpotlightPage from './components/SearchSpotlightPage.jsx';
-import helper from './helper.jsx';
+import CategoryListPage from './pages/CategoryListPage.jsx';
+import CategoryPage from './pages/CategoryPage.jsx';
+import CategorySpotlightPage from './pages/CategorySpotlightPage.jsx';
+import ElementAllPage from './pages/ElementAllPage.jsx';
+import ElementPage from './pages/ElementPage.jsx';
+import ElementSpotlightPage from './pages/ElementSpotlightPage.jsx';
+import InfoAllPage from './pages/InfoAllPage.jsx';
+import InfoPage from './pages/InfoPage.jsx';
+import InfoSpotlightPage from './pages/InfoSpotlightPage.jsx';
+import LinkPage from './pages/LinkPage.jsx';
+import RepoAbout from './pages/RepoAbout.jsx';
+import RepoApp from './RepoApp.jsx';
+import RepoHome from './pages/RepoHome.jsx';
+import RepoNotFound from './pages/RepoNotFound.jsx';
+import RepoProblem from './pages/RepoProblem.jsx';
+import SearchPage from './pages/SearchPage.jsx';
+import SearchResultPage from './pages/SearchResultPage.jsx';
+import SearchSpotlightPage from './pages/SearchSpotlightPage.jsx';
+import helper from './helper';
 
 function initRepo() {
   // Use Promise as test for ES6 support
@@ -158,12 +158,8 @@ function createRouterConfig(results) {
 }
 
 function renderRoutes(routes) {
-  return ReactDOM.render(
-    <ReactRouter.Router history={ReactRouter.browserHistory}>
-      {routes}
-    </ReactRouter.Router>,
-    document.querySelector('.repo-container')
-  );
+  var router = React.createElement(ReactRouter.Router, {history: ReactRouter.browserHistory}, routes);
+  return ReactDOM.render(router, document.querySelector('.repo-container'));
 }
 
 initRepo();

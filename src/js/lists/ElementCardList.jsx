@@ -1,5 +1,4 @@
-import ElementCard from '../components/ElementCard.jsx';
-import helper from '../helper.jsx';
+import ElementCard from '../cards/ElementCard.jsx';
 
 export default class ElementCardList extends React.Component {
   static get defaultProps() {

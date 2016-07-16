@@ -1,4 +1,4 @@
-import helper from '../helper.jsx';
+import helper from '../helper';
 
 export default class ElementCard extends React.Component {
   static get defaultProps() {

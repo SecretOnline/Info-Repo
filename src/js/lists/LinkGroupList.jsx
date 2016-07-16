@@ -1,4 +1,4 @@
-import LinkGroup from '../components/LinkGroup.jsx';
+import LinkGroup from './LinkGroup.jsx';
 
 export default class LinkGroupList extends React.Component {
   static get defaultProps() {
