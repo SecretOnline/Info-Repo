@@ -5,7 +5,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /*background: radial-gradient(circle, #0F4362 0%, #170f31 100%);*/
 }
 .center {
   display: block;
@@ -17,11 +16,11 @@ body {
 footer,
 header,
 nav {
-  background-color: #01385b;
+  background-color: $theme-color;
 }
 header {
   max-height: 70px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3);
+  @include shadow( 'big');
   .title {
     line-height: 50px;
     font-size: 22px;
@@ -45,11 +44,10 @@ header {
       border: none;
       background-color: transparent;
       background-image: none;
-      width: 70px;
-      height: 70px;
       -webkit-tap-highlight-color: transparent;
       margin-left: -4px;
       cursor: pointer;
+      @include size-square(70px);
       &:hover {
         background-color: rgba(255, 255, 255, .2);
       }
@@ -57,9 +55,8 @@ header {
         outline: 0;
       }
       img {
-        width: 30px;
-        height: 30px;
         margin: 20px;
+        @include size-square(30px);
       }
     }
   }
@@ -84,9 +81,9 @@ footer {
 nav {
   top: 70px;
   width: 100vw;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3);
   text-align: center;
   z-index: 1;
+  @include shadow( 'big');
   &.open ul {
     max-height: 100vh;
   }
@@ -160,13 +157,12 @@ main {
 }
 @media #{$media-tab} {
   header {
-    box-shadow: 0;
+    @include shadow( 'none');
     .menu {
       display: none;
     }
   }
   nav {
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3);
     text-align: center;
     z-index: 1;
     ul {
