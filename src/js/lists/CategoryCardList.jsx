@@ -10,13 +10,6 @@ export default class CategoryCardList extends React.Component {
 
   render() {
     var cardNodes = this.props.categories
-      .sort((a, b) => {
-        if (a.title < b.title)
-          return -1;
-        if (a.title > b.title)
-          return 1;
-        return 0;
-      })
       .map((cardData) => {
         return (
           <CategoryCard data={cardData} key={cardData.title} link={this.props.link} />

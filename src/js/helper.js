@@ -54,10 +54,19 @@ function changeCanonical(path) {
   }
 }
 
+function titleSort(a, b) {
+  if (a.title < b.title)
+    return -1;
+  if (a.title > b.title)
+    return 1;
+  return 0;
+}
+
 export default {
-  httpGet: httpGet,
-  truncateString: truncateString,
-  modTitle: modTitle,
-  scrollToTop: scrollToTop,
-  changeCanonical: changeCanonical
+  httpGet,
+  truncateString,
+  modTitle,
+  scrollToTop,
+  changeCanonical,
+  titleSort
 };
