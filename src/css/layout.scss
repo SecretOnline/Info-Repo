@@ -192,7 +192,7 @@ main {
       margin-top: 56px;
     }
   }
-  .card {
+  .card-list .card {
     max-width: calc((100% - 10px)/2);
   }
 }
@@ -200,7 +200,7 @@ main {
   .main {
     max-width: 72em;
   }
-  .card {
+  .card-list .card {
     max-width: calc((100% - 20px)/3);
   }
 }

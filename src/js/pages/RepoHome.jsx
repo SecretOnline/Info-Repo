@@ -12,6 +12,18 @@ export default class RepoHome extends React.Component {
         <p>
           The repository was not designed to hold information about the discoveries that people make in the game. There are other websites (such as <a href="https://nmsorigins.com/">NMS Origins</a>) that are designed for that purpose.
         </p>
+        <h3>Haven't heard of No Man's Sky?</h3>
+        <p>
+          Don't worry! There's a nice helpful introductory page that links to videos and interviews that will show you the game, and what you can do.
+        </p>
+        <div className="card">
+          <ReactRouter.Link to="/introduction">
+            <div className="header">
+              <h3 className="card-title">Introduction to No Man's Sky</h3>
+            </div>
+          </ReactRouter.Link>
+        </div>
+        <h3>Sections in this Repository</h3>
         <div className="card-list">
           <div className="card cat-planets">
             <ReactRouter.Link to="/info">
