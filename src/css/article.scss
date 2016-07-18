@@ -1,0 +1,13 @@
+.article {
+  .highlight {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 18em;
+    @include shadow(1);
+  }
+  iframe.highlight {
+    width: 32em;
+    border: 0;
+  }
+}
