@@ -1,7 +1,7 @@
 export default class RepoHome extends React.Component {
   render() {
     return (
-      <div>
+      <div className="article">
         <h2>Welcome to the No Man's Sky Information Repository</h2>
         <p>
           The goal of this site is to provide a single place with all the known information about <a href="http://www.hellogames.org">Hello Games</a>' upcoming title <a href="http://nomanssky.com">No Man's Sky</a>.

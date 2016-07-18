@@ -19,6 +19,9 @@ export default class RepoIntro extends React.Component {
         <p>
           Planets might have <ReactRouter.Link to="/elements">valuable resources</ReactRouter.Link> on them or, if you're lucky, you might discover new <ReactRouter.Link to="/info/Amount_of_Life">alien species</ReactRouter.Link>. You can upload your discoveries at special beacons, for which you'll earn Units, the game's currency. Exploring isn't all there is, though. You can trade resources with <ReactRouter.Link to="/info/Space_Stations">space stations</ReactRouter.Link>, building up a fair sum of Units. You can completely ignore Star Trek's Prime Directive and attack anything on sight, but be warned as you will attract the attention of <ReactRouter.Link to="/info/Sentinels">the Sentinels</ReactRouter.Link>, whose job is to keep the peace on planets.
         </p>
+        <p>
+          <em>No Man's Sky</em> is releasing on both <ReactRouter.Link to="/info/Platforms">PC (Steam, GOG) and PS4</ReactRouter.Link>.
+        </p>
         <h2>Gameplay Trailers</h2>
         <p>
           The trailers for <em>No Man's Sky</em> are not just "Pre-rendered" or "Game Engine" footage, like many game studios put out. They're actual gameplay. They can all be found at the top of the <ReactRouter.Link to="/links">Links page</ReactRouter.Link> of this repository, underneath the official Hello Games links, in order of them being released. These range from the Announcement Trailer in 2013 to the "I've Seen Things" trailer released in October 2015.
@@ -37,6 +40,13 @@ export default class RepoIntro extends React.Component {
           <li><a href="https://archives.nucl.ai/recording/building-a-galaxy-procedural-generation-in-no-mans-sky/">Building a Galaxy</a> - Innes McKendrick - July 2015 - nucl.ai</li>
           <li><a href="https://www.youtube.com/watch?v=nUWFTLhZ1ro">The Use of Generative Sound</a> - Paul Weir - June 2016 - Sonar+D</li>
         </ul>
+        <h2>Where can I find out more?</h2>
+        <p>
+          You're in the right place.
+        </p>
+        <p>
+          I would definitely recommend watching some of the <ReactRouter.Link to="/links">interviews</ReactRouter.Link> on the game. After that, make use of the <ReactRouter.Link to="/search">Search Page</ReactRouter.Link>, which will help you find the bits that you still have questions about.
+        </p>
       </div>
     );
   }
