@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #F2F2F2;
+  background-color: $bg-color;
   color: #111;
 }
 .center {

@@ -76,6 +76,83 @@
       right: 0;
       @include size-square(15px);
     }
+    .categories {
+      margin: 0;
+      padding: 5px 0 5px 5px;
+      position: absolute;
+      right: 0;
+      transition: top 0.5s, opacity 0.5s;
+      list-style: none;
+      li {
+        display: inline-block;
+        background-color: transparentize($bg-color, 0.8);
+        border-radius: 1em;
+        margin-right: 0.4em;
+        padding: 0.1em 0.3em;
+        a,
+        span {
+          color: #fff;
+          text-decoration: underline;
+          cursor: pointer;
+          background-image: url('/res/external.svg');
+          background-size: 1em 1em;
+          padding-left: 1em;
+          background-position: left center;
+          background-repeat: no-repeat;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &[data-id=atlas] a,
+        &[data-id=atlas] span {
+          background-image: url('/res/categories/atlas.svg');
+        }
+        &[data-id=crafting] a,
+        &[data-id=crafting] span {
+          background-image: url('/res/categories/crafting.svg');
+        }
+        &[data-id=economy] a,
+        &[data-id=economy] span {
+          background-image: url('/res/categories/economy.svg');
+        }
+        &[data-id=life] a,
+        &[data-id=life] span {
+          background-image: url('/res/categories/life.svg');
+        }
+        &[data-id=mechanics] a,
+        &[data-id=mechanics] span {
+          background-image: url('/res/categories/mechanics.svg');
+        }
+        &[data-id=meta] a,
+        &[data-id=meta] span {
+          background-image: url('/res/categories/meta.svg');
+        }
+        &[data-id=misc] a,
+        &[data-id=misc] span {
+          background-image: url('/res/categories/misc.svg');
+        }
+        &[data-id=news] a,
+        &[data-id=news] span {
+          background-image: url('/res/categories/news.svg');
+        }
+        &[data-id=objects] a,
+        &[data-id=objects] span {
+          background-image: url('/res/categories/objects.svg');
+        }
+        &[data-id=planets] a,
+        &[data-id=planets] span {
+          background-image: url('/res/categories/planets.svg');
+        }
+        &[data-id=stars] a,
+        &[data-id=stars] span {
+          background-image: url('/res/categories/stars.svg');
+        }
+        &[data-id=universe] a,
+        &[data-id=universe] span {
+          background-image: url('/res/categories/universe.svg');
+        }
+      }
+    }
   }
 }
 .spotlight {
@@ -89,20 +166,18 @@
   }
 }
 .info-card {
-  .categories {
-    padding: 5px 16px;
-    position: absolute;
-    top: -32px;
-    left: 0;
-    opacity: 0;
-    transition: top 0.5s, opacity 0.5s;
-    li,
-    li a {
-      color: #fff;
-      text-decoration: underline;
-      cursor: pointer;
-      &:hover {
-        text-decoration: none;
+  ul {
+    padding: 0.5em;
+    &.related,
+    &.sources {
+      list-style: none;
+      li {
+        color: #000 !important;
+        text-decoration: underline;
+        cursor: pointer;
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }
