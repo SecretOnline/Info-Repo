@@ -2,8 +2,8 @@ export default class RepoAbout extends React.Component {
   render() {
     return (
       <div>
-        <h2>About this Repository</h2>
-        <h3>Creation</h3>
+        <h1>About this Repository</h1>
+        <h2>Creation</h2>
         <p>
           The Information Repository started as an idea around early October 2015. On the 26<sup>th</sup> of October, <a href="https://github.com/SecretOnline/NMS-Info/commit/73ecae140a3d0e44268e345c65127901bea7d4af">work began</a>.
         </p>
@@ -16,14 +16,14 @@ export default class RepoAbout extends React.Component {
         <p>
           In its current state, the Information Repository holds information about the game, as well as any information available on the elements and resources that can be collected/mined in the game.
         </p>
-        <h3>Extra Information</h3>
+        <h2>Extra Information</h2>
         <p>
           The <a href="https://github.com/SecretOnline/Info-Repo">source code</a> for the Information Repository is available, as well as for the <a href="https://github.com/SecretOnline/NMS-Info">old version</a>.
         </p>
         <p>
           Even though the creator, secret_online, is a moderator of <a href="https://reddit.com/r/NoMansSkyTheGame">/r/NoMansSkyTheGame</a>, the Information Repository is run independently from it.
         </p>
-        <h3>Contact</h3>
+        <h2>Contact</h2>
         <p>
           If you've found a problem in the Repository (incorrect info/bug), please <ReactRouter.Link to="/problem?">go here</ReactRouter.Link>.
         </p>

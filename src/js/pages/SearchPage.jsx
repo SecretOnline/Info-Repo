@@ -8,7 +8,7 @@ export default class SearchPage extends React.Component {
 
     return (
       <div class="page search-page">
-        <h2>Search</h2>
+        <h1>Search</h1>
         <SearchBox callback={goTo} />
       </div>
     );

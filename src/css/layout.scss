@@ -126,6 +126,10 @@ main {
   flex-grow: 1;
   width: 100%;
   position: relative;
+  & > div h1:first-child,
+  & > div h2:first-child {
+    margin-top: 0;
+  }
 }
 .bottom-message,
 .light {

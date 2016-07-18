@@ -2,7 +2,7 @@ export default class RepoHome extends React.Component {
   render() {
     return (
       <div className="article">
-        <h2>Welcome to the No Man's Sky Information Repository</h2>
+        <h1>Welcome to the No Man's Sky Information Repository</h1>
         <p>
           The goal of this site is to provide a single place with all the known information about <a href="http://www.hellogames.org">Hello Games</a>' upcoming title <a href="http://nomanssky.com">No Man's Sky</a>.
         </p>
@@ -12,7 +12,7 @@ export default class RepoHome extends React.Component {
         <p>
           The repository was not designed to hold information about the discoveries that people make in the game. There are other websites (such as <a href="https://nmsorigins.com/">NMS Origins</a>) that are designed for that purpose.
         </p>
-        <h3>Haven't heard of No Man's Sky?</h3>
+        <h2>Haven't heard of No Man's Sky?</h2>
         <p>
           Don't worry! There's a nice helpful introductory page that links to videos and interviews that will show you the game, and what you can do.
         </p>
@@ -23,7 +23,7 @@ export default class RepoHome extends React.Component {
             </div>
           </ReactRouter.Link>
         </div>
-        <h3>Sections in this Repository</h3>
+        <h2>Sections in this Repository</h2>
         <div className="card-list">
           <div className="card cat-planets">
             <ReactRouter.Link to="/info">
