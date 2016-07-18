@@ -1,6 +1,6 @@
-import RepoHeader from './layout/RepoHeader.jsx';
-import RepoNav from './layout/RepoNav.jsx';
-import RepoFooter from './layout/RepoFooter.jsx';
+import RepoHeader from './RepoHeader.jsx';
+import RepoNav from './RepoNav.jsx';
+import RepoFooter from './RepoFooter.jsx';
 
 export default class RepoApp extends React.Component {
   static get defaultProps() {

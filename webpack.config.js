@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var PATHS = {
-  js: './src/js/main.jsx',
+  js: './src/js/main.js',
   css: './src/css/main.scss',
   buildDir: './www'
 };

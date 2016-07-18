@@ -9,7 +9,8 @@ import InfoPage from './pages/InfoPage.jsx';
 import InfoSpotlightPage from './pages/InfoSpotlightPage.jsx';
 import LinkPage from './pages/LinkPage.jsx';
 import RepoAbout from './pages/RepoAbout.jsx';
-import RepoApp from './RepoApp.jsx';
+import RepoApp from './layout/RepoApp.jsx';
+import RepoIntro from './pages/RepoIntro.jsx';
 import RepoHome from './pages/RepoHome.jsx';
 import RepoNotFound from './pages/RepoNotFound.jsx';
 import RepoProblem from './pages/RepoProblem.jsx';
@@ -73,92 +74,80 @@ function createRouterConfig(results) {
     indexRoute: {
       component: RepoHome
     },
-    childRoutes: [
-      {
-        path: '/about',
-        component: RepoAbout
-      },
-      {
-        path: '/problem',
-        component: RepoProblem
-      },
-      {
-        path: '/info',
-        component: InfoPage,
-        info: results[1]
-      },
-      {
-        path: '/info/all',
-        component: InfoAllPage,
-        info: results[1]
-      },
-      {
-        path: '/info/:info',
-        component: InfoSpotlightPage,
-        info: results[1]
-      },
-      {
-        path: '/categories',
-        component: CategoryPage,
-        info: results[1],
-        categories: results[0]
-      },
-      {
-        path: '/categories/:category',
-        component: CategoryListPage,
-        info: results[1],
-        categories: results[0]
-      },
-      {
-        path: '/categories/:category/:info',
-        component: CategorySpotlightPage,
-        info: results[1],
-        categories: results[0]
-      },
-      {
-        path: '/elements',
-        component: ElementPage,
-        elements: results[2]
-      },
-      {
-        path: '/elements/all',
-        component: ElementAllPage,
-        elements: results[2]
-      },
-      {
-        path: '/elements/:element',
-        component: ElementSpotlightPage,
-        elements: results[2]
-      },
-      {
-        path: '/links',
-        component: LinkPage,
-        links: results[3]
-      },
-      {
-        path: '/search',
-        component: SearchPage
-      },
-      {
-        path: '/search/:search',
-        component: SearchResultPage,
-        info: results[1]
-      },
-      {
-        path: '/search/:search/:info',
-        component: SearchSpotlightPage,
-        info: results[1]
-      },
-      {
-        path: '*',
-        component: RepoNotFound
-      }
-    ]
-  }
+    childRoutes: [{
+      path: '/about',
+      component: RepoAbout
+    }, {
+      path: '/introduction',
+      component: RepoIntro
+    }, {
+      path: '/problem',
+      component: RepoProblem
+    }, {
+      path: '/info',
+      component: InfoPage,
+      info: results[1]
+    }, {
+      path: '/info/all',
+      component: InfoAllPage,
+      info: results[1]
+    }, {
+      path: '/info/:info',
+      component: InfoSpotlightPage,
+      info: results[1]
+    }, {
+      path: '/categories',
+      component: CategoryPage,
+      info: results[1],
+      categories: results[0]
+    }, {
+      path: '/categories/:category',
+      component: CategoryListPage,
+      info: results[1],
+      categories: results[0]
+    }, {
+      path: '/categories/:category/:info',
+      component: CategorySpotlightPage,
+      info: results[1],
+      categories: results[0]
+    }, {
+      path: '/elements',
+      component: ElementPage,
+      elements: results[2]
+    }, {
+      path: '/elements/all',
+      component: ElementAllPage,
+      elements: results[2]
+    }, {
+      path: '/elements/:element',
+      component: ElementSpotlightPage,
+      elements: results[2]
+    }, {
+      path: '/links',
+      component: LinkPage,
+      links: results[3]
+    }, {
+      path: '/search',
+      component: SearchPage
+    }, {
+      path: '/search/:search',
+      component: SearchResultPage,
+      info: results[1]
+    }, {
+      path: '/search/:search/:info',
+      component: SearchSpotlightPage,
+      info: results[1]
+    }, {
+      path: '*',
+      component: RepoNotFound
+    }]
+  };
 }
 
 function renderRoutes(routes) {
-  var router = React.createElement(ReactRouter.Router, {history: ReactRouter.browserHistory}, routes);
+  var router = React.createElement(ReactRouter.Router, {
+    history: ReactRouter.browserHistory
+  }, routes);
   return ReactDOM.render(router, document.querySelector('.repo-container'));
 }
 
