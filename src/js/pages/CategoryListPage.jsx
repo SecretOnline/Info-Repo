@@ -34,7 +34,7 @@ export default class CategoryListPage extends React.Component {
       }
       content.push(<InfoSpotlight key="spotlight" data={spotlight} />)
     } else {
-      content.push(<h2 key="list-title">Category: {category.title}</h2>);
+      content.push(<h1 key="list-title">Category: {category.title}</h1>);
       content.push(<InfoCardList key="list" info={categoryList} link={'/categories/' + encodeURIComponent(helper.modTitle(category.title))} />);
     }
 

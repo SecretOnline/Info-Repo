@@ -6,7 +6,7 @@ export default class CategoryPage extends React.Component {
     var categories = this.props.route.categories.sort(helper.titleSort);
     return (
       <div class="page category-page">
-        <h2>Categories</h2>
+        <h1>Categories</h1>
         <CategoryCardList categories={categories} link="/categories" />
       </div>
     );

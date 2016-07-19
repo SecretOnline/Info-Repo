@@ -10,7 +10,7 @@ export default class LinkPage extends React.Component {
   render() {
     return (
       <div class="page links-page">
-        <h2>Links</h2>
+        <h1>Links</h1>
         <LinkGroupList links={this.props.route.links} click={this.setSpotlight} />
       </div>
     );

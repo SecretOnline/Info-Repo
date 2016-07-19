@@ -5,6 +5,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: $bg-color;
+  color: #111;
 }
 .center {
   display: block;
@@ -120,17 +122,24 @@ main {
 }
 .main {
   max-width: 53em;
-  margin: 0 auto;
+  margin: 2em auto 5em;
   flex-grow: 1;
   width: 100%;
   position: relative;
+  & > div h1:first-child,
+  & > div h2:first-child {
+    margin-top: 0;
+  }
+}
+.bottom-message,
+.light {
+  opacity: 0.8;
 }
 .bottom-message {
   width: 100%;
   position: absolute;
   bottom: 0;
   text-align: center;
-  color: #444;
   animation-name: appearlate;
   animation-duration: 3s;
 }
@@ -148,6 +157,9 @@ main {
 @media all and (min-width: 600px) {
   header .title {
     font-size: 40px;
+  }
+  .card-list .card {
+    max-width: calc((100% - 10px)/2);
   }
 }
 @media all and (min-width: 700px) {
@@ -191,9 +203,6 @@ main {
     & ~ main {
       margin-top: 56px;
     }
-  }
-  .card-list .card {
-    max-width: calc((100% - 10px)/2);
   }
 }
 @media #{$media-desk} {

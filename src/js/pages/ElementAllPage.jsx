@@ -17,7 +17,7 @@ export default class ElementAllPage extends React.Component {
 
     return (
       <div class="page info-page">
-        <h2>Elements - All Elements</h2>
+        <h1>Elements - All Elements</h1>
         <p>
           This page lists all of the elements in the Repository on a single page. For better linking and referencing, use the <ReactRouter.Link to="/elements">standard elements list</ReactRouter.Link>.
         </p>

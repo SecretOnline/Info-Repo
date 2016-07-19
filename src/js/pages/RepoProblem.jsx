@@ -2,7 +2,7 @@ export default class RepoProblem extends React.Component {
   render() {
     return (
       <div>
-        <h2>Found a problem?</h2>
+        <h1>Found a problem?</h1>
         <p>
           Much of the information in the repository has come from articles and interviews that are from a lot earlier in the game's development. Due to the development process, some of this information may no longer be accurate. If you've found an inaccurate piece of information in the repository, please contact me so I can fix it.
         </p>

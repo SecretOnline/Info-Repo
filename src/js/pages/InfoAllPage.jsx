@@ -17,7 +17,7 @@ export default class InfoAllPage extends React.Component {
 
     return (
       <div class="page info-page">
-        <h2>Information - All Information</h2>
+        <h1>Information - All Information</h1>
         <p>
           This page lists all of the information in the Repository on a single page. For better linking and referencing, use the <ReactRouter.Link to="/info">standard information list</ReactRouter.Link>.
         </p>
