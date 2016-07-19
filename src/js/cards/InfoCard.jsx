@@ -31,6 +31,13 @@ export default class InfoCard extends React.Component {
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }
+    if (this.props.data.img) {
+      var bgstyle = {
+        backgroundImage: `url(${this.props.data.img})`
+      };
+      console.log(bgstyle);
+      headerList.push(<div className="bgimg" style={bgstyle} key="bgimg"></div>)
+    }
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>

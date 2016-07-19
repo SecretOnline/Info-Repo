@@ -158,6 +158,9 @@ main {
   header .title {
     font-size: 40px;
   }
+  .card-list .card {
+    max-width: calc((100% - 10px)/2);
+  }
 }
 @media all and (min-width: 700px) {
   header .title {
@@ -200,9 +203,6 @@ main {
     & ~ main {
       margin-top: 56px;
     }
-  }
-  .card-list .card {
-    max-width: calc((100% - 10px)/2);
   }
 }
 @media #{$media-desk} {
