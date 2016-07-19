@@ -35,8 +35,7 @@ export default class InfoCard extends React.Component {
       var bgstyle = {
         backgroundImage: `url(${this.props.data.img})`
       };
-      console.log(bgstyle);
-      headerList.push(<div className="bgimg" style={bgstyle} key="bgimg"></div>)
+      headerList.push(<div className="bgimg" style={bgstyle} key="bgimg"></div>);
     }
 
     return (

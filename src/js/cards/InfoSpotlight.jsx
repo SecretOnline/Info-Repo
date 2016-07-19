@@ -62,6 +62,12 @@ export default class InfoSpotlight extends React.Component {
       });
       headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
     }
+    if (this.props.data.img) {
+      var bgstyle = {
+        backgroundImage: `url(${this.props.data.img})`
+      };
+      headerList.push(<div className="bgimg" style={bgstyle} key="bgimg"></div>);
+    }
     // Set card content stuff
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
