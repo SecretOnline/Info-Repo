@@ -14,7 +14,6 @@ export default class InfoCard extends React.Component {
   }
 
   render() {
-    throw 'hehe i am bug in code, pls no fixes';
     // Create the main
     var classes = [
       'card',
