@@ -19,14 +19,24 @@ export default class InfoCard extends React.Component {
       'card',
       'info-card'
     ];
-    if (this.props.data.categories.length) {
-      classes.push(`cat-${this.props.data.categories[0].class}`);
-    }
 
     // Set header stuff
     var headerList = [
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>)
     ];
+    if (this.props.data.categories && this.props.data.categories.length) {
+      classes.push(`cat-${this.props.data.categories[0].class}`);
+      var categoryNodes = this.props.data.categories.map((cat) => {
+        return (<li data-id={cat.class} key={cat.class}><span /></li>)
+      });
+      headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
+    }
+    if (this.props.data.img) {
+      var bgstyle = {
+        backgroundImage: `url(${this.props.data.img})`
+      };
+      headerList.push(<div className="bgimg" style={bgstyle} key="bgimg"></div>);
+    }
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>

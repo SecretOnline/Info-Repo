@@ -1,0 +1,8 @@
+.error {
+  color: red;
+  background-color: lighten(red, 40);
+  padding: 0.5em;
+  display: inline-block;
+  border: 1px solid lighten(red, 20);
+  @include shadow(1);
+}

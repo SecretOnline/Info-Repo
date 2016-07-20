@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="/styles/themes/fade.css">
     <link rel='stylesheet' href='https://static.nmsdb.info/fonts/geonms.css' type='text/css'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js" defer></script>
+    <script src="https://fb.me/react-15.2.1.min.js" defer></script>
+    <script src="https://fb.me/react-dom-15.2.1.min.js" defer></script>
+    <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js" defer></script>
     <script src="/scripts/info.js" defer></script>
     <script src="/scripts/redirect.js" async></script>
     <!-- <script>
@@ -59,13 +59,15 @@
         </nav>
         <main>
           <div class="main">
-            <h1>Loading...</h1>
-            <p class="bottom-message">
-              Taking a while to load? Please make sure your browser is up to date (i.e. not Internet Explorer)
+            <h1>Loading the Information Repository</h1>
+            <div class="loading-box">
               <noscript>
-                Also make sure that JavaScript is enabled
+                JavaScript is required to run the Information Repository. Please enable scripts and reload the page.
               </noscript>
-            </p>
+              <p>
+                Waiting for resources...
+              </p>
+            </div>
           </div>
         </main>
         <footer>Made by <a href="https://secretonline.co">secret_online</a> - Part of <a href="https://nmsdb.info">NMSDB</a> - Source code on <a href="https://github.com/SecretOnline/Info-Repo">GitHub</a></footer>

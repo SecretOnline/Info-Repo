@@ -2,7 +2,7 @@ export default class RepoNotFound extends React.Component {
   render() {
     return (
       <div>
-        <h2>404</h2>
+        <h1>404</h1>
         <p>
           It looks like you've taken a wrong turn somewhere.
         </p>

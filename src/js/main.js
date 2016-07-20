@@ -22,18 +22,17 @@ import helper from './helper';
 function initRepo() {
   // Use Promise as test for ES6 support
   if (typeof Promise !== 'undefined') {
-    var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
-      .then(JSON.parse);
-    var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
-      .then(JSON.parse);
-    var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
-      .then(JSON.parse);
-    var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
-      .then(JSON.parse);
-    Promise.all([catPromise, infoPromise, resourcePromise, linkPromise])
+    Promise.resolve()
+      .then(() => {
+        addLoadText('Gathering information...');
+      })
+      .then(makeRequests)
       .then(replaceCategories)
       .then(createRouterConfig)
       .then(renderRoutes)
+      .catch((err) => {
+        addLoadText(err, true);
+      })
       .then(() => {
         ReactRouter.browserHistory.listen((state) => {
           if (state.action === 'PUSH') {
@@ -52,6 +51,32 @@ function initRepo() {
 
     document.head.appendChild(s);
   }
+}
+
+function addLoadText(text, err) {
+  var el = document.querySelector('.loading-box');
+  if (el) {
+    var t = document.createElement('p');
+    if (err) {
+      t.classList.add('error');
+      t.textContent = `ERROR: ${text}`;
+    } else {
+      t.textContent = text;
+    }
+    el.appendChild(t);
+  }
+}
+
+function makeRequests() {
+  var catPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/categories.json')
+    .then(JSON.parse);
+  var infoPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/info.json')
+    .then(JSON.parse);
+  var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
+    .then(JSON.parse);
+  var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
+    .then(JSON.parse);
+  return Promise.all([catPromise, infoPromise, resourcePromise, linkPromise]);
 }
 
 function replaceCategories(arrays) {
