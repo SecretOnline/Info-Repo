@@ -50,6 +50,8 @@ function initRepo() {
     s.addEventListener('load', initRepo);
 
     document.head.appendChild(s);
+
+    addLoadText('Getting your browser up to speed...');
   }
 }
 
