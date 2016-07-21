@@ -45,7 +45,10 @@ export default class RepoIntro extends React.Component {
           You're in the right place.
         </p>
         <p>
-          I would definitely recommend watching some of the <ReactRouter.Link to="/links">interviews</ReactRouter.Link> on the game. After that, make use of the <ReactRouter.Link to="/search">Search Page</ReactRouter.Link>, which will help you find the bits that you still have questions about.
+          The <ReactRouter.Link to="/links">Links page</ReactRouter.Link> has a list of really good articles and videos. Most are either interviews with the developers, or have gameplay footage, meaning you can get a good idea of the game from just a few clicks. In case you want to know which links are videos/articles, there's a little indicator icon in the top-right of each link card.
+        </p>
+        <p>
+          Once you've watched some interviews, you'll probably have more specific questions. Luckily, this Repository has a <ReactRouter.Link to="/search">Search page</ReactRouter.Link>, which will help narrow down which items to look at. Don't forget about the categories; every piece of information has been added to at least one category, allowing you to easily find similar bits of information.
         </p>
       </div>
     );
