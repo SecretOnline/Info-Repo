@@ -19,7 +19,7 @@ export default class SearchResultPage extends React.Component {
 
     return (
       <div class="page search-page">
-        <h1>{`Search - ${query}`}</h1>
+        <h1>{`Search: ${query}`}</h1>
         <SearchBox callback={goTo} text={query} />
         <InfoCardList info={search.generalSearch(query, infoList)} link={`/search/${encodeURIComponent(query)}`} />
       </div>
