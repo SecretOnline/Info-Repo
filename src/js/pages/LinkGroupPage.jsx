@@ -10,11 +10,19 @@ export default class LinkGroupPage extends React.Component {
 
   render() {
     var groupName = this.props.routeParams.group
+    var actualName;
 
     var filteredLinks = this.props.route.links
     .filter((link) => {
       if (link.groups) {
-        return link.groups.indexOf(groupName) > -1;
+        return link.groups.find((group) => {
+          var res = helper.modTitle(group) === groupName;
+          // Quick way of getting the group's decoded name
+          if (res && !actualName) {
+            actualName = group;
+          }
+          return res;
+        });
       } else {
         return false;
       }
@@ -22,7 +30,7 @@ export default class LinkGroupPage extends React.Component {
 
     return (
       <div class="page links-page">
-        <h1>Links: {groupName}</h1>
+        <h1>Links: {actualName}</h1>
         <LinkCardList links={filteredLinks} />
         <h2>Other</h2>
         <div className="card">
