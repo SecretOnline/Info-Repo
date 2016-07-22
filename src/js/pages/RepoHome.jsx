@@ -68,6 +68,13 @@ export default class RepoHome extends React.Component {
               </div>
             </a>
           </div>
+          <div className="card cat-universe">
+            <ReactRouter.Link to="/about">
+              <div className="header">
+                <h3 className="card-title">About the Repository</h3>
+              </div>
+            </ReactRouter.Link>
+          </div>
         </div>
       </div>
     );

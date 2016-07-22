@@ -7,6 +7,7 @@ import ElementSpotlightPage from './pages/ElementSpotlightPage.jsx';
 import InfoAllPage from './pages/InfoAllPage.jsx';
 import InfoPage from './pages/InfoPage.jsx';
 import InfoSpotlightPage from './pages/InfoSpotlightPage.jsx';
+import LinkGroupPage from './pages/LinkGroupPage.jsx';
 import LinkPage from './pages/LinkPage.jsx';
 import RepoAbout from './pages/RepoAbout.jsx';
 import RepoApp from './layout/RepoApp.jsx';
@@ -50,6 +51,8 @@ function initRepo() {
     s.addEventListener('load', initRepo);
 
     document.head.appendChild(s);
+
+    addLoadText('Getting your browser up to speed...');
   }
 }
 
@@ -74,7 +77,7 @@ function makeRequests() {
     .then(JSON.parse);
   var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
     .then(JSON.parse);
-  var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
+  var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/articles.json')
     .then(JSON.parse);
   return Promise.all([catPromise, infoPromise, resourcePromise, linkPromise]);
 }
@@ -150,6 +153,10 @@ function createRouterConfig(results) {
     }, {
       path: '/links',
       component: LinkPage,
+      links: results[3]
+    }, {
+      path: '/links/:group',
+      component: LinkGroupPage,
       links: results[3]
     }, {
       path: '/search',
