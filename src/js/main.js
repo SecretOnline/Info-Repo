@@ -28,6 +28,7 @@ function initRepo() {
         addLoadText('Gathering information...');
       })
       .then(makeRequests)
+      .then(organiseResults)
       .then(replaceCategories)
       .then(createRouterConfig)
       .then(renderRoutes)
@@ -84,9 +85,9 @@ function makeRequests() {
 
 function replaceCategories(arrays) {
   // Replace category names with category objects
-  arrays[1].forEach((info) => {
+  data.info.forEach((info) => {
     info.categories.forEach((cat, index) => {
-      info.categories[index] = arrays[0].find((item) => {
+      info.categories[index] = data.categories.find((item) => {
         return item.title === cat;
       }) || info.categories[index];
     });
@@ -95,7 +96,16 @@ function replaceCategories(arrays) {
   return arrays;
 }
 
-function createRouterConfig(results) {
+function organiseResults(results) {
+  return {
+    categories: results[0],
+    info: results[1],
+    elements: results[2],
+    links: results[3]
+  };
+}
+
+function createRouterConfig(data) {
   return {
     path: '/',
     component: RepoApp,
@@ -114,61 +124,61 @@ function createRouterConfig(results) {
     }, {
       path: '/info',
       component: InfoPage,
-      info: results[1]
+      info: data.info
     }, {
       path: '/info/all',
       component: InfoAllPage,
-      info: results[1]
+      info: data.info
     }, {
       path: '/info/:info',
       component: InfoSpotlightPage,
-      info: results[1]
+      info: data.info
     }, {
       path: '/categories',
       component: CategoryPage,
-      info: results[1],
-      categories: results[0]
+      info: data.info,
+      categories: data.categories
     }, {
       path: '/categories/:category',
       component: CategoryListPage,
-      info: results[1],
-      categories: results[0]
+      info: data.info,
+      categories: data.categories
     }, {
       path: '/categories/:category/:info',
       component: CategorySpotlightPage,
-      info: results[1],
-      categories: results[0]
+      info: data.info,
+      categories: data.categories
     }, {
       path: '/elements',
       component: ElementPage,
-      elements: results[2]
+      elements: data.elements
     }, {
       path: '/elements/all',
       component: ElementAllPage,
-      elements: results[2]
+      elements: data.elements
     }, {
       path: '/elements/:element',
       component: ElementSpotlightPage,
-      elements: results[2]
+      elements: data.elements
     }, {
       path: '/links',
       component: LinkPage,
-      links: results[3]
+      links: data.links
     }, {
       path: '/links/:group',
       component: LinkGroupPage,
-      links: results[3]
+      links: data.links
     }, {
       path: '/search',
       component: SearchPage
     }, {
       path: '/search/:search',
       component: SearchResultPage,
-      info: results[1]
+      info: data.info
     }, {
       path: '/search/:search/:info',
       component: SearchSpotlightPage,
-      info: results[1]
+      info: data.info
     }, {
       path: '*',
       component: RepoNotFound
