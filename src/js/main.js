@@ -76,7 +76,7 @@ function makeRequests() {
     .then(JSON.parse);
   var resourcePromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/resources.json')
     .then(JSON.parse);
-  var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/links.json')
+  var linkPromise = helper.httpGet('https://nmsdb-55119.firebaseio.com/articles.json')
     .then(JSON.parse);
   return Promise.all([catPromise, infoPromise, resourcePromise, linkPromise]);
 }

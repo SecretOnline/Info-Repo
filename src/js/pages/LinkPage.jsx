@@ -1,4 +1,5 @@
-import LinkGroupList from '../lists/LinkGroupList.jsx';
+import LinkCardList from '../lists/LinkCardList.jsx';
+import helper from '../helper';
 
 export default class LinkPage extends React.Component {
   static get defaultProps() {
@@ -8,10 +9,16 @@ export default class LinkPage extends React.Component {
   }
 
   render() {
+    var allLinks = this.props.route.links
+      .concat() // Create a copy of the array, don't modify original
+      .sort(helper.titleSort);
+
     return (
       <div class="page links-page">
         <h1>Links</h1>
-        <LinkGroupList links={this.props.route.links} click={this.setSpotlight} />
+
+        <h2>All Links</h2>
+        <LinkCardList links={allLinks} />
       </div>
     );
   }
