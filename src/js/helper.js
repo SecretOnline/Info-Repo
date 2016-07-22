@@ -10,7 +10,7 @@ function httpGet(url) {
     xhr.open('get', url, true);
     xhr.send();
   });
-};
+}
 
 function truncateString(string, maxLength = 10) {
   string = string.replace(/^https?:\/\/(?:www\.)?/i, '');
@@ -19,11 +19,11 @@ function truncateString(string, maxLength = 10) {
     return string;
   else
     return `${string.substr(0, maxLength - 3)}...`;
-};
+}
 
 function modTitle(title) {
   return title.replace(/\s/g, "_");
-};
+}
 
 function scrollToTop() {
   var increment = -80;
@@ -43,7 +43,7 @@ function scrollToTop() {
   }
 
   nextScroll();
-};
+}
 
 function changeCanonical(path) {
   var link = document.querySelector('link[rel=canonical]');
