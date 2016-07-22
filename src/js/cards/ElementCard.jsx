@@ -37,7 +37,7 @@ export default class ElementCard extends React.Component {
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
         <ReactRouter.Link to={`${this.props.link}/${encodeURIComponent(helper.modTitle(this.props.data.title))}`}>
-          <div className="header">
+          <div className="header" style={headerStyle}>
             {headerList}
           </div>
         </ReactRouter.Link>
