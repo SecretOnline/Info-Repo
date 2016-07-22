@@ -83,7 +83,7 @@ function makeRequests() {
   return Promise.all([catPromise, infoPromise, resourcePromise, linkPromise]);
 }
 
-function replaceCategories(arrays) {
+function replaceCategories(data) {
   // Replace category names with category objects
   data.info.forEach((info) => {
     info.categories.forEach((cat, index) => {
@@ -93,7 +93,7 @@ function replaceCategories(arrays) {
     });
   });
 
-  return arrays;
+  return data;
 }
 
 function organiseResults(results) {
