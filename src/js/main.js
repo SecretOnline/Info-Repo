@@ -157,7 +157,12 @@ function createRouterConfig(data) {
       component: ElementAllPage,
       elements: data.elements
     }, {
-      path: '/elements/:element',
+      path: '/element',
+      onEnter: (state, redirect) => {
+        redirect('/elements');
+      }
+    }, {
+      path: '/element/:element',
       component: ElementSpotlightPage,
       elements: data.elements
     }, {
