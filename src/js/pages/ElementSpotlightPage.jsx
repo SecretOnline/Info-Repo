@@ -19,10 +19,10 @@ export default class ElementSpotlightPage extends React.Component {
 
     var elementName
     if (element) {
-      elementName = element.title;
+      elementName = element.title.toLowerCase();
     } else {
       // return;
-      elementName = props.routeParams.element;
+      elementName = props.routeParams.element.toLowerCase();
     }
 
 

@@ -33,11 +33,11 @@ export default class OriginsCard extends React.Component {
 
     return (
       <div className={classes.join(' ')}>
-        <ReactRouter.Link to={`https://nmsorigins.com/discovery/${data._id}`}>
+        <a href={`https://nmsorigins.com/discovery/${data._id}`}>
           <div className="header">
             {headerList}
           </div>
-        </ReactRouter.Link>
+        </a>
       </div>
     );
 
