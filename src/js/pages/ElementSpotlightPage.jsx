@@ -71,9 +71,31 @@ export default class ElementSpotlightPage extends React.Component {
         });
     }
 
+    var originsList = [];
+    if (this.state.planets.length || this.state.items.length) {
+      originsList.push(<h2 key="o-title">NMS Origins</h2>)
+    }
+    if (this.state.planets.length) {
+      originsList.push(<h3 key="o-planets-title">Planets tagged {spotlight.title}</h3>);
+
+      var planetCards = this.state.planets.map((data) => {
+        return <OriginsCard data={data} key={data._id} />
+      });
+      originsList.push(<div className="card-list" key="o-planets">{planetCards}</div>);
+    }
+    if (this.state.items.length) {
+      originsList.push(<h3 key="o-items-title">Items tagged {spotlight.title}</h3>);
+
+      var itemCards = this.state.items.map((data) => {
+        return <OriginsCard data={data} key={data._id} />
+      });
+      originsList.push(<div className="card-list" key="o-items">{itemCards}</div>);
+    }
+
     return (
       <div class="page element-page">
         <ElementSpotlight data={spotlight} highlighted={highlighted} />
+        {originsList}
         <h2>Other</h2>
           <div className="card">
             <ReactRouter.Link to="/elements">
