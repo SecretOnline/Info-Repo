@@ -8,13 +8,11 @@ import helper from './helper';
 function find(query, limit = 5) {
   return new Promise((resolve, reject) => {
     helper
-      ._request('post', 'https://www.nmsorigins.com/discoveries/find', {
+      ._request('post', 'https://dev.nmsorigins.com/discoveries/find', {
         limit,
         query
       }, {
-        'content-type': 'application/json',
-        'cache-control': 'no-cache',
-        'postman-token': '344d9104-150b-920b-e881-4c39312847bf'
+        'content-type': 'application/json'
       })
       .then(JSON.parse)
       .then(resolve, reject);
