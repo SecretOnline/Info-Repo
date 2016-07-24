@@ -1,3 +1,5 @@
+import origins from '../origins';
+
 export default class OriginsCard extends React.Component {
   static get defaultProps() {
     return {
@@ -34,7 +36,7 @@ export default class OriginsCard extends React.Component {
 
     return (
       <div className={classes.join(' ')}>
-        <a href={`https://nmsorigins.com/discovery/${data._id}`}>
+        <a href={`${origins.baseURL}/discovery/${data._id}`}>
           <div className="header">
             {headerList}
           </div>

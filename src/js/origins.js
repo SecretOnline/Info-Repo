@@ -5,10 +5,12 @@
  */
 import helper from './helper';
 
+var baseURL = 'https://dev.nmsorigins.com';
+
 function find(query, limit = 5) {
   return new Promise((resolve, reject) => {
     helper
-      ._request('post', 'https://dev.nmsorigins.com/discoveries/find', {
+      ._request('post', `${baseURL}/discoveries/find`, {
         limit,
         query
       }, {
@@ -20,5 +22,6 @@ function find(query, limit = 5) {
 }
 
 export default {
-  find
+  find,
+  baseURL
 };
