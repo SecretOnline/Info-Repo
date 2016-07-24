@@ -21,7 +21,8 @@ export default class OriginsCard extends React.Component {
 
     // Set header stuff
     var headerList = [
-      (<h3 className="card-title" key="header-title">{data.name}</h3>)
+      (<h3 className="card-title" key="header-title">{data.name}</h3>),
+      <div className="score">{data.score}</div>
     ];
 
     if (data._images && data._images.length) {
