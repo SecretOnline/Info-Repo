@@ -49,6 +49,11 @@ export default class ElementSpotlight extends React.Component {
       'element-card'
     ];
 
+    var headerStyle = {};
+    if (this.props.data.color) {
+      headerStyle.backgroundColor = this.props.data.color;
+    }
+
     // Set header stuff
     var headerList = [
       (<h3 className="card-title" key="header-title">{this.props.data.title}</h3>),
@@ -85,7 +90,7 @@ export default class ElementSpotlight extends React.Component {
 
     return (
       <div className={classes.join(' ')} id={helper.modTitle(this.props.data.title)}>
-        <div className="header" onClick={this.doClickCallback}>
+        <div className="header" style={headerStyle}>
           {headerList}
         </div>
         <div className="card-content">
