@@ -1,7 +1,43 @@
 import ElementSpotlight from '../cards/ElementSpotlight.jsx';
 import helper from '../helper';
+import origins from '../origins';
 
 export default class ElementSpotlightPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      planets: ['lol'],
+      items: ['ayy']
+    };
+
+
+    var element = props.route.elements
+      .find((info) => {
+        return props.routeParams.element === helper.modTitle(info.title);
+      });
+
+    if (!element) {
+      return;
+    }
+
+    var elementName = element.title;
+
+    origins.find({
+      type: 'planet',
+      tags: elementName
+    }).then((res) => {
+      this.state.planets = res;
+    });
+
+    origins.find({
+      type: 'item',
+      tags: elementName
+    }).then((res) => {
+      this.state.items = res;
+    });
+  }
+
   render() {
     var spotlight = this.props.route.elements.find((info) => {
       return this.props.routeParams.element === helper.modTitle(info.title);
