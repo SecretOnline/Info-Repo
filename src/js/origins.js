@@ -1,0 +1,26 @@
+/* This file contains code that interacts with NMS Origins (https://nmorigins.com)
+ * It may contain developer APIs that aren't intended for use by others.
+ * Before using these APIs in your own applications, please check with those guys.
+ * (They don't bite, I promise)
+ */
+import helper from './helper';
+
+function find(query, limit = 5) {
+  return new Promise((resolve, reject) => {
+    helper
+      ._request('post', 'https://www.nmsorigins.com/discoveries/find', {
+        limit,
+        query
+      }, {
+        'content-type': 'application/json',
+        'cache-control': 'no-cache',
+        'postman-token': '344d9104-150b-920b-e881-4c39312847bf'
+      })
+      .then(JSON.parse)
+      .then(resolve, reject);
+  });
+}
+
+export default {
+  find
+};

@@ -1,5 +1,30 @@
 function httpGet(url) {
+  return _request('get', url);
+}
+
+function httpPost(url, data) {
+  return _request('post', url, data);
+}
+
+function _request(method, url, data, headers) {
   return new Promise(function(resolve, reject) {
+    if (method.toLowerCase() === 'get') {
+      if (data) {
+        if (typeof data === 'object') {
+          url = `${url}?`;
+          for (var key in data) {
+            url += `${key}=${data[key]}`;
+          }
+        } else {
+          url = `${url}?${data}`;
+        }
+      }
+    } else if (method.toLowerCase() === 'post') {
+      if (typeof data === 'object') {
+        data = JSON.stringify(data);
+      }
+    }
+
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function() {
       resolve(xhr.responseText);
@@ -7,8 +32,20 @@ function httpGet(url) {
     xhr.addEventListener('error', function(e) {
       reject(e);
     });
-    xhr.open('get', url, true);
-    xhr.send();
+
+    xhr.open(method, url, true);
+
+    if (headers) {
+      for (var k in headers) {
+        xhr.setRequestHeader(k, headers[k]);
+      }
+    }
+
+    if (method.toLowerCase() === 'post') {
+      xhr.send(data);
+    } else {
+      xhr.send();
+    }
   });
 }
 
@@ -64,6 +101,8 @@ function titleSort(a, b) {
 
 export default {
   httpGet,
+  httpPost,
+  _request,
   truncateString,
   modTitle,
   scrollToTop,
