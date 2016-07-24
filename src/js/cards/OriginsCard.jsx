@@ -32,9 +32,9 @@ export default class OriginsCard extends React.Component {
     }
 
     return (
-      <div className={classes.join(' ')} id={helper.modTitle(data.title)}>
+      <div className={classes.join(' ')}>
         <ReactRouter.Link to={`https://nmsorigins.com/discovery/${data._id}`}>
-          <div className="header" onClick={helper.scrollToTop}>
+          <div className="header">
             {headerList}
           </div>
         </ReactRouter.Link>

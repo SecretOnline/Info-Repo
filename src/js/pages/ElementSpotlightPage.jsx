@@ -8,10 +8,9 @@ export default class ElementSpotlightPage extends React.Component {
     super(props);
 
     this.state = {
-      planets: ['lol'],
-      items: ['ayy']
+      planets: [],
+      items: []
     };
-
 
     var element = props.route.elements
       .find((info) => {
