@@ -26,8 +26,10 @@ export default class ElementSpotlightPage extends React.Component {
     }
 
     origins.find({
-      type: 'planet',
-      tags: elementName
+      $or: [
+        {name: {$regex: `.*${elementName}.*`,$options: 'i'}, type: 'planet'},
+        {tags: elementName, type: 'planet'}
+      ]
     }).then((res) => {
       this.setState({
         planets: res,
@@ -36,8 +38,10 @@ export default class ElementSpotlightPage extends React.Component {
     });
 
     origins.find({
-      type: 'item',
-      tags: elementName
+      $or: [
+        {name: {$regex: `.*${elementName}.*`,$options: 'i'}, type: 'item'},
+        {tags: elementName, type: 'item'}
+      ]
     }).then((res) => {
       this.setState({
         planets: this.state.planets,
