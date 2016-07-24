@@ -1,0 +1,15 @@
+import ElementCardList from '../lists/ElementCardList.jsx';
+
+export default class ElementCategoryPage extends React.Component {
+  render() {
+    return (
+      <div class="page element-page">
+        <h1>Elements: </h1>
+        <ElementCardList elements={this.props.route.elements} link="/element" />
+        <p className="light">
+          Want all the elements on one page? Don't worry, I have <ReactRouter.Link to="/elements/all">just the link</ReactRouter.Link> for you.
+        </p>
+      </div>
+    );
+  }
+}
