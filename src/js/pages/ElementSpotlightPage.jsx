@@ -25,19 +25,24 @@ export default class ElementSpotlightPage extends React.Component {
       elementName = props.routeParams.element.toLowerCase();
     }
 
-
     origins.find({
       type: 'planet',
       tags: elementName
     }).then((res) => {
-      this.state.planets = res;
+      this.setState({
+        planets: res,
+        items: this.state.items
+      });
     });
 
     origins.find({
       type: 'item',
       tags: elementName
     }).then((res) => {
-      this.state.items = res;
+      this.setState({
+        planets: this.state.planets,
+        items: res
+      });
     });
   }
 
