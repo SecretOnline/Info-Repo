@@ -60,6 +60,14 @@ export default class ElementSpotlight extends React.Component {
       (<h3 className="element-symbol" key="header-symbol">{this.props.data.symbol}</h3>)
     ];
 
+    if (this.props.data.categories && this.props.data.categories.length) {
+      classes.push(`cat-${this.props.data.categories[0].class}`);
+      var categoryNodes = this.props.data.categories.map((cat) => {
+        return (<li data-id={cat} key={cat}><ReactRouter.Link to={`/elements/${encodeURIComponent(helper.modTitle(cat))}`}>{cat}</ReactRouter.Link></li>)
+      });
+      headerList.push((<ul className="categories" key="header-categories">{categoryNodes}</ul>));
+    }
+
     // Set card content stuff
     var bodyList = [];
     if (this.props.data.text && this.props.data.text.length) {
