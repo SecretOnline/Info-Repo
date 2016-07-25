@@ -42,7 +42,12 @@
   } else if (typeof searchParams.element !== 'undefined') {
     page = 'elements';
     if (searchParams.element) {
+      page = 'element';
       item = searchParams.element;
+
+      if (searchParams.highlight) {
+        highlighted = searchParams.highlight;
+      }
     }
   } else if (typeof searchParams.recent !== 'undefined') {
     page = '/';

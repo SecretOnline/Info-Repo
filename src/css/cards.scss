@@ -203,6 +203,22 @@
     }
   }
 }
+.origins-card {
+  .score {
+    background-image: url('https://dev.nmsorigins.com/res/score-polygon-vote.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5px;
+    padding: 0.2em 0.5em;
+    position: absolute;
+    right: 0;
+    border-radius: 1em;
+    color: #fff;
+    min-width: 1em;
+    text-align: center;
+  }
+}
 .card-content {
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;

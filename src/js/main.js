@@ -2,6 +2,7 @@ import CategoryListPage from './pages/CategoryListPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import CategorySpotlightPage from './pages/CategorySpotlightPage.jsx';
 import ElementAllPage from './pages/ElementAllPage.jsx';
+import ElementCategoryPage from './pages/ElementCategoryPage.jsx';
 import ElementPage from './pages/ElementPage.jsx';
 import ElementSpotlightPage from './pages/ElementSpotlightPage.jsx';
 import InfoAllPage from './pages/InfoAllPage.jsx';
@@ -157,7 +158,16 @@ function createRouterConfig(data) {
       component: ElementAllPage,
       elements: data.elements
     }, {
-      path: '/elements/:element',
+      path: '/elements/:group',
+      component: ElementCategoryPage,
+      elements: data.elements
+    }, {
+      path: '/element',
+      onEnter: (state, redirect) => {
+        redirect('/elements');
+      }
+    }, {
+      path: '/element/:element',
       component: ElementSpotlightPage,
       elements: data.elements
     }, {
