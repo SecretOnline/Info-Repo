@@ -13,20 +13,20 @@ export default class LinkGroupPage extends React.Component {
     var actualName;
 
     var filteredLinks = this.props.route.links
-    .filter((link) => {
-      if (link.groups) {
-        return link.groups.find((group) => {
-          var res = helper.modTitle(group) === groupName;
-          // Quick way of getting the group's decoded name
-          if (res && !actualName) {
-            actualName = group;
-          }
-          return res;
-        });
-      } else {
-        return false;
-      }
-    })
+      .filter((link) => {
+        if (link.groups) {
+          return link.groups.find((group) => {
+            var res = helper.modTitle(group) === groupName;
+            // Quick way of getting the group's decoded name
+            if (res && !actualName) {
+              actualName = group;
+            }
+            return res;
+          });
+        } else {
+          return false;
+        }
+      });
 
     return (
       <div class="page links-page">
