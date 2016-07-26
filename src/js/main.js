@@ -43,6 +43,11 @@ function initRepo() {
         ReactRouter.browserHistory.listen((state) => {
           if (state.action === 'PUSH') {
             helper.changeCanonical(state.pathname);
+            // Update analytics location
+            if (window.ga) {
+              ga('set', 'page', state.pathname);
+              ga('send', 'pageview');
+            }
           }
         });
         helper.changeCanonical(window.location.pathname);
