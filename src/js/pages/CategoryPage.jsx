@@ -1,4 +1,4 @@
-import CategoryCardList from '../lists/CategoryCardList.jsx';
+import {CategoryCardList} from '../components';
 import helper from '../helper';
 
 export default class CategoryPage extends React.Component {

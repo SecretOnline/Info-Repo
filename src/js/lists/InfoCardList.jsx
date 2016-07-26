@@ -1,4 +1,4 @@
-import InfoCard from '../cards/InfoCard.jsx';
+import {InfoCard} from '../cards/InfoCard.jsx';
 
 export default class InfoCardList extends React.Component {
   static get defaultProps() {

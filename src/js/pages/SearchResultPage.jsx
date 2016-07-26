@@ -1,5 +1,7 @@
-import SearchBox from '../cards/SearchBox.jsx';
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {
+  SearchBox,
+  InfoCardList
+} from '../components';
 import search from '../search';
 
 export default class SearchResultPage extends React.Component {

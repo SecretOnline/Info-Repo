@@ -1,5 +1,7 @@
-import InfoSpotlight from '../cards/InfoSpotlight.jsx';
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {
+  InfoSpotlight,
+  InfoCardList
+} from '../components';
 import helper from '../helper';
 import search from '../search';
 

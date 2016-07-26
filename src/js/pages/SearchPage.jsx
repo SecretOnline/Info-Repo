@@ -1,4 +1,4 @@
-import SearchBox from '../cards/SearchBox.jsx';
+import {SearchBox} from '../components';
 
 export default class SearchPage extends React.Component {
   render() {

@@ -1,4 +1,4 @@
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {InfoCardList} from '../components';
 import helper from '../helper';
 
 export default class InfoPage extends React.Component {

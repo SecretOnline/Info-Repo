@@ -1,4 +1,4 @@
-import InfoSpotlight from '../cards/InfoSpotlight.jsx';
+import {InfoSpotlight} from '../components';
 
 export default class InfoAllPage extends React.Component {
   render() {

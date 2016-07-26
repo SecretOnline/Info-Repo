@@ -1,4 +1,4 @@
-import LinkCardList from '../lists/LinkCardList.jsx';
+import {LinkCardList} from '../components';
 import helper from '../helper';
 
 export default class LinkPage extends React.Component {

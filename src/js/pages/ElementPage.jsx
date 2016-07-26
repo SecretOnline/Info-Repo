@@ -1,4 +1,4 @@
-import ElementCardList from '../lists/ElementCardList.jsx';
+import {ElementCardList} from '../components';
 import helper from '../helper';
 
 export default class ElementPage extends React.Component {

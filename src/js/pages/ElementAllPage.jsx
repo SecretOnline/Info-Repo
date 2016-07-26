@@ -1,4 +1,4 @@
-import ElementSpotlight from '../cards/ElementSpotlight.jsx';
+import {ElementSpotlight} from '../components';
 
 export default class ElementAllPage extends React.Component {
   render() {

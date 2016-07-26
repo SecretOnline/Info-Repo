@@ -1,5 +1,7 @@
-import ElementSpotlight from '../cards/ElementSpotlight.jsx';
-import OriginsCard from '../cards/OriginsCard.jsx';
+import {
+  ElementSpotlight,
+  OriginsCard
+} from '../components';
 import helper from '../helper';
 import origins from '../origins';
 

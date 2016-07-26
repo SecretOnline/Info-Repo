@@ -1,5 +1,7 @@
-import InfoSpotlight from '../cards/InfoSpotlight.jsx';
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {
+  InfoSpotlight,
+  InfoCardList
+} from '../components';
 import helper from '../helper';
 
 export default class CategoryListPage extends React.Component {
