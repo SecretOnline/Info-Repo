@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     path: PATHS.buildDir,
-    filename: 'scripts/info.js',
+    filename: 'scripts/repo.js',
   },
   module: {
     loaders: [{
@@ -31,7 +31,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin('styles/info.css')
+    new ExtractTextPlugin('styles/repo.css')
   ],
   devServer: {
     contentBase: './www',
