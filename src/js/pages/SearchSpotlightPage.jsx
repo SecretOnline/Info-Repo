@@ -1,5 +1,7 @@
-import InfoSpotlight from '../cards/InfoSpotlight.jsx';
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {
+  InfoSpotlight,
+  InfoCardList
+} from '../components';
 import helper from '../helper';
 import search from '../search';
 
@@ -47,7 +49,7 @@ export default class SearchResultPage extends React.Component {
     }
 
     return (
-      <div class="page search-page">
+      <div className="page search-page">
         <InfoSpotlight data={spotlight} highlighted={highlighted} />
         <h2>{`Search - ${query}`}</h2>
         <InfoCardList info={search.generalSearch(query, infoList)} link={`/search/${encodeURIComponent(query)}`} />

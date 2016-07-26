@@ -1,4 +1,4 @@
-import LinkCardList from '../lists/LinkCardList.jsx';
+import {LinkCardList} from '../components';
 import helper from '../helper';
 
 export default class LinkPage extends React.Component {
@@ -37,7 +37,7 @@ export default class LinkPage extends React.Component {
       });
 
     return (
-      <div class="page links-page">
+      <div className="page links-page">
         <h1>Links</h1>
         <h2>Groups</h2>
         <ul className="tag-list">

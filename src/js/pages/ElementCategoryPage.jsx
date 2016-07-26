@@ -1,4 +1,4 @@
-import ElementCardList from '../lists/ElementCardList.jsx';
+import {ElementCardList} from '../components';
 import helper from '../helper';
 
 export default class ElementCategoryPage extends React.Component {
@@ -23,7 +23,7 @@ export default class ElementCategoryPage extends React.Component {
       });
 
     return (
-      <div class="page element-page">
+      <div className="page element-page">
         <h1>Elements: {actualName}</h1>
         <ElementCardList elements={filteredElements} link="/element" />
       </div>

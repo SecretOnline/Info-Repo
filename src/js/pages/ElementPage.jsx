@@ -1,4 +1,4 @@
-import ElementCardList from '../lists/ElementCardList.jsx';
+import {ElementCardList} from '../components';
 import helper from '../helper';
 
 export default class ElementPage extends React.Component {
@@ -27,7 +27,7 @@ export default class ElementPage extends React.Component {
       });
 
     return (
-      <div class="page element-page">
+      <div className="page element-page">
         <h1>Elements</h1>
         <h2>Classes</h2>
         <ul className="tag-list">

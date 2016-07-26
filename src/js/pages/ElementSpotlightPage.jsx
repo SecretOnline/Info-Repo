@@ -1,5 +1,7 @@
-import ElementSpotlight from '../cards/ElementSpotlight.jsx';
-import OriginsCard from '../cards/OriginsCard.jsx';
+import {
+  ElementSpotlight,
+  OriginsCard
+} from '../components';
 import helper from '../helper';
 import origins from '../origins';
 
@@ -106,7 +108,7 @@ export default class ElementSpotlightPage extends React.Component {
     }
 
     return (
-      <div class="page element-page">
+      <div className="page element-page">
         <ElementSpotlight data={spotlight} highlighted={highlighted} />
         {originsList}
         <h2>Other</h2>
