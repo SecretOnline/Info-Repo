@@ -61,7 +61,7 @@
       position: absolute;
       text-align: center;
       margin: 12px;
-      top: 0;
+      bottom: 0;
       right: 0;
       color: #fff;
       font-size: 24px;
@@ -200,6 +200,19 @@
           text-decoration: none;
         }
       }
+    }
+  }
+}
+.element-card {
+  &:not(.spotlight) .element-symbol {
+    top: 0;
+    bottom: initial;
+  }
+  &.spotlight .categories {
+    li a,
+    li span {
+      padding-left: 0;
+      background-image: none;
     }
   }
 }

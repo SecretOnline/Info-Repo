@@ -1,4 +1,4 @@
-import ElementSpotlight from '../cards/ElementSpotlight.jsx';
+import {ElementSpotlight} from '../components';
 
 export default class ElementAllPage extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class ElementAllPage extends React.Component {
 
 
     return (
-      <div class="page info-page">
+      <div className="page info-page">
         <h1>Elements: All Elements</h1>
         <p>
           This page lists all of the elements in the Repository on a single page. For better linking and referencing, use the <ReactRouter.Link to="/elements">standard elements list</ReactRouter.Link>.

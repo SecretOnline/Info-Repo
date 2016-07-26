@@ -1,4 +1,4 @@
-import SearchBox from '../cards/SearchBox.jsx';
+import {SearchBox} from '../components';
 
 export default class SearchPage extends React.Component {
   render() {
@@ -7,7 +7,7 @@ export default class SearchPage extends React.Component {
     }
 
     return (
-      <div class="page search-page">
+      <div className="page search-page">
         <h1>Search</h1>
         <SearchBox callback={goTo} />
       </div>

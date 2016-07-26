@@ -1,4 +1,4 @@
-import LinkCardList from '../lists/LinkCardList.jsx';
+import {LinkCardList} from '../components';
 import helper from '../helper';
 
 export default class LinkGroupPage extends React.Component {
@@ -13,23 +13,23 @@ export default class LinkGroupPage extends React.Component {
     var actualName;
 
     var filteredLinks = this.props.route.links
-    .filter((link) => {
-      if (link.groups) {
-        return link.groups.find((group) => {
-          var res = helper.modTitle(group) === groupName;
-          // Quick way of getting the group's decoded name
-          if (res && !actualName) {
-            actualName = group;
-          }
-          return res;
-        });
-      } else {
-        return false;
-      }
-    })
+      .filter((link) => {
+        if (link.groups) {
+          return link.groups.find((group) => {
+            var res = helper.modTitle(group) === groupName;
+            // Quick way of getting the group's decoded name
+            if (res && !actualName) {
+              actualName = group;
+            }
+            return res;
+          });
+        } else {
+          return false;
+        }
+      });
 
     return (
-      <div class="page links-page">
+      <div className="page links-page">
         <h1>Links: {actualName}</h1>
         <LinkCardList links={filteredLinks} />
         <h2>Other</h2>

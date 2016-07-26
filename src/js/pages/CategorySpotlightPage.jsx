@@ -1,5 +1,7 @@
-import InfoSpotlight from '../cards/InfoSpotlight.jsx';
-import InfoCardList from '../lists/InfoCardList.jsx';
+import {
+  InfoSpotlight,
+  InfoCardList
+} from '../components';
 import helper from '../helper';
 
 export default class CategorySpotlightPage extends React.Component {
@@ -83,7 +85,7 @@ export default class CategorySpotlightPage extends React.Component {
     );
 
     return (
-      <div class="page category-page">
+      <div className="page category-page">
         {content}
       </div>
     );

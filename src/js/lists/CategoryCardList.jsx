@@ -1,4 +1,4 @@
-import CategoryCard from '../cards/CategoryCard.jsx';
+import {CategoryCard} from '../components';
 
 export default class CategoryCardList extends React.Component {
   static get defaultProps() {

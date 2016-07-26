@@ -1,24 +1,27 @@
-import CategoryListPage from './pages/CategoryListPage.jsx';
-import CategoryPage from './pages/CategoryPage.jsx';
-import CategorySpotlightPage from './pages/CategorySpotlightPage.jsx';
-import ElementAllPage from './pages/ElementAllPage.jsx';
-import ElementCategoryPage from './pages/ElementCategoryPage.jsx';
-import ElementPage from './pages/ElementPage.jsx';
-import ElementSpotlightPage from './pages/ElementSpotlightPage.jsx';
-import InfoAllPage from './pages/InfoAllPage.jsx';
-import InfoPage from './pages/InfoPage.jsx';
-import InfoSpotlightPage from './pages/InfoSpotlightPage.jsx';
-import LinkGroupPage from './pages/LinkGroupPage.jsx';
-import LinkPage from './pages/LinkPage.jsx';
-import RepoAbout from './pages/RepoAbout.jsx';
-import RepoApp from './layout/RepoApp.jsx';
-import RepoIntro from './pages/RepoIntro.jsx';
-import RepoHome from './pages/RepoHome.jsx';
-import RepoNotFound from './pages/RepoNotFound.jsx';
-import RepoProblem from './pages/RepoProblem.jsx';
-import SearchPage from './pages/SearchPage.jsx';
-import SearchResultPage from './pages/SearchResultPage.jsx';
-import SearchSpotlightPage from './pages/SearchSpotlightPage.jsx';
+import {
+  CategoryListPage,
+  CategoryPage,
+  CategorySpotlightPage,
+  ElementAllPage,
+  ElementCategoryPage,
+  ElementPage,
+  ElementSpotlightPage,
+  InfoAllPage,
+  InfoPage,
+  InfoSpotlightPage,
+  LinkGroupPage,
+  LinkPage,
+  RepoAbout,
+  RepoApp,
+  RepoIntro,
+  RepoHome,
+  RepoNotFound,
+  RepoProblem,
+  SearchPage,
+  SearchResultPage,
+  SearchSpotlightPage
+} from './components';
+
 import helper from './helper';
 
 function initRepo() {
@@ -40,6 +43,11 @@ function initRepo() {
         ReactRouter.browserHistory.listen((state) => {
           if (state.action === 'PUSH') {
             helper.changeCanonical(state.pathname);
+            // Update analytics location
+            if (window.ga) {
+              ga('set', 'page', state.pathname);
+              ga('send', 'pageview');
+            }
           }
         });
         helper.changeCanonical(window.location.pathname);
