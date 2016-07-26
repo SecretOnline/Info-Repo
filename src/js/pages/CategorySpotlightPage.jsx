@@ -85,7 +85,7 @@ export default class CategorySpotlightPage extends React.Component {
     );
 
     return (
-      <div class="page category-page">
+      <div className="page category-page">
         {content}
       </div>
     );

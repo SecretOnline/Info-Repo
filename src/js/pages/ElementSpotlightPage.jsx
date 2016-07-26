@@ -108,7 +108,7 @@ export default class ElementSpotlightPage extends React.Component {
     }
 
     return (
-      <div class="page element-page">
+      <div className="page element-page">
         <ElementSpotlight data={spotlight} highlighted={highlighted} />
         {originsList}
         <h2>Other</h2>

@@ -29,7 +29,7 @@ export default class LinkGroupPage extends React.Component {
       });
 
     return (
-      <div class="page links-page">
+      <div className="page links-page">
         <h1>Links: {actualName}</h1>
         <LinkCardList links={filteredLinks} />
         <h2>Other</h2>

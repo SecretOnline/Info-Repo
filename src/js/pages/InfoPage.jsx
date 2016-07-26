@@ -5,7 +5,7 @@ export default class InfoPage extends React.Component {
   render() {
     var info = this.props.route.info.sort(helper.titleSort);
     return (
-      <div class="page info-page">
+      <div className="page info-page">
         <h1>Information</h1>
         <InfoCardList info={info} link="/info" />
         <p className="light">

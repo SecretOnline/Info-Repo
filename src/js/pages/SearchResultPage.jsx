@@ -20,7 +20,7 @@ export default class SearchResultPage extends React.Component {
     var infoList = this.props.route.info;
 
     return (
-      <div class="page search-page">
+      <div className="page search-page">
         <h1>{`Search: ${query}`}</h1>
         <SearchBox callback={goTo} text={query} />
         <InfoCardList info={search.generalSearch(query, infoList)} link={`/search/${encodeURIComponent(query)}`} />

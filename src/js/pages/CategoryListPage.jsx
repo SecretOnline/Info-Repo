@@ -52,7 +52,7 @@ export default class CategoryListPage extends React.Component {
     );
 
     return (
-      <div class="page category-page">
+      <div className="page category-page">
         {content}
       </div>
     );

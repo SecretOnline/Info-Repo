@@ -68,7 +68,7 @@ export default class InfoSpotlightPage extends React.Component {
     );
 
     return (
-      <div class="page info-page">
+      <div className="page info-page">
         {content}
       </div>
     );
