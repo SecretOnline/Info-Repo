@@ -36,9 +36,9 @@ export default class ElementSpotlight extends React.Component {
 
     if (curr.length) {
       curr.sort();
-      ReactRouter.browserHistory.push(`${window.location.pathname}#${curr.join(',')}`);
+      ReactRouter.browserHistory.replace(`${window.location.pathname}#${curr.join(',')}`);
     } else {
-      ReactRouter.browserHistory.push(window.location.pathname);
+      ReactRouter.browserHistory.replace(window.location.pathname);
     }
   }
 
