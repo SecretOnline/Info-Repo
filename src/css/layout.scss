@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   background-color: $bg-color;
   color: #111;
+  position: relative;
 }
 .center {
   display: block;
@@ -143,27 +144,70 @@ main {
   animation-name: appearlate;
   animation-duration: 3s;
 }
+.modal-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+
+  .modal {
+    background-color: $bg-color;
+    margin: 0 auto;
+
+    h2 {
+      background-color: $theme-color;
+      color: #fff;
+      padding: 0.5em;
+      margin: 0;
+      font-size: 22px;
+    }
+
+    p {
+      padding: 0 1em;
+    }
+
+    input[type=button] {
+      width: 100%;
+      border: 0;
+      background-color: $theme-color;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+      font-family: geosanslight-nmsregular, geosanslight-nms, 'Open Sans', Helvetica, Verdana, Arial, sans-serif;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  }
+}
 /* Header changes based on screen size */
 @media all and (min-width: 400px) {
-  header .title {
+  header .title,
+  .modal-container .modal h2 {
     font-size: 30px;
   }
 }
 @media all and (min-width: 500px) {
-  header .title {
+  header .title,
+  .modal-container .modal h2 {
     text-align: center;
   }
 }
 @media all and (min-width: 600px) {
-  header .title {
+  header .title,
+  .modal-container .modal h2 {
     font-size: 40px;
   }
   .card-list .card {
     max-width: calc((100% - 10px)/2);
   }
+  .modal-container .modal {
+    max-width: calc(100% / 1.5);
+  }
 }
 @media all and (min-width: 700px) {
-  header .title {
+  header .title,
+  .modal-container .modal h2 {
     font-size: 50px;
   }
 }
@@ -203,6 +247,9 @@ main {
     & ~ main {
       margin-top: 56px;
     }
+  }
+  .modal-container .modal {
+    margin-top: 2em;
   }
 }
 @media #{$media-desk} {
