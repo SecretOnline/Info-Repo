@@ -1,7 +1,8 @@
 import {
   RepoHeader,
   RepoNav,
-  RepoFooter
+  RepoFooter,
+  RepoOld
 } from '../components';
 
 export default class RepoApp extends React.Component {
@@ -25,6 +26,7 @@ export default class RepoApp extends React.Component {
           </div>
         </main>
         <RepoFooter />
+        <RepoOld />
       </div>
     );
   }
