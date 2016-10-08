@@ -3,12 +3,14 @@ import RepoApp from './layout/RepoApp.jsx';
 import RepoFooter from './layout/RepoFooter.jsx';
 import RepoHeader from './layout/RepoHeader.jsx';
 import RepoNav from './layout/RepoNav.jsx';
+import RepoOld from './layout/RepoOld.jsx';
 
 export {
   RepoApp,
   RepoFooter,
   RepoHeader,
-  RepoNav
+  RepoNav,
+  RepoOld
 };
 
 /* Cards */
