@@ -26,7 +26,6 @@ export default class RepoApp extends React.Component {
           </div>
         </main>
         <RepoFooter />
-        <RepoOld />
       </div>
     );
   }
