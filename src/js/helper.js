@@ -59,7 +59,7 @@ function truncateString(string, maxLength = 10) {
 }
 
 function modTitle(title) {
-  return title.replace(/\s/g, "_");
+  return title.replace(/\s/g, '_');
 }
 
 function scrollToTop() {
@@ -87,6 +87,7 @@ function changeCanonical(path) {
   if (link) {
     link.href = `${window.location.protocol}//${window.location.host}${path}`;
   } else {
+    // eslint-disable-next-line no-console
     console.error('unable to change canonical link, element doesn\'t exist');
   }
 }
