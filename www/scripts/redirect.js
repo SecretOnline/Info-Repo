@@ -9,13 +9,15 @@
   try {
     // Thanks to https://developer.mozilla.org/en-US/docs/Web/API/URLUtils/search for the following block of code
     if (window.location.search.length > 1) {
-      for (var aItKey, nKeyId = 0, aCouples = window.location.search.substr(1).split("&"); nKeyId < aCouples.length; nKeyId++) {
-        aItKey = aCouples[nKeyId].split("=");
-        searchParams[decodeURIComponent(aItKey[0])] = aItKey.length > 1 ? decodeURIComponent(aItKey[1]).replace(/\s+/g, '_') : "";
+      for (var aItKey, nKeyId = 0, aCouples = window.location.search.substr(1).split('&'); nKeyId < aCouples.length; nKeyId++) {
+        aItKey = aCouples[nKeyId].split('=');
+        searchParams[decodeURIComponent(aItKey[0])] = aItKey.length > 1 ? decodeURIComponent(aItKey[1]).replace(/\s+/g, '_') : '';
       }
     }
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('Error trying to process search parameters');
+    // eslint-disable-next-line no-console
     console.error(location.search);
     return;
   }

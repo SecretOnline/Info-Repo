@@ -10,7 +10,7 @@ export default class RepoHome extends React.Component {
           All information in this repository comes with the sources for that information, so you can go off and read the original articles for more detailed information.
         </p>
         <p>
-          The repository was not designed to hold information about the discoveries that people make in the game. There are other websites (such as <a href="https://nmsorigins.com/">NMS Origins</a>) that are designed for that purpose.
+          The repository was not designed to hold information about the discoveries that people make in the game. Previously, there were other websites that would do this. Instead, you should use the in-game planet sharing.
         </p>
         <h2>Haven't heard of No Man's Sky?</h2>
         <p>
@@ -59,14 +59,6 @@ export default class RepoHome extends React.Component {
                 <h3 className="card-title">Interviews/Videos/Links</h3>
               </div>
             </ReactRouter.Link>
-          </div>
-          <div className="card">
-            <a href="https://www.nmsorigins.com/" target="_blank">
-              <div className="header" style={{backgroundColor: '#dd4b41'}}>
-                <h3 className="card-title">NMS Origins</h3>
-                <img src={`/res/external.svg`} alt="Open in new tab/window" className="external" />
-              </div>
-            </a>
           </div>
           <div className="card cat-universe">
             <ReactRouter.Link to="/about">
