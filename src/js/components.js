@@ -18,7 +18,6 @@ import InfoCard from './cards/InfoCard.jsx';
 import CategoryCard from './cards/CategoryCard.jsx';
 import ElementCard from './cards/ElementCard.jsx';
 import LinkCard from './cards/LinkCard.jsx';
-import OriginsCard from './cards/OriginsCard.jsx';
 
 import InfoSpotlight from './cards/InfoSpotlight.jsx';
 import ElementSpotlight from './cards/ElementSpotlight.jsx';
@@ -30,7 +29,6 @@ export {
   CategoryCard,
   ElementCard,
   LinkCard,
-  OriginsCard,
   ElementSpotlight,
   InfoSpotlight,
   SearchBox
