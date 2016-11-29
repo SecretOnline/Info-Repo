@@ -35,7 +35,7 @@ Thanks to these people in addition to those who have committed straight to GitHu
 [/u/Highmae](https://reddit.com/u/Highmae)   
 [/u/DarthGrabass](https://reddit.com/u/DarthGrabass)   
 
-Also a big thank you to the [NMS Origins](https://nmsorigins.com) team, who have helped with the (small bit of) integration with their site.
+Although they are no longer running, thanks to the NMS Origins team for helping add cross-site functionality while you were still going. I wish you guys all the best for future projects.
 
 **DISCLAIMER**  
 This project will likely be a mess for a long time, as I am using it to learn some stuff. You're welcome to help tidy it up if you'd like.
